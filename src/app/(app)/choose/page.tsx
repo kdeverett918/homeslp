@@ -1,28 +1,20 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { createClient } from "@/lib/supabase/client";
+import { usePath } from "@/components/path/PathProvider";
 import { Baby, Heart, UserRound } from "lucide-react";
 import { useState } from "react";
 
 export default function ChoosePath() {
   const router = useRouter();
+  const { setPath } = usePath();
   const [loading, setLoading] = useState(false);
 
   const handleChoose = async (path: "child" | "adult") => {
     setLoading(true);
-    const supabase = createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    if (user) {
-      await supabase
-        .from("profiles")
-        .update({ active_path: path, onboarding_completed: true })
-        .eq("id", user.id);
-    }
-
+    await setPath(path);
+    // Also set a cookie so server components can read it in beta mode
+    document.cookie = `homeslp-beta-path=${path};path=/;max-age=31536000`;
     router.push("/dashboard");
     router.refresh();
   };

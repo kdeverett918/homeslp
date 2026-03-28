@@ -3,6 +3,7 @@
 import { createContext, useContext, useCallback } from "react";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { createClient } from "@/lib/supabase/client";
+import { BETA_MODE, SUPABASE_CONFIGURED } from "@/lib/beta";
 import type { ContentPath } from "@/types";
 
 interface PathContextType {
@@ -21,11 +22,18 @@ const PathContext = createContext<PathContextType>({
 
 export function PathProvider({ children }: { children: React.ReactNode }) {
   const { profile, refreshProfile } = useAuth();
-  const supabase = createClient();
+  const supabase = SUPABASE_CONFIGURED ? createClient() : null;
 
   const setPath = useCallback(
     async (path: ContentPath) => {
-      if (!profile?.id) return;
+      if (BETA_MODE) {
+        if (typeof window !== "undefined") {
+          localStorage.setItem("homeslp-beta-path", path);
+        }
+        await refreshProfile();
+        return;
+      }
+      if (!profile?.id || !supabase) return;
       await supabase
         .from("profiles")
         .update({ active_path: path, onboarding_completed: true })
@@ -52,7 +60,5 @@ export function PathProvider({ children }: { children: React.ReactNode }) {
 }
 
 export function usePath() {
-  const context = useContext(PathContext);
-  if (!context) throw new Error("usePath must be used within PathProvider");
-  return context;
+  return useContext(PathContext);
 }

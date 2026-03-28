@@ -4,10 +4,11 @@ import { useState } from "react";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { useSubscription } from "@/components/subscription/SubscriptionProvider";
 import { usePath } from "@/components/path/PathProvider";
+import { BETA_MODE } from "@/lib/beta";
 import { CreditCard, Loader2, LogOut, Settings, User } from "lucide-react";
 
 export default function SettingsPage() {
-  const { user, profile, signOut } = useAuth();
+  const { user, profile, signOut, isBeta } = useAuth();
   const { subscription, status, isTrialing, isActive, daysLeftInTrial } =
     useSubscription();
   const { activePath, setPath } = usePath();

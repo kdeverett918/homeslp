@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useEffect, useState, useCallback } from "react";
 import { createClient } from "@/lib/supabase/client";
+import { BETA_MODE, SUPABASE_CONFIGURED } from "@/lib/beta";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { getUserTier, getTrialDaysLeft, canAccess as checkAccess } from "@/lib/content-gating";
 import type { Subscription, SubscriptionStatus, AccessTier } from "@/types";
@@ -33,11 +34,12 @@ const SubscriptionContext = createContext<SubscriptionContextType>({
 export function SubscriptionProvider({ children }: { children: React.ReactNode }) {
   const { user, isAuthenticated } = useAuth();
   const [subscription, setSubscription] = useState<Subscription | null>(null);
-  const [loading, setLoading] = useState(true);
-  const supabase = createClient();
+  const [loading, setLoading] = useState(!BETA_MODE);
+
+  const supabase = SUPABASE_CONFIGURED ? createClient() : null;
 
   const fetchSubscription = useCallback(async () => {
-    if (!user?.id) {
+    if (BETA_MODE || !supabase || !user?.id) {
       setSubscription(null);
       setLoading(false);
       return;
@@ -54,6 +56,10 @@ export function SubscriptionProvider({ children }: { children: React.ReactNode }
   }, [user?.id, supabase]);
 
   useEffect(() => {
+    if (BETA_MODE) {
+      setLoading(false);
+      return;
+    }
     if (isAuthenticated) {
       fetchSubscription();
     } else {
@@ -63,12 +69,34 @@ export function SubscriptionProvider({ children }: { children: React.ReactNode }
   }, [isAuthenticated, fetchSubscription]);
 
   useEffect(() => {
+    if (BETA_MODE || !supabase) return;
     const handleFocus = () => {
       if (isAuthenticated) fetchSubscription();
     };
     window.addEventListener("focus", handleFocus);
     return () => window.removeEventListener("focus", handleFocus);
-  }, [isAuthenticated, fetchSubscription]);
+  }, [isAuthenticated, fetchSubscription, supabase]);
+
+  // In beta mode, grant full access
+  if (BETA_MODE) {
+    return (
+      <SubscriptionContext.Provider
+        value={{
+          subscription: null,
+          status: "active",
+          isTrialing: false,
+          isActive: true,
+          isPaid: true,
+          daysLeftInTrial: 0,
+          canAccess: () => true,
+          loading: false,
+          refresh: async () => {},
+        }}
+      >
+        {children}
+      </SubscriptionContext.Provider>
+    );
+  }
 
   const status = subscription?.status as SubscriptionStatus | null;
   const isTrialing = status === "trialing";
@@ -102,7 +130,5 @@ export function SubscriptionProvider({ children }: { children: React.ReactNode }
 }
 
 export function useSubscription() {
-  const context = useContext(SubscriptionContext);
-  if (!context) throw new Error("useSubscription must be used within SubscriptionProvider");
-  return context;
+  return useContext(SubscriptionContext);
 }

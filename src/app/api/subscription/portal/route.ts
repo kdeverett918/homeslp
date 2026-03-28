@@ -5,6 +5,10 @@ import { createClient } from "@/lib/supabase/server";
 export async function POST() {
   try {
     const supabase = await createClient();
+    if (!supabase) {
+      return NextResponse.json({ error: "Supabase not configured" }, { status: 503 });
+    }
+
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -13,7 +17,6 @@ export async function POST() {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // Get subscription to find Stripe customer ID
     const { data: subscription } = await supabase
       .from("subscriptions")
       .select("stripe_customer_id")
