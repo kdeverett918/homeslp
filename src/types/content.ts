@@ -21,14 +21,14 @@ export interface WeeklyBlueprint {
     videoUrl?: string;
     videoDurationSeconds?: number;
     textContent?: string;
-    kristineNote: string;
+    slpNote: string;
   };
   curatedMedia: {
     youtubeVideoId: string;
     title: string;
     channelName: string;
     startTimeSeconds?: number;
-    kristineAnnotation: string;
+    slpAnnotation: string;
   };
   refrigeratorPdf: {
     title: string;

@@ -54,8 +54,8 @@ export default async function BlueprintsPage() {
         <h1 className="font-heading text-2xl font-bold">Weekly Blueprints</h1>
         <p className="mt-1 text-muted-foreground">
           {isChild
-            ? "Your 4-week speech development roadmap"
-            : "Your 4-week caregiver support roadmap"}
+            ? "Your 8-week speech development roadmap"
+            : "Your 8-week caregiver support roadmap"}
         </p>
       </div>
 

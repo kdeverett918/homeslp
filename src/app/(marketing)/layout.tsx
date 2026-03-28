@@ -61,7 +61,7 @@ export default function MarketingLayout({
               </Link>
               <p className="mt-3 text-sm text-muted-foreground">
                 Expert-guided speech and swallowing support for families.
-                Created by a licensed SLP.
+                Created by a licensed Speech-Language Pathologist.
               </p>
             </div>
             <div>
@@ -81,9 +81,9 @@ export default function MarketingLayout({
               </ul>
             </div>
             <div>
-              <h3 className="font-heading font-semibold text-sm">Contact</h3>
+              <h3 className="font-heading font-semibold text-sm">Connect</h3>
               <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                <li><Link href="/about" className="hover:text-foreground">About Kristine</Link></li>
+                <li><a href="mailto:hello@homeslp.com" className="hover:text-foreground">hello@homeslp.com</a></li>
               </ul>
             </div>
           </div>

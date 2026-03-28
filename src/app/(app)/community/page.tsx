@@ -1,37 +1,108 @@
-export const dynamic = "force-dynamic";
+"use client";
 
-import type { Metadata } from "next";
-import { MessageCircle } from "lucide-react";
+import { useState } from "react";
+import { MessageCircle, ThumbsUp, Clock, User, Plus } from "lucide-react";
+import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion";
 
-export const metadata: Metadata = {
-  title: "Community",
+const CATEGORIES = ["all", "wins", "questions", "tips", "introductions"] as const;
+type Category = (typeof CATEGORIES)[number];
+
+const CATEGORY_COLORS: Record<string, string> = {
+  wins: "bg-sage-100 text-sage-700",
+  questions: "bg-blue-100 text-blue-700",
+  tips: "bg-amber-100 text-amber-700",
+  introductions: "bg-rose-100 text-rose-700",
 };
 
+const SAMPLE_TOPICS = [
+  { id: "1", author: "Sarah M.", category: "wins" as const, title: "My son said his first two-word phrase today!", preview: "We've been doing the Wait and Model technique for 3 weeks and today at breakfast he said 'more milk'! I literally cried.", replies: 12, likes: 34, time: "2 hours ago" },
+  { id: "2", author: "James R.", category: "questions" as const, title: "Tips for thickening coffee without it tasting weird?", preview: "My wife was just prescribed Level 2 liquids and she's devastated about her morning coffee. Any thickener brand recommendations?", replies: 8, likes: 15, time: "5 hours ago" },
+  { id: "3", author: "Maria L.", category: "tips" as const, title: "Bath time language hack that worked for us", preview: "We bought foam letters for the bath and now my daughter tries to name every letter. She went from 10 words to 30 in a month.", replies: 6, likes: 28, time: "1 day ago" },
+  { id: "4", author: "David K.", category: "wins" as const, title: "Dad just ate his first real meal in 3 months", preview: "After his stroke, he was on pureed everything. With the IDDSI recipes here, we graduated to soft & bite-sized. He had pasta tonight and smiled.", replies: 21, likes: 67, time: "1 day ago" },
+  { id: "5", author: "Ashley T.", category: "introductions" as const, title: "New here - 2 year old with speech delay", preview: "Hi everyone! Our pediatrician referred us for evaluation but the wait is 8 months. Found HomeSLP and starting Week 1 today. Any advice for beginners?", replies: 14, likes: 22, time: "2 days ago" },
+  { id: "6", author: "Linda P.", category: "tips" as const, title: "The refrigerator card trick that changed our routine", preview: "I laminated the Week 1 fridge card and put it at eye level. My husband (caregiver for my mom) said it's the most useful thing we've gotten.", replies: 9, likes: 41, time: "3 days ago" },
+  { id: "7", author: "Kevin W.", category: "questions" as const, title: "Is it normal for progress to feel slow?", preview: "We're on Week 3 and I feel like nothing has changed. My daughter still mostly points and grunts. When did you start seeing results?", replies: 17, likes: 19, time: "4 days ago" },
+];
+
 export default function CommunityPage() {
+  const [activeCategory, setActiveCategory] = useState<Category>("all");
+
+  const filtered = activeCategory === "all"
+    ? SAMPLE_TOPICS
+    : SAMPLE_TOPICS.filter((t) => t.category === activeCategory);
+
   return (
     <div className="max-w-3xl space-y-6">
-      <div>
-        <h1 className="font-heading text-2xl font-bold flex items-center gap-2">
-          <MessageCircle className="w-6 h-6" />
-          Community
-        </h1>
-        <p className="mt-1 text-muted-foreground">
-          Connect with other parents and caregivers on the same journey.
-        </p>
-      </div>
+      <FadeIn>
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-3">
+              <MessageCircle className="w-7 h-7 text-primary" />
+              <h1 className="font-heading text-2xl font-bold sm:text-3xl">Community</h1>
+            </div>
+            <p className="mt-1.5 text-muted-foreground">Connect with families on the same journey.</p>
+          </div>
+          <button
+            disabled
+            title="Community posting opens soon"
+            className="inline-flex items-center gap-1.5 rounded-xl bg-primary/50 px-4 py-2 text-sm font-medium text-primary-foreground cursor-not-allowed opacity-60"
+          >
+            <Plus className="w-4 h-4" /> New Post
+          </button>
+        </div>
+      </FadeIn>
 
-      <div className="rounded-xl border-2 border-dashed bg-muted/30 p-12 text-center space-y-4">
-        <MessageCircle className="w-12 h-12 text-muted-foreground mx-auto" />
-        <h2 className="font-heading text-lg font-semibold">Coming Soon</h2>
-        <p className="text-sm text-muted-foreground max-w-sm mx-auto">
-          The community forum is being built. Soon you&apos;ll be able to share
-          wins, ask questions, and connect with others who understand.
-        </p>
-      </div>
+      {/* Category tabs */}
+      <FadeIn delay={0.1}>
+        <div className="flex flex-wrap gap-2">
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`rounded-full px-4 py-1.5 text-sm font-medium capitalize transition-colors ${
+                activeCategory === cat
+                  ? "bg-primary text-primary-foreground shadow-warm-sm"
+                  : "bg-muted text-muted-foreground hover:bg-muted/80"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </FadeIn>
+
+      {/* Topics */}
+      <StaggerChildren className="space-y-3">
+        {filtered.map((topic) => (
+          <StaggerItem key={topic.id}>
+            <div className="rounded-xl border bg-card p-5 space-y-2 hover:shadow-warm-sm transition-shadow cursor-pointer">
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center">
+                    <User className="w-4 h-4 text-muted-foreground" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-medium">{topic.author}</span>
+                    <span className="text-xs text-muted-foreground ml-2 inline-flex items-center gap-1"><Clock className="w-3 h-3" />{topic.time}</span>
+                  </div>
+                </div>
+                <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold capitalize ${CATEGORY_COLORS[topic.category]}`}>
+                  {topic.category}
+                </span>
+              </div>
+              <h3 className="font-heading font-semibold text-sm">{topic.title}</h3>
+              <p className="text-xs text-muted-foreground line-clamp-2">{topic.preview}</p>
+              <div className="flex items-center gap-4 text-xs text-muted-foreground pt-1">
+                <span className="flex items-center gap-1"><MessageCircle className="w-3 h-3" />{topic.replies} replies</span>
+                <span className="flex items-center gap-1"><ThumbsUp className="w-3 h-3" />{topic.likes}</span>
+              </div>
+            </div>
+          </StaggerItem>
+        ))}
+      </StaggerChildren>
 
       <p className="text-xs text-muted-foreground italic text-center">
-        Posts in the community are from other members, not medical professionals.
-        Never rely on community advice for medical decisions.
+        Posts in the community are from other members, not medical professionals. Never rely on community advice for medical decisions.
       </p>
     </div>
   );

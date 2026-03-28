@@ -3,7 +3,8 @@ export const dynamic = "force-dynamic";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
-import { ArrowLeft, Download, ExternalLink, Play } from "lucide-react";
+import { ArrowLeft, Download, ExternalLink, Play, Stethoscope } from "lucide-react";
+import { FadeIn } from "@/components/motion";
 import { createClient } from "@/lib/supabase/server";
 import { BETA_MODE } from "@/lib/beta";
 import { pediatricBlueprints } from "@/data/blueprints/pediatric";
@@ -41,66 +42,73 @@ export default async function BlueprintDetailPage({ params }: Props) {
       </Link>
 
       {/* Header */}
-      <div>
-        <div className="flex items-center gap-3 mb-3">
-          <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${bp.path === "child" ? "bg-rose-100" : "bg-sage-100"}`}>
-            <span className="font-heading font-bold text-sm">W{bp.weekNumber}</span>
+      <FadeIn>
+        <div>
+          <div className="flex items-center gap-3 mb-3">
+            <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${bp.path === "child" ? "bg-rose-100" : "bg-sage-100"}`}>
+              <span className="font-heading font-bold text-sm">W{bp.weekNumber}</span>
+            </div>
+            <div>
+              <h1 className="font-heading text-2xl font-bold sm:text-3xl">{bp.title}</h1>
+              <p className="text-muted-foreground">{bp.subtitle}</p>
+            </div>
           </div>
-          <div>
-            <h1 className="font-heading text-2xl font-bold sm:text-3xl">{bp.title}</h1>
-            <p className="text-muted-foreground">{bp.subtitle}</p>
-          </div>
+          <p className="text-muted-foreground">{bp.description}</p>
         </div>
-        <p className="text-muted-foreground">{bp.description}</p>
-      </div>
+      </FadeIn>
 
       {/* SLP Commentary */}
-      <section className="rounded-xl border bg-card p-6 space-y-4">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-            <span className="font-heading text-xs font-bold text-primary">KE</span>
-          </div>
-          <div>
-            <p className="text-sm font-medium">Kristine&apos;s SLP Commentary</p>
-            <p className="text-xs text-muted-foreground">MA, CCC-SLP</p>
-          </div>
-        </div>
-        <div className="text-sm leading-relaxed space-y-3">
-          <p>{bp.commentary.textContent}</p>
-          {bp.commentary.kristineNote && (
-            <div className="rounded-lg bg-primary/5 border border-primary/10 p-4">
-              <p className="text-sm font-medium text-primary mb-1">Kristine&apos;s Tip</p>
-              <p className="text-sm text-muted-foreground">{bp.commentary.kristineNote}</p>
+      <FadeIn>
+        <section className="rounded-xl border bg-card p-6 space-y-4">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+              <Stethoscope className="w-4 h-4 text-primary" />
             </div>
-          )}
-        </div>
-      </section>
+            <div>
+              <p className="text-sm font-medium">Expert SLP Commentary</p>
+              <p className="text-xs text-muted-foreground">MA, CCC-SLP</p>
+            </div>
+          </div>
+          <div className="text-sm leading-relaxed space-y-3">
+            <p>{bp.commentary.textContent}</p>
+            {bp.commentary.slpNote && (
+              <div className="rounded-lg bg-primary/5 border border-primary/10 p-4">
+                <p className="text-sm font-medium text-primary mb-1">SLP Tip</p>
+                <p className="text-sm text-muted-foreground">{bp.commentary.slpNote}</p>
+              </div>
+            )}
+          </div>
+        </section>
+      </FadeIn>
 
       {/* Video */}
-      <section className="space-y-4">
-        <h2 className="font-heading text-lg font-semibold flex items-center gap-2">
-          <Play className="w-5 h-5" /> This Week&apos;s Video
-        </h2>
-        <div className="aspect-video rounded-xl overflow-hidden bg-muted">
-          <iframe
-            src={`https://www.youtube.com/embed/${bp.curatedMedia.youtubeVideoId}${bp.curatedMedia.startTimeSeconds ? `?start=${bp.curatedMedia.startTimeSeconds}` : ""}`}
-            title={bp.curatedMedia.title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="w-full h-full"
-          />
-        </div>
-        <div className="rounded-lg bg-muted/50 p-4 text-sm">
-          <p className="font-medium mb-1">What to watch for:</p>
-          <p className="text-muted-foreground">{bp.curatedMedia.kristineAnnotation}</p>
-        </div>
-        <p className="text-xs text-muted-foreground flex items-center gap-1">
-          <ExternalLink className="w-3 h-3" />
-          {bp.curatedMedia.title} by {bp.curatedMedia.channelName} on YouTube
-        </p>
-      </section>
+      <FadeIn>
+        <section className="space-y-4">
+          <h2 className="font-heading text-lg font-semibold flex items-center gap-2">
+            <Play className="w-5 h-5" /> This Week&apos;s Video
+          </h2>
+          <div className="aspect-video rounded-xl overflow-hidden bg-muted">
+            <iframe
+              src={`https://www.youtube.com/embed/${bp.curatedMedia.youtubeVideoId}${bp.curatedMedia.startTimeSeconds ? `?start=${bp.curatedMedia.startTimeSeconds}` : ""}`}
+              title={bp.curatedMedia.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          </div>
+          <div className="rounded-lg bg-muted/50 p-4 text-sm">
+            <p className="font-medium mb-1">What to watch for:</p>
+            <p className="text-muted-foreground">{bp.curatedMedia.slpAnnotation}</p>
+          </div>
+          <p className="text-xs text-muted-foreground flex items-center gap-1">
+            <ExternalLink className="w-3 h-3" />
+            {bp.curatedMedia.title} by {bp.curatedMedia.channelName} on YouTube
+          </p>
+        </section>
+      </FadeIn>
 
       {/* Refrigerator PDF */}
+      <FadeIn>
       <section className="space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="font-heading text-lg font-semibold flex items-center gap-2">
@@ -130,14 +138,17 @@ export default async function BlueprintDetailPage({ params }: Props) {
           ))}
         </div>
       </section>
+      </FadeIn>
 
       {/* Disclaimer */}
-      <div className="rounded-lg bg-amber-50 border border-amber-200 p-4 text-sm text-amber-800">
-        <p className="font-medium">Educational Content Only</p>
-        <p className="text-amber-700 mt-1">
-          This content is for general educational purposes. It does not replace a professional evaluation or constitute medical advice.
-        </p>
-      </div>
+      <FadeIn>
+        <div className="rounded-lg bg-amber-50 border border-amber-200 p-4 text-sm text-amber-800">
+          <p className="font-medium">Educational Content Only</p>
+          <p className="text-amber-700 mt-1">
+            This content is for general educational purposes. It does not replace a professional evaluation or constitute medical advice.
+          </p>
+        </div>
+      </FadeIn>
     </div>
   );
 }
