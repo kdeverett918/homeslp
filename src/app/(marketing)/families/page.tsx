@@ -55,6 +55,21 @@ const faqItems = [
     answer:
       "Yes. We use industry-standard encryption and never share your data. We do not collect any health information about your child beyond optional profile details.",
   },
+  {
+    question: "What if my child doesn't improve after 8 weeks?",
+    answer:
+      "Some children need more intensive support than home practice alone — and that's completely normal. Your 8 weeks of practice gives your SLP valuable data about what strategies work and what doesn't. You haven't failed. You've given your child a head start and your SLP a roadmap.",
+  },
+  {
+    question: "My family speaks two languages. Is that causing the delay?",
+    answer:
+      "No. Bilingualism does NOT cause speech delays. Research consistently shows that growing up with two languages is beneficial for brain development. When counting your child's vocabulary, add up words in ALL languages — that total is what matters, not the count in any single language.",
+  },
+  {
+    question: "Should I get my child's hearing tested?",
+    answer:
+      "Yes — always. Even if your child passed the newborn hearing screening, hearing can change. Ear infections, fluid in the ears, and other conditions can cause temporary or permanent hearing loss that mimics a speech delay. A simple hearing test can rule this out.",
+  },
 ];
 
 export default function FamiliesLanding() {

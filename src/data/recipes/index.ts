@@ -108,7 +108,7 @@ export const recipes: Recipe[] = [
       "Stir in cream and serve.",
     ],
     safetyTip:
-      "Pea skins can leave fibers \u2014 always strain after blending.",
+      "Pea skins can leave fibers that are a significant choking hazard. Blend thoroughly, then strain TWICE through a fine mesh sieve. Check the final product by rubbing between your fingers — it should feel completely smooth.",
     caregiverNote:
       "The bright green color makes this visually appealing, which matters for appetite.",
     tags: ["high-protein", "colorful", "batch-friendly"],
@@ -459,7 +459,7 @@ export const recipes: Recipe[] = [
       "Serve with plenty of maple syrup for moisture.",
     ],
     safetyTip:
-      "Pancakes must be very soft \u2014 not crispy edges. Press with fork to check they compress easily.",
+      "Pancakes must be very soft — not crispy edges. Press with fork RIGHT BEFORE SERVING to check they compress easily. Pancakes firm up as they cool, so re-check texture if they've been sitting.",
     caregiverNote:
       "The syrup provides essential moisture. Dry pancakes are not safe at this level.",
     tags: ["easy", "naturally-sweet", "quick-prep"],
@@ -657,4 +657,10 @@ export const recipes: Recipe[] = [
       "This soup is traditionally given to people recovering from illness in Greece. It\u2019s gentle, nourishing, and hydrating.",
     tags: ["healing", "hydrating", "high-protein"],
   },
+  // NOTE: These recipes are IDDSI-informed original content and do not cover
+  // all IDDSI levels. Level 0 (Thin), Level 1 (Slightly Thick), Level 2 (Mildly Thick),
+  // and Level 7 (Easy to Chew/Regular) are not included.
+  // Always follow the specific diet level prescribed by your SLP or physician.
+  // Temperature: Serve foods at a comfortable eating temperature (not scalding hot).
+  // Reheating: Textures may change when reheated — always re-test consistency.
 ];

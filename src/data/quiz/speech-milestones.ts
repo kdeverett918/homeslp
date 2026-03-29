@@ -66,11 +66,12 @@ export const speechMilestonesQuiz: QuizFunnelData = {
       riskLevel: "low",
       headline: "Looking Good!",
       description:
-        "Based on your answers, your child appears to be developing within or near the typical range for their age. That said, every child is unique.",
+        "Based on your answers, your child appears to be developing within or near the typical range for their age. Every child is unique, and there's a wide range of normal. That said, trust your gut — if something feels off, it's always okay to ask for an evaluation. No one will judge you for being cautious.",
       recommendations: [
         "Continue talking, reading, and singing with your child daily",
         "Follow our free Week 1 Blueprint for fun language-building activities",
         "Monitor progress and re-take this check in a few months",
+        "Remember: bilingual children may appear to have fewer words in each language, but their TOTAL vocabulary across both languages is what matters. If your family speaks more than one language, that's a gift — not a delay.",
       ],
     },
     {
@@ -79,11 +80,12 @@ export const speechMilestonesQuiz: QuizFunnelData = {
       riskLevel: "moderate",
       headline: "Some Areas May Need Support",
       description:
-        "Your child may benefit from targeted strategies to boost their communication. The great news? There's so much you can do at home right now.",
+        "Some areas of your child's communication may benefit from targeted support. This doesn't mean something is wrong — it means your child could use a boost, and the good news is there's SO much you can do at home right now while you wait for professional services.",
       recommendations: [
         "Start our guided weekly roadmap with evidence-based techniques",
         "Learn strategies like 'Wait and Model' used by licensed SLPs",
         "Request an evaluation from your pediatrician or local early intervention program",
+        "Remember: bilingual children may appear to have fewer words in each language, but their TOTAL vocabulary across both languages is what matters. If your family speaks more than one language, that's a gift — not a delay.",
       ],
     },
     {
@@ -92,11 +94,12 @@ export const speechMilestonesQuiz: QuizFunnelData = {
       riskLevel: "high",
       headline: "Early Support Can Make a Big Difference",
       description:
-        "Your answers suggest your child could significantly benefit from speech-language support. While you wait for professional services, you can start helping today.",
+        "Your answers suggest your child could significantly benefit from speech-language support. Please don't panic — early identification is a GOOD thing, and children who get support early make the most progress. While you wait for professional services, you can start helping today. You are not too late.",
       recommendations: [
         "Contact your pediatrician to request a speech-language evaluation",
         "Call your state's Early Intervention program (birth-3) or school district (3+)",
         "Start our weekly roadmap immediately - don't lose time on a waitlist",
+        "Remember: bilingual children may appear to have fewer words in each language, but their TOTAL vocabulary across both languages is what matters. If your family speaks more than one language, that's a gift — not a delay.",
       ],
     },
   ],

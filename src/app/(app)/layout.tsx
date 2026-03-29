@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import {
+  Baby,
   BookOpen,
   Heart,
   Home,
@@ -33,6 +34,7 @@ export default function AppLayout({
             <ActiveNavLink href="/blueprints" icon={BookOpen} label="Blueprints" />
             <ActiveNavLink href="/recipes" icon={UtensilsCrossed} label="Recipes" />
             <ActiveNavLink href="/games" icon={LayoutGrid} label="Games" />
+            <ActiveNavLink href="/milestones" icon={Baby} label="Milestones" />
             <ActiveNavLink href="/community" icon={MessageCircle} label="Community" />
             <ActiveNavLink href="/progress" icon={TrendingUp} label="Progress" />
             <ActiveNavLink href="/settings" icon={Settings} label="Settings" />

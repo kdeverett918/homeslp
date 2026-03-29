@@ -190,7 +190,7 @@ export const pediatricBlueprints: WeeklyBlueprint[] = [
       textContent:
         "The jump from single words to two-word combinations is one of the most exciting milestones. Use these strategies to help bridge the gap: model two-word phrases frequently, use carrier phrases, and create opportunities for requesting.",
       slpNote:
-        "Don't wait for 50 words before expecting combinations. If your child has 10-20 words, start modeling two-word phrases. They might surprise you!",
+        "Start modeling two-word phrases as soon as your child has any single words — even just 5-10. You're not expecting them to copy you immediately. You're planting seeds. Some children combine at 50 words, others at 10. There's no magic number, and there's no pressure.",
     },
     curatedMedia: {
       youtubeVideoId: "dFrSJOTGpFo",
@@ -416,9 +416,9 @@ export const pediatricBlueprints: WeeklyBlueprint[] = [
     commentary: {
       type: "text",
       textContent:
-        "You've learned Wait and Model, routine-based language, play-based narration, word combinations, dialogic reading, musical language, and social words. Now it's time to combine them into a daily routine that fits your family's life — and decide what comes next.",
+        "You've learned Wait and Model, routine-based language, play-based narration, word combinations, dialogic reading, musical language, and social words. Now it's time to combine them into a daily routine that fits your family's life — and decide what comes next. Important: if your child has lost words they previously used, stopped babbling, or avoids eye contact, contact your pediatrician right away — these are red flags that shouldn't wait.",
       slpNote:
-        "After 8 weeks of consistent practice, most families see measurable progress. If you haven't, that's valuable information too — it tells your SLP exactly what to focus on in therapy.",
+        "After 8 weeks, most families notice changes — even small ones count. If you haven't seen progress, that's okay and it's NOT your fault. It tells your SLP valuable information about what kind of support your child needs. Some children need more intensive, individualized therapy, and your home practice data helps your SLP plan that.",
     },
     curatedMedia: {
       youtubeVideoId: "dFrSJOTGpFo",

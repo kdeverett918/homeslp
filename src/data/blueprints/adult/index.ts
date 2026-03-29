@@ -16,7 +16,7 @@ export const adultBlueprints: WeeklyBlueprint[] = [
       textContent:
         "When your loved one is discharged on a 'modified diet,' it can feel overwhelming. What does 'nectar thick' even mean? This week, we'll break down the basics of swallowing safety so you feel confident at every meal.",
       slpNote:
-        "The most important thing is: if something doesn't feel right during a meal — they're coughing, their voice sounds gurgly, or they seem to be struggling — stop and wait. Trust your instincts.",
+        "The most important thing is: if something doesn't feel right during a meal — coughing, gurgly voice, food coming back up, or a look of panic — stop and wait. Trust your instincts. Also know that 'silent aspiration' can happen without any coughing at all. Watch for fever, new congestion, or voice changes in the hours and days after meals — these could signal aspiration pneumonia. When in doubt, call the doctor.",
     },
     curatedMedia: {
       youtubeVideoId: "sIHHKCmcbxQ",
@@ -185,9 +185,9 @@ export const adultBlueprints: WeeklyBlueprint[] = [
     commentary: {
       type: "text",
       textContent:
-        "Swallowing exercises should be prescribed by an SLP based on the specific impairments found during evaluation. The exercises below are general strengthening exercises commonly recommended for home practice. Always follow your SLP's specific recommendations.",
+        "Important: The exercises below are common examples used in swallowing rehabilitation. Your SLP may prescribe DIFFERENT exercises based on your loved one's specific swallowing evaluation. Always follow your SLP's recommendations over general guidance. Never start new exercises without consulting your treatment team.\n\nSwallowing exercises should be prescribed by an SLP based on the specific impairments found during evaluation. The exercises below are general strengthening exercises commonly recommended for home practice. Always follow your SLP's specific recommendations.",
       slpNote:
-        "Consistency matters more than intensity. Ten minutes twice a day is better than one hour once a week. Set a routine — pair exercises with an existing habit like after morning coffee.",
+        "Consistency matters more than intensity. Ten minutes twice a day is better than one hour once a week. Set a routine — pair exercises with an existing habit like after morning coffee. If exercises cause pain, increased coughing, or voice changes, stop immediately and contact your SLP.",
     },
     curatedMedia: {
       youtubeVideoId: "sIHHKCmcbxQ",
@@ -279,7 +279,7 @@ export const adultBlueprints: WeeklyBlueprint[] = [
           example:
             "Check urine color — pale yellow is the goal. Dry lips, decreased urine output, and increased confusion are red flags.",
           parentTip:
-            "If you suspect dehydration, contact their doctor immediately. It can escalate quickly in older adults.",
+            "If you suspect dehydration, contact their doctor immediately. Dehydration can escalate within hours in older adults and may require IV fluids. Don't wait to see if it improves on its own.",
         },
       ],
     },

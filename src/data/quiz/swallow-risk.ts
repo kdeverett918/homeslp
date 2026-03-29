@@ -70,6 +70,7 @@ export const swallowRiskQuiz: QuizFunnelData = {
         "Continue monitoring during meals for any changes",
         "Learn mealtime safety basics with our free Week 1 guide",
         "Re-take this check monthly to track changes over time",
+        "If your loved one has had a recent stroke, brain injury, or neurological diagnosis, swallowing can change rapidly. Any sudden worsening — new coughing, refusing to eat, weight loss, or fever — warrants an urgent call to their doctor.",
       ],
     },
     {
@@ -83,6 +84,7 @@ export const swallowRiskQuiz: QuizFunnelData = {
         "Learn about safe food textures with our IDDSI recipe library",
         "Follow our weekly caregiver blueprint for evidence-based strategies",
         "Discuss these symptoms with your loved one's doctor",
+        "If your loved one has had a recent stroke, brain injury, or neurological diagnosis, swallowing can change rapidly. Any sudden worsening — new coughing, refusing to eat, weight loss, or fever — warrants an urgent call to their doctor.",
       ],
     },
     {
@@ -93,9 +95,11 @@ export const swallowRiskQuiz: QuizFunnelData = {
       description:
         "These symptoms indicate significant swallowing challenges. A formal evaluation is strongly recommended. In the meantime, our platform can help you navigate safe mealtimes.",
       recommendations: [
-        "Contact their doctor to request a swallowing evaluation (MBSS or FEES)",
-        "Start learning about safe food preparation with our guided resources",
-        "Never change a prescribed diet without medical clearance",
+        "Contact their doctor as soon as possible to request a swallowing evaluation (called an MBSS or FEES — these are special X-ray or camera tests that watch swallowing in real time)",
+        "Watch for emergency signs: difficulty breathing, choking that doesn't resolve, fever within 24-48 hours of a meal (possible aspiration pneumonia), or blue lips/fingertips — call 911 for any of these",
+        "Start learning about safe food preparation with our guided resources while you wait for evaluation",
+        "Never change a prescribed diet level without medical clearance — even if your loved one wants to eat regular food",
+        "If your loved one has had a recent stroke, brain injury, or neurological diagnosis, swallowing can change rapidly. Any sudden worsening — new coughing, refusing to eat, weight loss, or fever — warrants an urgent call to their doctor.",
       ],
     },
   ],

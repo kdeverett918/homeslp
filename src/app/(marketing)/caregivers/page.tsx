@@ -50,6 +50,16 @@ const faqItems = [
     answer:
       "Never change a prescribed diet level without medical clearance. Our content helps you prepare meals within the level your SLP or doctor has recommended.",
   },
+  {
+    question: "What if my loved one refuses to eat modified food?",
+    answer:
+      "This is incredibly common and heartbreaking. Your loved one may feel that modified food is undignified or 'baby food.' Try involving them in choosing recipes, maintaining familiar flavors, and eating together as a family. If they consistently refuse their prescribed diet and eat regular food, contact their SLP — the risks need to be discussed openly, and sometimes a 'comfort feeding' approach is appropriate.",
+  },
+  {
+    question: "I'm exhausted. Is that normal?",
+    answer:
+      "Yes, and it's important to acknowledge. Caregiver fatigue is real, documented, and affects your loved one's care quality. You cannot pour from an empty cup. Accept help, take breaks, and know that being overwhelmed doesn't make you a bad caregiver — it makes you human.",
+  },
 ];
 
 export default function CaregiversLanding() {
