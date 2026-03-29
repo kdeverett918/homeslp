@@ -153,3 +153,9 @@
 details[open] > div {
   animation: slideDown 200ms ease-out;
 }
+
+@media print {
+  body { background: white; color: black; }
+  .print\:hidden, nav, aside, header, footer { display: none !important; }
+  #doctor-prep-print, #slp-report { border: none; box-shadow: none; padding: 0; }
+}

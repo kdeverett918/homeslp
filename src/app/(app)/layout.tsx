@@ -4,13 +4,18 @@ import Link from "next/link";
 import {
   Baby,
   BookOpen,
+  FileText,
   Heart,
   Home,
   LayoutGrid,
   MessageCircle,
+  Search,
   Settings,
+  Stethoscope,
   TrendingUp,
   UtensilsCrossed,
+  Volume2,
+  Zap,
 } from "lucide-react";
 import { AppProviders } from "@/components/providers";
 import { ActiveNavLink, ActiveBottomNavLink } from "@/components/ui/active-nav-link";
@@ -37,6 +42,12 @@ export default function AppLayout({
             <ActiveNavLink href="/milestones" icon={Baby} label="Milestones" />
             <ActiveNavLink href="/community" icon={MessageCircle} label="Community" />
             <ActiveNavLink href="/progress" icon={TrendingUp} label="Progress" />
+            <ActiveNavLink href="/check" icon={Search} label="Is My Child On Track?" />
+            <ActiveNavLink href="/words" icon={BookOpen} label="Word Tracker" />
+            <ActiveNavLink href="/sounds" icon={Volume2} label="Sounds" />
+            <ActiveNavLink href="/activities" icon={Zap} label="Quick Activities" />
+            <ActiveNavLink href="/doctor-prep" icon={Stethoscope} label="Doctor Prep" />
+            <ActiveNavLink href="/report" icon={FileText} label="SLP Report" />
             <ActiveNavLink href="/settings" icon={Settings} label="Settings" />
           </nav>
         </aside>
@@ -55,10 +66,10 @@ export default function AppLayout({
           {/* Mobile bottom nav */}
           <nav className="flex border-t bg-background lg:hidden">
             <ActiveBottomNavLink href="/dashboard" icon={Home} label="Home" />
-            <ActiveBottomNavLink href="/blueprints" icon={BookOpen} label="Learn" />
-            <ActiveBottomNavLink href="/community" icon={MessageCircle} label="Community" />
-            <ActiveBottomNavLink href="/progress" icon={TrendingUp} label="Progress" />
-            <ActiveBottomNavLink href="/settings" icon={Settings} label="Settings" />
+            <ActiveBottomNavLink href="/check" icon={Search} label="Check" />
+            <ActiveBottomNavLink href="/words" icon={BookOpen} label="Words" />
+            <ActiveBottomNavLink href="/activities" icon={Zap} label="Activities" />
+            <ActiveBottomNavLink href="/settings" icon={Settings} label="More" />
           </nav>
         </div>
       </div>
