@@ -247,7 +247,9 @@ export const screenerQuestions: ScreenerQuestion[] = [
     ageRangeStart: 18,
     ageRangeEnd: 24,
     category: "language",
-    redFlagIfNo: false,
+    // NOTE: This question is inverted — answering "Yes" (child HAS lost words) is the red flag.
+    // redFlagIfNo is true so the filter includes it; special-case logic in check/page.tsx handles the inversion.
+    redFlagIfNo: true,
     weight: 3,
   },
   {

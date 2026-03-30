@@ -28,7 +28,7 @@ export const carryoverGoals: CarryoverGoal[] = [
     description:
       "Building your child's initial spoken vocabulary — helping them move from sounds and gestures to intentional, meaningful words. This is about making words functional and motivating, not memorizing labels.",
     whyItMatters:
-      "First words are the foundation of all future language. Children typically need to hear a word 50-100 times in meaningful contexts before they use it. Your role at home is to provide those repetitions naturally throughout the day, especially around things your child is already interested in.",
+      "First words are the foundation of all future language. Children typically need many repetitions in meaningful contexts — often dozens of times or more — before they use a word. Your role at home is to provide those repetitions naturally throughout the day, especially around things your child is already interested in.",
     homeActivities: [
       {
         title: "Target Word Bombardment",

@@ -103,7 +103,7 @@ export default function SoundsPage() {
       ))}
 
       <p className="text-xs text-muted-foreground text-center italic">
-        Sound development varies widely. These are average ages based on research (Sander 1972, Shriberg 1993). Many sounds aren't expected until age 6-7.
+        Sound development timelines are general guidelines based on research averages (Sander 1972, Shriberg 1993). Individual variation is normal and many sounds aren't expected until age 6-7. This information does not replace evaluation by a licensed speech-language pathologist.
       </p>
     </div>
   );

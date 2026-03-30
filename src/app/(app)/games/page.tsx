@@ -64,6 +64,10 @@ export default function GamesPage() {
       </StaggerChildren>
 
       <p className="text-xs text-muted-foreground text-center italic">More games coming soon!</p>
+
+      <p className="text-xs text-muted-foreground text-center italic">
+        These games are educational tools and do not replace professional speech-language therapy.
+      </p>
     </div>
   );
 }

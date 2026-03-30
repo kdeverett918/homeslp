@@ -173,6 +173,10 @@ export default function WordsPage() {
           <p className="text-xs mt-2">Remember: animal sounds, sound effects, and signs all count as words.</p>
         </div>
       )}
+
+      <p className="text-xs text-muted-foreground text-center italic">
+        Word tracking is an educational tool. Vocabulary norms vary widely and this tracker does not replace professional assessment. If you have concerns, consult a licensed SLP.
+      </p>
     </div>
   );
 }

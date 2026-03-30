@@ -12,7 +12,7 @@ const faqItems = [
   {
     question: "Do I need a credit card for the free trial?",
     answer:
-      "Yes, a credit card is required to start the trial, but you won't be charged until day 8. Cancel anytime during the trial with no charge.",
+      "Yes, a credit card is required to start the trial, but you won't be charged during the 7-day trial period. Cancel anytime during the trial with no charge.",
   },
   {
     question: "Can I access both child and adult content?",
@@ -76,7 +76,7 @@ export default function PricingPage() {
                   "Interactive learning games",
                   "Parent and caregiver community access",
                   "Progress tracking with streaks and milestones",
-                  "New content added weekly",
+                  "Content library growing regularly",
                   "Switch between child and adult paths anytime",
                 ].map((feature) => (
                   <li key={feature} className="flex items-start gap-2.5">
@@ -85,6 +85,10 @@ export default function PricingPage() {
                   </li>
                 ))}
               </ul>
+
+              <p className="text-[10px] text-muted-foreground mt-2">
+                IDDSI framework &copy; The International Dysphagia Diet Standardisation Initiative.
+              </p>
 
               <Link
                 href="/signup"

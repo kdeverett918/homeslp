@@ -43,7 +43,7 @@ export const handouts: Handout[] = [
           "A speech delay means your child is developing speech sounds on a typical path, but at a slower rate than expected for their age. Children with speech delays understand what is said to them and communicate in other ways (pointing, gesturing, making sounds), but their spoken words are behind where we would expect them to be.",
         bulletPoints: [
           "Speech delay is one of the most common developmental concerns in young children",
-          "Approximately 1 in 5 children are considered late talkers at age 2",
+          "Up to 15-20% of children may be considered late talkers at age 2",
           "Many late talkers catch up on their own by age 3, but evaluation is still recommended",
           "A speech delay does not mean your child has low intelligence",
         ],
@@ -234,7 +234,7 @@ export const handouts: Handout[] = [
         bulletPoints: [
           "CAS is a neurological motor planning disorder, not a muscle problem",
           "Children with CAS know what they want to say but have difficulty getting the words out",
-          "It is relatively rare, affecting approximately 1-2 children per 1,000",
+          "It is relatively rare, estimated to affect approximately 1-2 children per 1,000, though exact prevalence data is limited",
           "CAS can occur on its own or alongside other developmental conditions",
           "It requires specialized treatment that differs from typical speech therapy",
         ],
@@ -296,6 +296,7 @@ export const handouts: Handout[] = [
           "ReST (Rapid Syllable Transition Treatment): focuses on smooth transitions between sounds",
           "Kaufman Speech to Language Protocol: uses approximations and shapes them toward targets",
           "PROMPT (Prompts for Restructuring Oral Muscular Phonetic Targets): tactile-kinesthetic approach",
+          "PROMPT is a registered trademark of The PROMPT Institute. These are examples of evidence-based approaches; your SLP will determine the best approach for your child.",
           "Frequent therapy sessions (3-5x/week) produce better outcomes than 1x/week",
           "AAC (communication devices/apps) may be recommended alongside therapy — this does NOT prevent speech development",
         ],
@@ -339,7 +340,7 @@ export const handouts: Handout[] = [
           "MYTH: You should only speak one language to avoid confusion. FACT: Children's brains are wired for multiple languages.",
           "MYTH: Mixing languages is a sign of confusion. FACT: Code-switching is a normal, sophisticated skill.",
           "MYTH: You need to stop the home language if your child has a delay. FACT: Dropping a language can harm family relationships and does not help the delay.",
-          "MYTH: Bilingual children will fall behind in school. FACT: Bilingualism provides cognitive advantages including better executive function.",
+          "MYTH: Bilingual children will fall behind in school. FACT: Bilingualism does not cause academic disadvantage and may provide cognitive benefits.",
         ],
         callout: {
           type: "warning",
@@ -569,7 +570,7 @@ export const handouts: Handout[] = [
           "85-115 = within normal limits (within one standard deviation)",
           "70-84 = below average (between one and two standard deviations below)",
           "Below 70 = significantly below average (more than two standard deviations below)",
-          "Severity descriptors: mild (78-85), moderate (70-77), severe (below 70) — varies by test",
+          "Severity descriptors: mild (78-85), moderate (70-77), severe (below 70) — varies by test. These ranges are approximate and vary significantly by test. Your SLP can explain what specific scores mean for your child.",
         ],
       },
       {
@@ -687,12 +688,12 @@ export const handouts: Handout[] = [
           "Wait 5-10 seconds after modeling a word — silence is where learning happens",
           "Accept any attempt: a sound, a point, a look, or a word approximation all count",
           "Be face-to-face: get down to your child's level so they can see your mouth",
-          "Repeat, repeat, repeat: children need to hear a word 50-100+ times before they say it",
+          "Repeat, repeat, repeat: children need many repetitions in meaningful contexts before they say a word",
           "Keep it fun: if your child is frustrated or disengaged, stop and try again later",
         ],
         callout: {
           type: "note",
-          text: "Research shows children need to hear a new word an average of 60-100 times in meaningful contexts before they use it. Every repetition counts, even if it doesn't feel like progress.",
+          text: "Research shows children need many repetitions in meaningful contexts — often dozens of times or more — before they use a new word. Every repetition counts, even if it doesn't feel like progress.",
         },
       },
     ],
@@ -803,7 +804,7 @@ export const handouts: Handout[] = [
         bulletPoints: [
           "By age 2: p, b, m, d, n, h, w (early developing sounds)",
           "By age 3: t, k, g, f, ng, y (emerging sounds)",
-          "By age 4: l, sh, ch, j, s, z (developing sounds)",
+          "By age 4: sh, ch, j, s, z (developing sounds)",
           "By age 5-6: r, v, th (later developing sounds)",
           "By age 7-8: all sounds should be mastered, including blends (sp, str, bl)",
           "Sound errors that are age-appropriate do NOT require therapy",

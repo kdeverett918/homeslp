@@ -128,7 +128,7 @@ export const waitlistWeeks: WaitlistWeek[] = [
         description:
           "Create a predictable bath time routine with the same words and phrases every single night. Repetition is not boring for your child — it's how they learn. After a week of the same script, pause before a key word and see if they fill it in.",
         howTo:
-          "Write out 5-6 key phrases for bath time and say them in the same order every night. Use animated expressions and emphasis. After 5-7 nights, start pausing before the last word of each phrase to see if your child fills it in with a sound or word.",
+          "Write out 5-6 key phrases for bath time and say them in the same order every night. Use animated expressions and emphasis. After 5-7 nights, start pausing before the last word of each phrase to see if your child fills it in with a sound or word. Never leave your child unattended in or near water, even for a moment.",
         example:
           "Every night: 'Bath time! Water ON! [feel the water] Warm water! Get in the tub. Splash, splash, splash! Get the soap. Wash your tummy. Wash your toes! Rubber ducky — SQUEAK! All done! Water OFF! Towel time — wrap you up!'",
         estimatedMinutes: 15,
@@ -206,7 +206,7 @@ export const waitlistWeeks: WaitlistWeek[] = [
     advocacyTip:
       "If you've been on a waitlist for more than 3 months, call back and say: 'I'm calling to check our status. My child is now [age] and we've been waiting since [date]. Is there any way to expedite this or be seen by a different provider?' Ask about university speech clinics — they often have shorter waits and lower costs.",
     parentAffirmation:
-      "When you pause and wait for your child to communicate during play, you're doing exactly what an SLP would do in a therapy session. You are your child's first and best therapist.",
+      "When you pause and wait for your child to communicate during play, you're doing exactly what an SLP would do in a therapy session. You are your child's most important language partner.",
   },
   {
     weekNumber: 5,
@@ -403,18 +403,18 @@ export const urgencySigns: UrgencySign[] = [
       "Language regression — the loss of words a child previously used — can indicate a neurological condition, hearing change, or autism spectrum disorder. Any loss of skills at any age warrants immediate evaluation, not a wait-and-see approach. Time matters.",
   },
   {
-    sign: "No babbling by 12 months",
+    sign: "No babbling (consonant sounds like 'ba,' 'da,' 'ma') by 9 months",
     whatToSay:
       "My child is [age] months old and is not babbling. They don't make consonant-vowel combinations like 'bababa,' 'mamama,' or 'dadada.' I rarely hear varied sounds from them. I'd like a hearing test and a speech-language referral.",
     whyUrgent:
-      "Babbling (strings of consonant-vowel syllables) is a critical precursor to first words. Its absence by 12 months may indicate hearing loss, oral motor difficulty, or a broader developmental concern. Early identification leads to significantly better outcomes.",
+      "Babbling (strings of consonant-vowel syllables) is a critical precursor to first words. Its absence by 9 months may indicate hearing loss, oral motor difficulty, or a broader developmental concern. Early identification leads to significantly better outcomes.",
   },
   {
-    sign: "No words by 16 months",
+    sign: "No words by 15 months",
     whatToSay:
       "My child is [age] months old and does not say any real words — not even 'mama' or 'dada' used meaningfully. I don't want to 'wait until 2' because research shows earlier intervention leads to better outcomes. I'd like a referral now.",
     whyUrgent:
-      "While there is natural variation in when first words appear, the absence of any words by 16 months is a clinical red flag. The outdated advice to 'wait until age 2' can result in months of lost intervention time during a critical brain development window.",
+      "While there is natural variation in when first words appear, the absence of any words by 15 months is a clinical red flag. The outdated advice to 'wait until age 2' can result in months of lost intervention time during a critical brain development window.",
   },
   {
     sign: "No two-word combinations by 24 months",

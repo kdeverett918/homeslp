@@ -116,6 +116,10 @@ export default function ResourcesPage() {
         </div>
       </FadeIn>
 
+      <p className="text-xs text-muted-foreground italic">
+        The creators and communities listed here have not endorsed HomeSLP. Descriptions reflect our editorial perspective. HomeSLP has no affiliate or financial relationship with any listed resource.
+      </p>
+
       {/* Results count */}
       <p className="text-sm text-muted-foreground">
         Showing {filtered.length} resource{filtered.length !== 1 ? "s" : ""}
@@ -149,7 +153,7 @@ export default function ResourcesPage() {
                   {resource.isStaffPick && (
                     <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-700">
                       <Star className="w-3 h-3 fill-amber-500" />
-                      Staff Pick
+                      Editor's Pick
                     </span>
                   )}
                 </div>

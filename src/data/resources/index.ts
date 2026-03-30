@@ -32,7 +32,7 @@ export const curatedResources: CuratedResource[] = [
     handle: "@msrachel",
     url: "https://www.youtube.com/@msrachel",
     description:
-      "Engaging musical videos designed specifically to encourage first words, baby sign language, and early language milestones. Ms. Rachel uses research-backed techniques like parentese and wait time naturally throughout her content.",
+      "Engaging musical videos designed specifically to encourage first words, baby sign language, and early language milestones. Her content naturally incorporates strategies like simplified language, repetition, and wait time that align with speech-language development principles.",
     whyRecommended:
       "Ms. Rachel consistently models evidence-based language stimulation strategies like recasting, expansion, and parallel talk — all wrapped in a format toddlers genuinely love. One of the few children's channels an SLP can recommend without caveats.",
     topics: ["late-talkers", "general", "toddler-activities"],
@@ -60,7 +60,7 @@ export const curatedResources: CuratedResource[] = [
     description:
       "Veteran pediatric SLP Laura Mize provides in-depth video tutorials on toddler communication development, covering everything from pre-verbal skills to early sentence formation. Her content is thorough and clinically grounded.",
     whyRecommended:
-      "Laura's 30+ years of pediatric experience shows in every video. She explains the 'why' behind strategies, helping parents understand developmental progression rather than just memorizing techniques. Truly bridges the gap between clinical knowledge and home practice.",
+      "Laura's decades of pediatric experience shows in every video. She explains the 'why' behind strategies, helping parents understand developmental progression rather than just memorizing techniques. Truly bridges the gap between clinical knowledge and home practice.",
     topics: ["late-talkers", "autism", "general", "parent-support"],
     isStaffPick: true,
   },
@@ -335,9 +335,9 @@ export const curatedResources: CuratedResource[] = [
     name: "Late Talkers",
     platform: "facebook",
     handle: undefined,
-    url: "https://www.facebook.com/groups/latetalkers",
+    url: "https://www.facebook.com/search/groups/?q=late%20talkers%20speech%20delay",
     description:
-      "The largest Facebook support group for parents of late-talking children, with tens of thousands of members sharing experiences, resources, and encouragement. A lifeline for parents in the early stages of concern.",
+      "Search for Facebook support groups for parents of late-talking children. These communities share experiences, resources, and encouragement — a lifeline for parents in the early stages of concern.",
     whyRecommended:
       "Peer support from other parents who understand the worry is invaluable. While not a substitute for professional guidance, the emotional support and shared experiences in this group help parents feel less alone during a stressful time.",
     topics: ["late-talkers", "parent-support"],
@@ -348,7 +348,7 @@ export const curatedResources: CuratedResource[] = [
     name: "Apraxia Kids",
     platform: "facebook",
     handle: undefined,
-    url: "https://www.facebook.com/groups/apraxiakids",
+    url: "https://www.facebook.com/search/groups/?q=apraxia%20kids%20speech",
     description:
       "Dedicated support community for families navigating childhood apraxia of speech (CAS). Members share therapy experiences, celebrate progress, and connect with others who understand the unique challenges of apraxia.",
     whyRecommended:
@@ -361,7 +361,7 @@ export const curatedResources: CuratedResource[] = [
     name: "Speech Delay Support for Parents",
     platform: "facebook",
     handle: undefined,
-    url: "https://www.facebook.com/groups/speechdelaysupport",
+    url: "https://www.facebook.com/search/groups/?q=speech%20delay%20support%20parents",
     description:
       "A welcoming community for parents at any stage of the speech delay journey — from first concerns to active therapy to celebrating breakthroughs. Moderated to keep advice supportive and evidence-informed.",
     whyRecommended:
@@ -374,7 +374,7 @@ export const curatedResources: CuratedResource[] = [
     name: "Feeding Therapy Support Group",
     platform: "facebook",
     handle: undefined,
-    url: "https://www.facebook.com/groups/feedingtherapysupport",
+    url: "https://www.facebook.com/search/groups/?q=feeding%20therapy%20support",
     description:
       "Parent community focused on pediatric feeding challenges, therapy approaches, and mealtime strategies. Covers everything from sensory-based food refusal to tube feeding to transitioning textures.",
     whyRecommended:
@@ -387,7 +387,7 @@ export const curatedResources: CuratedResource[] = [
     name: "Bilingual Kids Speech and Language",
     platform: "facebook",
     handle: undefined,
-    url: "https://www.facebook.com/groups/bilingualkidsspeech",
+    url: "https://www.facebook.com/search/groups/?q=bilingual%20kids%20speech%20language",
     description:
       "Support group for bilingual and multilingual families navigating speech-language development. Addresses common concerns about language mixing, dual-language milestones, and finding bilingual SLPs.",
     whyRecommended:
@@ -402,7 +402,7 @@ export const curatedResources: CuratedResource[] = [
     name: "All Things Sensory by Harkla",
     platform: "podcast",
     handle: undefined,
-    url: "https://harkla.co/blogs/podcast",
+    url: "https://podcasts.apple.com/us/podcast/all-things-sensory-by-harkla/id1286106014",
     description:
       "Explores the connections between sensory processing, communication, and behavior. Episodes cover practical strategies for supporting kids with sensory needs and how sensory challenges can impact speech and language development.",
     whyRecommended:
@@ -415,7 +415,7 @@ export const curatedResources: CuratedResource[] = [
     name: "Speechie Side Up Podcast",
     platform: "podcast",
     handle: undefined,
-    url: "https://speechiesideup.com/podcast",
+    url: "https://podcasts.apple.com/us/podcast/speechie-side-up/id1539218284",
     description:
       "Evidence-based speech-language pathology information presented in an accessible, parent-friendly format. Episodes dive deep into specific topics like articulation norms, language milestones, and navigating the school IEP process.",
     whyRecommended:
@@ -428,7 +428,7 @@ export const curatedResources: CuratedResource[] = [
     name: "Two Talking Mamas",
     platform: "podcast",
     handle: undefined,
-    url: "https://twotalkingmamas.com",
+    url: "https://podcasts.apple.com/us/podcast/two-talking-mamas/id1659450928",
     description:
       "Two SLP moms discussing child development, speech-language milestones, and the intersection of professional knowledge with real parenting life. Honest, relatable, and clinically sound.",
     whyRecommended:
@@ -441,7 +441,7 @@ export const curatedResources: CuratedResource[] = [
     name: "The Informed SLP",
     platform: "podcast",
     handle: undefined,
-    url: "https://www.theinformedslp.com",
+    url: "https://www.theinformedslp.com/",
     description:
       "Research summaries and clinical discussions that make the latest speech-language pathology research accessible. While geared toward professionals, motivated parents will find the evidence summaries incredibly valuable.",
     whyRecommended:
@@ -454,7 +454,7 @@ export const curatedResources: CuratedResource[] = [
     name: "The Speech Mama Podcast",
     platform: "podcast",
     handle: undefined,
-    url: "https://thespeechmama.com/podcast",
+    url: "https://podcasts.apple.com/us/podcast/the-speech-mama-podcast/id1617583498",
     description:
       "SLP tips for everyday parenting — how to build language during routines, what to do when you are worried about your child's speech, and how to make the most of therapy sessions.",
     whyRecommended:

@@ -98,6 +98,10 @@ export default function ActivitiesPage() {
       <p className="text-xs text-muted-foreground text-center">
         {eligible.length} activities available{context !== "all" ? ` for ${context}` : ""}{childAgeMonths ? ` at ${childAgeMonths} months` : ""}
       </p>
+
+      <p className="text-xs text-muted-foreground text-center italic">
+        These activities are for educational purposes and do not replace professional speech-language therapy. Always consult a licensed SLP for personalized guidance.
+      </p>
     </div>
   );
 }
