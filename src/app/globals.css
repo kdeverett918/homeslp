@@ -158,4 +158,31 @@ details[open] > div {
   body { background: white; color: black; }
   .print\:hidden, nav, aside, header, footer { display: none !important; }
   #doctor-prep-print, #slp-report { border: none; box-shadow: none; padding: 0; }
+
+  #handout-print, #quiz-results-print {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  /* B&W mode */
+  .print-bw * {
+    color: black !important;
+    background-color: white !important;
+    border-color: #999 !important;
+  }
+  .print-bw .badge,
+  .print-bw [class*="bg-rose-"],
+  .print-bw [class*="bg-sage-"],
+  .print-bw [class*="bg-amber-"],
+  .print-bw [class*="bg-blue-"],
+  .print-bw [class*="bg-purple-"] {
+    background-color: #eee !important;
+    color: black !important;
+  }
+  .print-bw .text-primary,
+  .print-bw .text-rose-600,
+  .print-bw .text-sage-600 {
+    color: black !important;
+  }
 }

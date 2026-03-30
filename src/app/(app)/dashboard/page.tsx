@@ -14,6 +14,8 @@ import { redirect } from "next/navigation";
 import { BETA_MODE } from "@/lib/beta";
 import { pediatricBlueprints } from "@/data/blueprints/pediatric";
 import { adultBlueprints } from "@/data/blueprints/adult";
+import { dailyTips } from "@/data/daily-tips";
+import { DailyTipCard } from "@/components/daily-tip-card";
 import { cookies } from "next/headers";
 
 export const dynamic = "force-dynamic";
@@ -123,6 +125,13 @@ export default async function DashboardPage() {
           </Link>
         </div>
       )}
+
+      {/* Daily Tip */}
+      <DailyTipCard
+        tips={dailyTips}
+        path={isChild ? "child" : "adult"}
+        ageMonths={null}
+      />
 
       {/* Blueprints */}
       <section>

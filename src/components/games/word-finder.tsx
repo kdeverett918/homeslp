@@ -1,10 +1,39 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, XCircle, RotateCcw, Trophy } from "lucide-react";
 
-const QUESTIONS = [
+interface Question {
+  prompt: string;
+  options: string[];
+  correct: number;
+}
+
+const PEDIATRIC_QUESTIONS: Question[] = [
+  { prompt: "Which word means a baby animal?", options: ["Cub", "Cup", "Cut", "Cud"], correct: 0 },
+  { prompt: "What does \"big\" mean?", options: ["Tall and large", "Small and tiny", "Fast and quick", "Wet and cold"], correct: 0 },
+  { prompt: "Which one is a fruit?", options: ["Apple", "Table", "Shoe", "Clock"], correct: 0 },
+  { prompt: "What does \"happy\" mean?", options: ["Feeling glad", "Feeling tired", "Feeling cold", "Feeling hungry"], correct: 0 },
+  { prompt: "Which animal says \"moo\"?", options: ["Cow", "Cat", "Dog", "Duck"], correct: 0 },
+  { prompt: "What does \"under\" mean?", options: ["Below something", "On top of", "Next to", "Far away"], correct: 0 },
+  { prompt: "Which one can you drink?", options: ["Juice", "Book", "Hat", "Ball"], correct: 0 },
+  { prompt: "What does \"soft\" mean?", options: ["Gentle to touch", "Very loud", "Really fast", "Super bright"], correct: 0 },
+  { prompt: "Which one is a color?", options: ["Purple", "Pencil", "Pizza", "Pillow"], correct: 0 },
+  { prompt: "What does \"cold\" mean?", options: ["Not warm", "Very fast", "Really tall", "Super loud"], correct: 0 },
+  { prompt: "Which animal has wings?", options: ["Bird", "Fish", "Snake", "Frog"], correct: 0 },
+  { prompt: "What does \"run\" mean?", options: ["Move legs fast", "Sit still", "Fall asleep", "Eat food"], correct: 0 },
+  { prompt: "Which one do you wear?", options: ["Shirt", "Spoon", "Ball", "Book"], correct: 0 },
+  { prompt: "What does \"loud\" mean?", options: ["Making big sounds", "Very quiet", "Really small", "Super slow"], correct: 0 },
+  { prompt: "Which one is round?", options: ["Ball", "Stick", "Box", "Book"], correct: 0 },
+  { prompt: "What does \"open\" mean?", options: ["Not closed", "Very tall", "Really wet", "Super hot"], correct: 0 },
+  { prompt: "Which one has wheels?", options: ["Car", "Chair", "Bed", "Cup"], correct: 0 },
+  { prompt: "What does \"push\" mean?", options: ["Press forward", "Pull back", "Jump up", "Sit down"], correct: 0 },
+  { prompt: "Which one is hot?", options: ["Fire", "Ice", "Snow", "Rain"], correct: 0 },
+  { prompt: "What does \"night\" mean?", options: ["When it's dark outside", "When it's sunny", "When it rains", "When it's windy"], correct: 0 },
+];
+
+const ADULT_QUESTIONS: Question[] = [
   { prompt: "Which word means 'to eat'?", options: ["Consume", "Construct", "Compute", "Compose"], correct: 0 },
   { prompt: "What does 'swallow' mean?", options: ["To jump", "To push food/liquid to the stomach", "To breathe deeply", "To speak loudly"], correct: 1 },
   { prompt: "Which is a body part used for speech?", options: ["Elbow", "Kneecap", "Tongue", "Ankle"], correct: 2 },
@@ -15,9 +44,35 @@ const QUESTIONS = [
   { prompt: "What does 'fluency' describe?", options: ["Physical strength", "Smooth flow of speech", "Visual acuity", "Musical talent"], correct: 1 },
   { prompt: "Which is related to language development?", options: ["Vocabulary", "Velocity", "Viscosity", "Volatility"], correct: 0 },
   { prompt: "What does 'aspiration' mean in medical terms?", options: ["A big dream", "Food/liquid entering the airway", "Deep breathing", "Sweating"], correct: 1 },
+  { prompt: "What does 'phonology' study?", options: ["Speech sounds in language", "Written words", "Body movement", "Brain chemistry"], correct: 0 },
+  { prompt: "Which term describes voice quality?", options: ["Hoarseness", "Fluency", "Cognition", "Mobility"], correct: 0 },
+  { prompt: "What is an 'SLP'?", options: ["Speech-language pathologist", "Special learning partner", "Sound level processor", "Speech lab program"], correct: 0 },
+  { prompt: "What does 'receptive language' mean?", options: ["Understanding what's said", "Speaking clearly", "Reading fast", "Writing neatly"], correct: 0 },
+  { prompt: "Which is a feeding consistency level?", options: ["Pureed", "Rapid", "Acute", "Lateral"], correct: 0 },
+  { prompt: "What does 'expressive' mean in speech terms?", options: ["Ability to produce language", "Ability to hear", "Ability to read", "Ability to remember"], correct: 0 },
+  { prompt: "What is 'AAC'?", options: ["Augmentative alternative communication", "Acute articulation correction", "Advanced audio calibration", "Annual assessment checklist"], correct: 0 },
+  { prompt: "What does 'pragmatics' refer to?", options: ["Social use of language", "Grammar rules", "Sound production", "Written language"], correct: 0 },
+  { prompt: "Which word means difficulty producing speech sounds?", options: ["Articulation disorder", "Fluency disorder", "Voice disorder", "Language disorder"], correct: 0 },
+  { prompt: "What is 'IDDSI'?", options: ["International Dysphagia Diet framework", "Internal dietary diagnostic system", "Integrated digital data system", "International disease development index"], correct: 0 },
 ];
 
-export function WordFinder() {
+function shuffleArray<T>(arr: T[]): T[] {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+interface WordFinderProps {
+  mode?: "child" | "adult";
+}
+
+export function WordFinder({ mode = "child" }: WordFinderProps) {
+  const pool = mode === "child" ? PEDIATRIC_QUESTIONS : ADULT_QUESTIONS;
+
+  const [questions, setQuestions] = useState<Question[]>(() => shuffleArray(pool).slice(0, 10));
   const [currentQ, setCurrentQ] = useState(0);
   const [score, setScore] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
@@ -27,12 +82,12 @@ export function WordFinder() {
   const handleAnswer = useCallback((idx: number) => {
     if (selected !== null) return;
     setSelected(idx);
-    const correct = idx === QUESTIONS[currentQ].correct;
+    const correct = idx === questions[currentQ].correct;
     setIsCorrect(correct);
     if (correct) setScore((s) => s + 1);
 
     setTimeout(() => {
-      if (currentQ < QUESTIONS.length - 1) {
+      if (currentQ < questions.length - 1) {
         setCurrentQ((q) => q + 1);
         setSelected(null);
         setIsCorrect(null);
@@ -40,9 +95,10 @@ export function WordFinder() {
         setFinished(true);
       }
     }, 1000);
-  }, [selected, currentQ]);
+  }, [selected, currentQ, questions]);
 
   const restart = () => {
+    setQuestions(shuffleArray(pool).slice(0, 10));
     setCurrentQ(0);
     setScore(0);
     setSelected(null);
@@ -51,15 +107,15 @@ export function WordFinder() {
   };
 
   if (finished) {
-    const percent = Math.round((score / QUESTIONS.length) * 100);
+    const percent = Math.round((score / questions.length) * 100);
     return (
       <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="rounded-2xl border bg-card p-8 text-center space-y-4">
         <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
           <Trophy className="w-8 h-8 text-primary" />
         </div>
         <h2 className="font-heading text-2xl font-bold">Game Complete!</h2>
-        <p className="text-3xl font-heading font-bold text-primary">{score}/{QUESTIONS.length}</p>
-        <p className="text-muted-foreground">{percent >= 80 ? "Excellent work!" : percent >= 60 ? "Good effort! Keep practicing." : "Keep at it \u2014 practice makes progress!"}</p>
+        <p className="text-3xl font-heading font-bold text-primary">{score}/{questions.length}</p>
+        <p className="text-muted-foreground">{percent >= 80 ? "Excellent work!" : percent >= 60 ? "Good effort! Keep practicing." : "Keep at it — practice makes progress!"}</p>
         <button onClick={restart} className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/90">
           <RotateCcw className="w-4 h-4" /> Play Again
         </button>
@@ -67,16 +123,16 @@ export function WordFinder() {
     );
   }
 
-  const q = QUESTIONS[currentQ];
+  const q = questions[currentQ];
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between text-sm">
-        <span className="text-muted-foreground">Question {currentQ + 1} of {QUESTIONS.length}</span>
+        <span className="text-muted-foreground">Question {currentQ + 1} of {questions.length}</span>
         <span className="font-medium">Score: {score}</span>
       </div>
       <div className="h-2 bg-muted rounded-full overflow-hidden">
-        <motion.div className="h-full bg-primary rounded-full" animate={{ width: `${((currentQ + 1) / QUESTIONS.length) * 100}%` }} transition={{ duration: 0.3 }} />
+        <motion.div className="h-full bg-primary rounded-full" animate={{ width: `${((currentQ + 1) / questions.length) * 100}%` }} transition={{ duration: 0.3 }} />
       </div>
       <AnimatePresence mode="wait">
         <motion.div key={currentQ} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">

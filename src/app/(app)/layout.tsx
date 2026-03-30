@@ -4,11 +4,15 @@ import Link from "next/link";
 import {
   Baby,
   BookOpen,
+  Clock,
   FileText,
+  GraduationCap,
   Heart,
   Home,
   LayoutGrid,
+  Library,
   MessageCircle,
+  RefreshCw,
   Search,
   Settings,
   Stethoscope,
@@ -19,6 +23,14 @@ import {
 } from "lucide-react";
 import { AppProviders } from "@/components/providers";
 import { ActiveNavLink, ActiveBottomNavLink } from "@/components/ui/active-nav-link";
+
+function NavSectionHeader({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="px-3 pt-5 pb-1 text-[10px] font-semibold text-muted-foreground uppercase tracking-wider first:pt-0">
+      {children}
+    </p>
+  );
+}
 
 export default function AppLayout({
   children,
@@ -34,20 +46,35 @@ export default function AppLayout({
             <Heart className="h-6 w-6 text-primary fill-primary" />
             <span className="font-heading text-xl font-bold">HomeSLP</span>
           </div>
-          <nav className="flex-1 space-y-1 px-3 py-4">
+          <nav className="flex-1 overflow-y-auto space-y-0.5 px-3 py-4">
             <ActiveNavLink href="/dashboard" icon={Home} label="Dashboard" />
+
+            <NavSectionHeader>Learn</NavSectionHeader>
             <ActiveNavLink href="/blueprints" icon={BookOpen} label="Blueprints" />
-            <ActiveNavLink href="/recipes" icon={UtensilsCrossed} label="Recipes" />
-            <ActiveNavLink href="/games" icon={LayoutGrid} label="Games" />
+            <ActiveNavLink href="/resources" icon={Library} label="Resource Library" />
             <ActiveNavLink href="/milestones" icon={Baby} label="Milestones" />
-            <ActiveNavLink href="/community" icon={MessageCircle} label="Community" />
-            <ActiveNavLink href="/progress" icon={TrendingUp} label="Progress" />
+            <ActiveNavLink href="/sounds" icon={Volume2} label="Sounds" />
+
+            <NavSectionHeader>Do</NavSectionHeader>
+            <ActiveNavLink href="/activities" icon={Zap} label="Quick Activities" />
+            <ActiveNavLink href="/games" icon={LayoutGrid} label="Games" />
+
+            <NavSectionHeader>Guides</NavSectionHeader>
+            <ActiveNavLink href="/waitlist-guide" icon={Clock} label="Waitlist Guide" />
+            <ActiveNavLink href="/between-sessions" icon={RefreshCw} label="Between Sessions" />
+            <ActiveNavLink href="/handouts" icon={FileText} label="Handouts" />
+            <ActiveNavLink href="/homeschool" icon={GraduationCap} label="Homeschool" />
+
+            <NavSectionHeader>Tools</NavSectionHeader>
             <ActiveNavLink href="/check" icon={Search} label="Is My Child On Track?" />
             <ActiveNavLink href="/words" icon={BookOpen} label="Word Tracker" />
-            <ActiveNavLink href="/sounds" icon={Volume2} label="Sounds" />
-            <ActiveNavLink href="/activities" icon={Zap} label="Quick Activities" />
             <ActiveNavLink href="/doctor-prep" icon={Stethoscope} label="Doctor Prep" />
             <ActiveNavLink href="/report" icon={FileText} label="SLP Report" />
+            <ActiveNavLink href="/recipes" icon={UtensilsCrossed} label="Recipes" />
+
+            <NavSectionHeader>You</NavSectionHeader>
+            <ActiveNavLink href="/progress" icon={TrendingUp} label="Progress" />
+            <ActiveNavLink href="/community" icon={MessageCircle} label="Community" />
             <ActiveNavLink href="/settings" icon={Settings} label="Settings" />
           </nav>
         </aside>

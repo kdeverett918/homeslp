@@ -4,14 +4,16 @@ import { useState } from "react";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { useSubscription } from "@/components/subscription/SubscriptionProvider";
 import { usePath } from "@/components/path/PathProvider";
+import { useChildProfile } from "@/lib/stores/child-profile";
 import { BETA_MODE } from "@/lib/beta";
-import { CreditCard, Loader2, LogOut, Settings, User } from "lucide-react";
+import { Baby, CreditCard, Loader2, LogOut, Settings, User } from "lucide-react";
 
 export default function SettingsPage() {
   const { user, profile, signOut, isBeta } = useAuth();
   const { subscription, status, isTrialing, isActive, daysLeftInTrial } =
     useSubscription();
   const { activePath, setPath } = usePath();
+  const { childName, childAgeMonths, setProfile } = useChildProfile();
   const [portalLoading, setPortalLoading] = useState(false);
 
   const handleManageBilling = async () => {
@@ -87,6 +89,62 @@ export default function SettingsPage() {
           </div>
         </div>
       </section>
+
+      {/* Child Profile */}
+      {activePath === "child" && (
+        <section className="rounded-xl border bg-card p-6 space-y-4">
+          <h2 className="font-heading font-semibold flex items-center gap-2">
+            <Baby className="w-4 h-4" />
+            Child Profile
+          </h2>
+          <p className="text-xs text-muted-foreground">
+            Setting your child&apos;s info helps personalize milestones, activities, and tracking.
+          </p>
+          <div className="grid gap-4 text-sm">
+            <div className="space-y-1.5">
+              <label htmlFor="child-name" className="text-sm font-medium">
+                Child&apos;s name
+              </label>
+              <input
+                id="child-name"
+                type="text"
+                value={childName}
+                onChange={(e) => setProfile({ childName: e.target.value })}
+                placeholder="Enter name"
+                className="flex h-9 w-full rounded-lg border bg-background px-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
+              />
+            </div>
+            <div className="space-y-1.5">
+              <label htmlFor="child-age" className="text-sm font-medium">
+                Age in months
+              </label>
+              <div className="flex items-center gap-3">
+                <input
+                  id="child-age"
+                  type="range"
+                  min={0}
+                  max={72}
+                  value={childAgeMonths ?? 18}
+                  onChange={(e) =>
+                    setProfile({ childAgeMonths: Number(e.target.value) })
+                  }
+                  className="flex-1 accent-primary"
+                />
+                <div className="text-center min-w-[70px]">
+                  <span className="font-heading text-xl font-bold text-primary">
+                    {childAgeMonths ?? 18}
+                  </span>
+                  <span className="text-xs text-muted-foreground block">
+                    months
+                    {(childAgeMonths ?? 18) >= 12 &&
+                      ` (${Math.floor((childAgeMonths ?? 18) / 12)}y ${(childAgeMonths ?? 18) % 12}m)`}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Subscription */}
       <section className="rounded-xl border bg-card p-6 space-y-4">

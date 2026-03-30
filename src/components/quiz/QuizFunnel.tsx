@@ -4,6 +4,7 @@ import { useState, useCallback } from "react";
 import { ArrowRight, CheckCircle2, Mail } from "lucide-react";
 import type { QuizFunnelData, QuizResultBand } from "@/types/content";
 import type { RiskLevel } from "@/types";
+import { QuizResultsPrintable } from "./QuizResultsPrintable";
 
 type Stage = "intro" | "questions" | "email" | "results";
 
@@ -227,6 +228,14 @@ export function QuizFunnel({ quiz, onComplete }: QuizFunnelProps) {
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
+
+          <QuizResultsPrintable
+            quizTitle={quiz.title}
+            score={totalScore}
+            maxScore={quiz.questions.length * Math.max(...quiz.questions.flatMap(q => q.options.map(o => o.value)))}
+            result={result}
+            dateCompleted={new Date().toLocaleDateString()}
+          />
 
           <p className="text-xs text-muted-foreground text-center italic">
             This screening is for educational purposes only and does not

@@ -16,6 +16,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { milestones } from "@/data/milestones";
+import { useMilestoneTracker } from "@/lib/stores/milestone-tracker";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion";
 
 const SECTION_CONFIG = [
@@ -52,6 +53,7 @@ const SECTION_CONFIG = [
 export default function MilestonesPage() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selected = milestones[selectedIndex];
+  const { toggle, isChecked } = useMilestoneTracker();
 
   return (
     <div className="max-w-4xl space-y-6">
@@ -115,35 +117,50 @@ export default function MilestonesPage() {
 
                 <div className="mt-2 space-y-2 pl-2">
                   <StaggerChildren>
-                    {items.map((item, idx) => (
-                      <StaggerItem key={idx}>
-                        <div className="rounded-lg border bg-card/50 p-4">
-                          <div className="flex items-start gap-3">
-                            <CheckCircle2
-                              className={`mt-0.5 h-4 w-4 shrink-0 ${section.iconColor}`}
-                            />
-                            <div className="flex-1 min-w-0 space-y-1.5">
-                              <h3 className="font-heading text-sm font-semibold">
-                                {item.skill}
-                              </h3>
-                              <p className="text-xs text-muted-foreground leading-relaxed">
-                                {item.description}
-                              </p>
-                              {item.example && (
-                                <div className="rounded-md bg-muted/50 px-3 py-2">
-                                  <p className="text-xs text-muted-foreground italic">
-                                    <span className="not-italic font-medium text-foreground/70">
-                                      Example:{" "}
-                                    </span>
-                                    {item.example}
-                                  </p>
-                                </div>
-                              )}
+                    {items.map((item, idx) => {
+                      const milestoneId = `${selected.id}-${section.key}-${idx}`;
+                      const checked = isChecked(milestoneId);
+                      return (
+                        <StaggerItem key={idx}>
+                          <div
+                            className={`rounded-lg border p-4 transition-colors cursor-pointer ${checked ? "bg-sage-50 border-sage-200" : "bg-card/50"}`}
+                            onClick={() => toggle(milestoneId)}
+                          >
+                            <div className="flex items-start gap-3">
+                              <div
+                                className={`mt-0.5 h-5 w-5 shrink-0 rounded-md border-2 flex items-center justify-center transition-colors ${
+                                  checked
+                                    ? "bg-sage-500 border-sage-500 text-white"
+                                    : "border-muted-foreground/30"
+                                }`}
+                              >
+                                {checked && (
+                                  <CheckCircle2 className="h-3.5 w-3.5" />
+                                )}
+                              </div>
+                              <div className="flex-1 min-w-0 space-y-1.5">
+                                <h3 className="font-heading text-sm font-semibold">
+                                  {item.skill}
+                                </h3>
+                                <p className="text-xs text-muted-foreground leading-relaxed">
+                                  {item.description}
+                                </p>
+                                {item.example && (
+                                  <div className="rounded-md bg-muted/50 px-3 py-2">
+                                    <p className="text-xs text-muted-foreground italic">
+                                      <span className="not-italic font-medium text-foreground/70">
+                                        Example:{" "}
+                                      </span>
+                                      {item.example}
+                                    </p>
+                                  </div>
+                                )}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </StaggerItem>
-                    ))}
+                        </StaggerItem>
+                      );
+                    })}
                   </StaggerChildren>
                 </div>
               </details>

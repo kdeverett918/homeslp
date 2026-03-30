@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Stethoscope, Printer, CheckSquare, ArrowRight, FileText, Shield } from "lucide-react";
 import { concerns, questionsToAsk, parentRights } from "@/data/doctor-prep";
 import { useChildProfile } from "@/lib/stores/child-profile";
+import { PrintControls } from "@/components/ui/print-controls";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion";
 
 export default function DoctorPrepPage() {
@@ -26,9 +27,7 @@ export default function DoctorPrepPage() {
       <div className="max-w-2xl space-y-6">
         <div className="flex items-center justify-between">
           <button onClick={() => setShowSummary(false)} className="text-sm text-muted-foreground hover:text-foreground">&larr; Back</button>
-          <button onClick={() => window.print()} className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90">
-            <Printer className="w-4 h-4" /> Print This
-          </button>
+          <PrintControls targetId="doctor-prep-print" />
         </div>
 
         {/* Printable summary */}

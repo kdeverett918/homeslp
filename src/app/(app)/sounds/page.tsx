@@ -92,6 +92,9 @@ export default function SoundsPage() {
                   {s.commonSubstitutions.length > 0 && (
                     <p className="text-[10px] text-muted-foreground">Kids often say: {s.commonSubstitutions.join(", ")}</p>
                   )}
+                  {s.parentNote && (
+                    <p className="text-[10px] text-muted-foreground/80 italic border-t border-dashed pt-1.5 mt-1.5">{s.parentNote}</p>
+                  )}
                 </div>
               </StaggerItem>
             ))}

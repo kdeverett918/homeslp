@@ -6,6 +6,7 @@ import { useWordTracker } from "@/lib/stores/word-tracker";
 import { useMilestoneTracker } from "@/lib/stores/milestone-tracker";
 import { milestones } from "@/data/milestones";
 import { wordNorms, getNormForAge } from "@/data/word-norms";
+import { PrintControls } from "@/components/ui/print-controls";
 import { FadeIn } from "@/components/motion";
 
 export default function ReportPage() {
@@ -36,9 +37,7 @@ export default function ReportPage() {
             </div>
             <p className="mt-1.5 text-muted-foreground">A printable summary to bring to your SLP or pediatrician appointment.</p>
           </div>
-          <button onClick={() => window.print()} className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90">
-            <Printer className="w-4 h-4" /> Print
-          </button>
+          <PrintControls targetId="slp-report" />
         </div>
       </FadeIn>
 
