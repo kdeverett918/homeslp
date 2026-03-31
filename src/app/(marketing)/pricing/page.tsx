@@ -15,9 +15,9 @@ const faqItems = [
       "Yes, a credit card is required to start the trial, but you won't be charged during the 7-day trial period. Cancel anytime during the trial with no charge.",
   },
   {
-    question: "Can I access both child and adult content?",
+    question: "Who is HomeSLP for?",
     answer:
-      "Yes! Your subscription includes both paths. You can switch between them anytime in your settings.",
+      "HomeSLP is now focused on children. The membership is built for parents and family members who want research-backed guidance for speech, language, play, feeding, behavior, and developmental milestones.",
   },
   {
     question: "What happens when I cancel?",
@@ -66,18 +66,18 @@ export default function PricingPage() {
 
               <ul className="space-y-3 text-left text-sm">
                 {[
-                  "Weekly expert-guided blueprints (both paths)",
+                  "Weekly expert-guided child-development blueprints",
                   "Curated video library with SLP commentary",
                   "Printable refrigerator activity cards",
-                  "4-week structured roadmap for parents or caregivers",
-                  "IDDSI texture-modified recipe library",
+                  "Daily parent-friendly tips for routines at home",
+                  "Milestones across speech, language, play, feeding, and behavior",
                   "Printable handouts and home practice sheets",
                   "Curated SLP resource library",
                   "Interactive learning games",
-                  "Parent and caregiver community access",
+                  "Parent community access",
                   "Progress tracking with streaks and milestones",
                   "Content library growing regularly",
-                  "Switch between child and adult paths anytime",
+                  "Research standards and escalation guidance",
                 ].map((feature) => (
                   <li key={feature} className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-sage-500 shrink-0 mt-0.5" />
@@ -86,12 +86,8 @@ export default function PricingPage() {
                 ))}
               </ul>
 
-              <p className="text-[10px] text-muted-foreground mt-2">
-                IDDSI framework &copy; The International Dysphagia Diet Standardisation Initiative.
-              </p>
-
               <Link
-                href="/signup"
+                href="/signup?path=child"
                 className="block w-full rounded-xl bg-primary px-6 py-4 text-center text-lg font-medium text-primary-foreground shadow-warm-sm transition-colors hover:bg-primary/90"
               >
                 Start Your Free Trial

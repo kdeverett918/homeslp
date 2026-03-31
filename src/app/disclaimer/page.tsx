@@ -41,26 +41,23 @@ export default function DisclaimerPage() {
           The educational strategies, activities, and resources on HomeSLP are
           designed to supplement — not replace — professional speech-language
           pathology services. If you have concerns about speech, language,
-          swallowing, or cognitive-communication, please seek evaluation from a
+          feeding, or developmental milestones, please seek evaluation from a
           licensed Speech-Language Pathologist in your area.
         </p>
 
         <h2 className="font-heading text-xl font-semibold mt-8">
-          Swallowing Safety Warning
+          Feeding Safety Warning
         </h2>
         <div className="rounded-xl border-2 border-red-200 bg-red-50 p-6">
           <p className="text-red-800 font-medium">
-            If your loved one is choking, having difficulty breathing, or
-            showing signs of aspiration (wet/gurgly voice after eating,
-            unexplained fever, recurrent pneumonia), seek immediate medical
-            attention. Call 911 for emergencies.
+            If your child is choking, having difficulty breathing, turning blue,
+            or showing signs of a serious feeding or swallowing emergency, seek
+            immediate medical attention. Call 911 for emergencies.
           </p>
           <p className="text-red-700 mt-3">
-            <strong>Never change a prescribed diet level</strong> (IDDSI level)
-            without clearance from a physician or evaluating Speech-Language
-            Pathologist following an instrumental swallowing study. Altering a
-            prescribed diet without medical guidance can result in aspiration,
-            pneumonia, or death.
+            If your child has been given a specific feeding or texture plan by
+            their medical team, follow that plan and speak with the prescribing
+            clinician before making major changes.
           </p>
         </div>
 
@@ -69,7 +66,7 @@ export default function DisclaimerPage() {
         </h2>
         <p className="text-muted-foreground">
           Any screening tools or quizzes on this platform (including the Speech
-          Milestones Check and Swallow Safety Check) are for educational
+          Milestones Check and other quick checks) are for educational
           self-monitoring purposes only. They are NOT diagnostic instruments.
           Results should be shared with your healthcare provider and do not
           constitute a clinical evaluation.
@@ -79,10 +76,10 @@ export default function DisclaimerPage() {
           Community Forum
         </h2>
         <p className="text-muted-foreground">
-          Posts in the community forum are from other parents and caregivers, not
-          medical professionals. Never make medical decisions based on community
-          advice. If you are unsure about any recommendation, consult your
-          healthcare provider.
+          Posts in the community forum are from other parents and family members,
+          not medical professionals. Never make medical decisions based on
+          community advice. If you are unsure about any recommendation, consult
+          your healthcare provider.
         </p>
 
         <h2 className="font-heading text-xl font-semibold mt-8">
@@ -96,24 +93,6 @@ export default function DisclaimerPage() {
           effectively.
         </p>
 
-        <h2 className="font-heading text-xl font-semibold mt-8">
-          IDDSI Content
-        </h2>
-        <p className="text-muted-foreground">
-          IDDSI-related content on this platform is IDDSI-informed original
-          content. IDDSI Framework &copy; The International Dysphagia Diet
-          Standardisation Initiative 2016. This is not the official IDDSI
-          website. Visit{" "}
-          <a
-            href="https://iddsi.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary underline"
-          >
-            iddsi.org
-          </a>{" "}
-          for official resources.
-        </p>
       </div>
     </div>
   );

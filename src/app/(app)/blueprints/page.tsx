@@ -3,10 +3,8 @@ import Link from "next/link";
 import { BookOpen, Lock, Play } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
-import { BETA_MODE } from "@/lib/beta";
+import { getBetaModeServer } from "@/lib/beta-server";
 import { pediatricBlueprints } from "@/data/blueprints/pediatric";
-import { adultBlueprints } from "@/data/blueprints/adult";
-import { cookies } from "next/headers";
 
 export const dynamic = "force-dynamic";
 
@@ -15,13 +13,10 @@ export const metadata: Metadata = {
 };
 
 export default async function BlueprintsPage() {
-  let activePath = "child";
+  const betaMode = await getBetaModeServer();
   let subStatus: string | null = "active";
 
-  if (BETA_MODE) {
-    const cookieStore = await cookies();
-    activePath = cookieStore.get("homeslp-beta-path")?.value ?? "child";
-  } else {
+  if (!betaMode) {
     const supabase = await createClient();
     if (!supabase) redirect("/login");
 
@@ -33,7 +28,7 @@ export default async function BlueprintsPage() {
       .select("active_path")
       .eq("id", user.id)
       .single();
-    activePath = profile?.active_path ?? "child";
+    if (!profile?.active_path) redirect("/choose");
 
     const { data: subscription } = await supabase
       .from("subscriptions")
@@ -43,25 +38,20 @@ export default async function BlueprintsPage() {
     subStatus = subscription?.status ?? null;
   }
 
-  const isChild = activePath === "child";
-  const blueprints = isChild ? pediatricBlueprints : adultBlueprints;
-  const isPaid = BETA_MODE || subStatus === "active" || subStatus === "trialing";
-  const isFullAccess = BETA_MODE || subStatus === "active";
+  const blueprints = pediatricBlueprints;
+  const isPaid = betaMode || subStatus === "active" || subStatus === "trialing";
+  const isFullAccess = betaMode || subStatus === "active";
 
   return (
     <div className="max-w-4xl space-y-6">
       <div>
         <h1 className="font-heading text-2xl font-bold">Weekly Blueprints</h1>
-        <p className="mt-1 text-muted-foreground">
-          {isChild
-            ? "Your 8-week speech development roadmap"
-            : "Your 8-week caregiver support roadmap"}
-        </p>
+        <p className="mt-1 text-muted-foreground">Your child-development learning roadmap</p>
       </div>
 
       <div className="space-y-4">
         {blueprints.map((bp) => {
-          const isAccessible = BETA_MODE || (bp.accessTier === "trial" ? isPaid : bp.accessTier === "paid" ? isFullAccess : true);
+          const isAccessible = betaMode || (bp.accessTier === "trial" ? isPaid : bp.accessTier === "paid" ? isFullAccess : true);
 
           return (
             <Link
@@ -70,7 +60,7 @@ export default async function BlueprintsPage() {
               className={`block rounded-xl border bg-card p-6 transition-all ${isAccessible ? "hover:shadow-warm-md hover:border-primary/30" : "opacity-60 cursor-default"}`}
             >
               <div className="flex items-start gap-4">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center shrink-0 ${isChild ? "bg-rose-100" : "bg-sage-100"}`}>
+                <div className="h-14 w-14 shrink-0 rounded-xl bg-rose-100 flex items-center justify-center">
                   <span className="font-heading text-lg font-bold">W{bp.weekNumber}</span>
                 </div>
                 <div className="flex-1 min-w-0">

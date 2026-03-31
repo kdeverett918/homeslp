@@ -1,23 +1,11 @@
-"use client";
-
 import Link from "next/link";
 import {
-  Baby,
-  BookOpen,
-  CalendarCheck,
-  FileText,
   Heart,
-  Home,
-  Library,
-  Newspaper,
-  Search,
   Settings,
-  Stethoscope,
-  TrendingUp,
-  Zap,
 } from "lucide-react";
 import { AppProviders } from "@/components/providers";
 import { ActiveBottomNavLink, ActiveNavLink } from "@/components/ui/active-nav-link";
+import { getBetaModeServer } from "@/lib/beta-server";
 
 function NavSectionHeader({ children }: { children: React.ReactNode }) {
   return (
@@ -44,13 +32,13 @@ const navSections = [
     items: [
       {
         href: "/dashboard",
-        icon: Home,
+        icon: "home",
         label: "Today",
         description: "Your tip, milestone snapshot, and next best action.",
       },
       {
         href: "/check-in",
-        icon: CalendarCheck,
+        icon: "calendar-check",
         label: "Weekly pulse",
         description: "Notice small changes and build confidence over time.",
       },
@@ -61,25 +49,25 @@ const navSections = [
     items: [
       {
         href: "/milestones",
-        icon: Baby,
+        icon: "baby",
         label: "Milestones",
         description: "Age-based guidance across speech, language, social, and feeding.",
       },
       {
         href: "/check",
-        icon: Search,
+        icon: "search",
         label: "Quick check",
         description: "Screen concerns and organize what you are noticing.",
       },
       {
         href: "/blueprints",
-        icon: BookOpen,
+        icon: "book-open",
         label: "Learning plans",
         description: "Weekly coaching for what to model and why it matters.",
       },
       {
         href: "/blog",
-        icon: Newspaper,
+        icon: "newspaper",
         label: "Articles",
         description: "Evidence-based reads on speech, language, and development.",
       },
@@ -90,19 +78,19 @@ const navSections = [
     items: [
       {
         href: "/activities",
-        icon: Zap,
+        icon: "zap",
         label: "Daily ideas",
         description: "Routine-based activities you can use right away.",
       },
       {
         href: "/handouts",
-        icon: FileText,
+        icon: "file-text",
         label: "Printables",
         description: "Fridge-ready reminders, handouts, and carryover sheets.",
       },
       {
         href: "/resources",
-        icon: Library,
+        icon: "library",
         label: "Trusted resources",
         description: "Clinician-reviewed creators, communities, and guides.",
       },
@@ -113,25 +101,25 @@ const navSections = [
     items: [
       {
         href: "/progress",
-        icon: TrendingUp,
+        icon: "trending-up",
         label: "Progress",
         description: "Track wins, concerns, and what has changed.",
       },
       {
         href: "/doctor-prep",
-        icon: Stethoscope,
+        icon: "stethoscope",
         label: "Visit prep",
         description: "Turn observations into a clearer pediatrician or SLP conversation.",
       },
       {
         href: "/settings",
-        icon: Settings,
+        icon: "settings",
         label: "Profile & plan",
-        description: "Update your path, billing, and saved details.",
+        description: "Update your child's details, billing, and saved preferences.",
       },
     ],
   },
-];
+] as const;
 
 const exploreLinks = [
   { href: "/sounds", label: "Sounds" },
@@ -141,17 +129,18 @@ const exploreLinks = [
   { href: "/between-sessions", label: "Between sessions" },
   { href: "/community", label: "Community" },
   { href: "/report", label: "SLP report" },
-  { href: "/recipes", label: "Recipes" },
   { href: "/homeschool", label: "Homeschool" },
 ];
 
-export default function AppLayout({
+export default async function AppLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const betaMode = await getBetaModeServer();
+
   return (
-    <AppProviders>
+    <AppProviders betaMode={betaMode}>
       <div className="min-h-screen bg-transparent lg:grid lg:grid-cols-[300px_minmax(0,1fr)]">
         <aside className="hidden border-r border-border/70 bg-white/35 px-4 py-4 backdrop-blur-xl lg:flex lg:flex-col">
           <div className="guide-surface p-5">
@@ -175,6 +164,14 @@ export default function AppLayout({
                 <p className="mt-2 text-sm leading-7 text-muted-foreground">
                   Start with what matters today, then move into milestones, practice, and support.
                 </p>
+                {betaMode ? (
+                  <Link
+                    href="/beta"
+                    className="mt-4 inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-primary"
+                  >
+                    Preview Access Enabled
+                  </Link>
+                ) : null}
               </div>
             </div>
           </div>
@@ -227,12 +224,22 @@ export default function AppLayout({
                 </span>
               </Link>
 
-              <Link
-                href="/settings"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-white/70 text-foreground shadow-warm-sm"
-              >
-                <Settings className="h-4.5 w-4.5" />
-              </Link>
+              <div className="flex items-center gap-2">
+                {betaMode ? (
+                  <Link
+                    href="/beta"
+                    className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-primary"
+                  >
+                    Preview
+                  </Link>
+                ) : null}
+                <Link
+                  href="/settings"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-white/70 text-foreground shadow-warm-sm"
+                >
+                  <Settings className="h-4.5 w-4.5" />
+                </Link>
+              </div>
             </div>
 
             <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
@@ -258,11 +265,11 @@ export default function AppLayout({
 
           <nav className="fixed inset-x-0 bottom-0 z-30 border-t border-border/70 bg-background/88 px-3 py-2 backdrop-blur-xl lg:hidden">
             <div className="mx-auto grid max-w-3xl grid-cols-5 gap-2">
-              <ActiveBottomNavLink href="/dashboard" icon={Home} label="Today" />
-              <ActiveBottomNavLink href="/milestones" icon={Baby} label="Milestones" />
-              <ActiveBottomNavLink href="/check" icon={Search} label="Check" />
-              <ActiveBottomNavLink href="/activities" icon={Zap} label="Ideas" />
-              <ActiveBottomNavLink href="/resources" icon={Library} label="Library" />
+              <ActiveBottomNavLink href="/dashboard" icon="home" label="Today" />
+              <ActiveBottomNavLink href="/milestones" icon="baby" label="Milestones" />
+              <ActiveBottomNavLink href="/check" icon="search" label="Check" />
+              <ActiveBottomNavLink href="/activities" icon="zap" label="Ideas" />
+              <ActiveBottomNavLink href="/resources" icon="library" label="Library" />
             </div>
           </nav>
         </div>

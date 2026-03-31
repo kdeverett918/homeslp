@@ -4,11 +4,17 @@ import { AuthProvider } from "@/components/auth/AuthProvider";
 import { SubscriptionProvider } from "@/components/subscription/SubscriptionProvider";
 import { PathProvider } from "@/components/path/PathProvider";
 
-export function AppProviders({ children }: { children: React.ReactNode }) {
+export function AppProviders({
+  children,
+  betaMode,
+}: {
+  children: React.ReactNode;
+  betaMode: boolean;
+}) {
   return (
-    <AuthProvider>
-      <SubscriptionProvider>
-        <PathProvider>{children}</PathProvider>
+    <AuthProvider betaMode={betaMode}>
+      <SubscriptionProvider betaMode={betaMode}>
+        <PathProvider betaMode={betaMode}>{children}</PathProvider>
       </SubscriptionProvider>
     </AuthProvider>
   );

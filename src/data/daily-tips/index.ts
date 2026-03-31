@@ -6,7 +6,7 @@ export interface DailyTip {
   ageRangeStart: number;
   ageRangeEnd: number;
   context: "mealtime" | "bath" | "play" | "bedtime" | "errands" | "anytime";
-  path: "child" | "adult";
+  path: "child";
 }
 
 export const dailyTips: DailyTip[] = [

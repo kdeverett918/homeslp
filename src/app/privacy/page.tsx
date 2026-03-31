@@ -17,7 +17,7 @@ export default function PrivacyPage() {
         <p>We collect information you provide directly:</p>
         <ul className="list-disc pl-6 space-y-1 text-muted-foreground">
           <li>Account information (name, email address, password)</li>
-          <li>Profile preferences (content path selection, optional child name/age)</li>
+          <li>Profile preferences (optional child name/age and saved settings)</li>
           <li>Payment information (processed securely by Stripe; we do not store card details)</li>
           <li>Quiz responses and email from lead capture forms</li>
           <li>Community forum posts and replies</li>
@@ -51,10 +51,10 @@ export default function PrivacyPage() {
 
         <h2 className="font-heading text-xl font-semibold mt-8">5. COPPA Compliance</h2>
         <p className="text-muted-foreground">
-          HomeSLP is designed for adult users (parents and caregivers). Children
-          do not create accounts or directly interact with the platform. Optional
-          child profile information (name, age) is provided by the parent for
-          content personalization purposes only.
+          HomeSLP is designed for adult users supporting children. Children do not
+          create accounts or directly interact with the platform. Optional child
+          profile information (name, age) is provided by the parent for content
+          personalization purposes only.
         </p>
 
         <h2 className="font-heading text-xl font-semibold mt-8">6. Nevada Privacy Rights</h2>

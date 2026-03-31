@@ -1,11 +1,12 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
+import { BETA_PREVIEW_COOKIE, isBetaModeEnabled } from "@/lib/beta";
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
 
   // Beta mode: skip all auth checks
-  if (process.env.NEXT_PUBLIC_BETA_MODE === "true") {
+  if (isBetaModeEnabled(request.cookies.get(BETA_PREVIEW_COOKIE)?.value)) {
     return supabaseResponse;
   }
 
@@ -42,7 +43,6 @@ export async function updateSession(request: NextRequest) {
   const isAppRoute = request.nextUrl.pathname.startsWith('/dashboard') ||
     request.nextUrl.pathname.startsWith('/blueprints') ||
     request.nextUrl.pathname.startsWith('/library') ||
-    request.nextUrl.pathname.startsWith('/recipes') ||
     request.nextUrl.pathname.startsWith('/exercises') ||
     request.nextUrl.pathname.startsWith('/games') ||
     request.nextUrl.pathname.startsWith('/screening') ||

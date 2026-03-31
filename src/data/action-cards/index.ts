@@ -8,7 +8,7 @@ export interface ActionCard {
   ageRangeEnd: number;
   context: "mealtime" | "bath" | "play" | "bedtime" | "errands" | "anytime";
   estimatedMinutes: number;
-  path: "child" | "adult";
+  path: "child";
 }
 
 export const actionCards: ActionCard[] = [

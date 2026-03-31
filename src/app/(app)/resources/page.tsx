@@ -1,7 +1,15 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Library, ExternalLink, Play, Star } from "lucide-react";
+import {
+  ExternalLink,
+  Library,
+  Microscope,
+  Play,
+  ShieldCheck,
+  Star,
+  Users,
+} from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
 import { FilterPills } from "@/components/ui/filter-pills";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion";
@@ -27,7 +35,10 @@ const TOPICS = [
   "apraxia",
   "feeding",
   "bilingual",
+  "autism",
+  "stuttering",
   "general",
+  "toddler-activities",
   "parent-support",
 ] as const;
 
@@ -58,6 +69,32 @@ const platformLabels: Record<ResourcePlatform, string> = {
   podcast: "Podcast",
 };
 
+const platformSignals: Record<
+  ResourcePlatform,
+  { label: string; note: string }
+> = {
+  youtube: {
+    label: "Best for guided demonstrations",
+    note: "Useful for seeing technique modeled. Still pair what you watch with your child’s actual developmental stage.",
+  },
+  instagram: {
+    label: "Best for quick clinician tips",
+    note: "Helpful for short reminders and parent education, but not a substitute for individualized clinical advice.",
+  },
+  tiktok: {
+    label: "Best for quick idea capture",
+    note: "Use for simple prompts and myth-busting, then verify anything high-stakes with a licensed professional.",
+  },
+  facebook: {
+    label: "Best for community support",
+    note: "Strong for emotional support and shared experience. Care decisions should still come from your child’s care team.",
+  },
+  podcast: {
+    label: "Best for deeper context",
+    note: "Great for parents who want more nuance, especially on milestones, language development, and advocacy.",
+  },
+};
+
 export default function ResourcesPage() {
   const [platform, setPlatform] = useState<PlatformFilter>("all");
   const [topic, setTopic] = useState<TopicFilter>("all");
@@ -72,13 +109,54 @@ export default function ResourcesPage() {
   }, [platform, topic]);
 
   return (
-    <div className="max-w-3xl space-y-6">
+    <div className="max-w-5xl space-y-6">
       <FadeIn>
         <PageHeader
           icon={Library}
-          title="SLP Resource Library"
-          subtitle="Curated by a licensed SLP — creators, communities, and content we trust."
+          title="Trusted Resource Library"
+          subtitle="Clinician-curated creators, communities, and educational resources that can support parents between visits."
         />
+      </FadeIn>
+
+      <FadeIn delay={0.05}>
+        <div className="guide-surface p-5">
+          <div className="relative z-10 grid gap-4 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div className="space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                How this library is reviewed
+              </p>
+              <p className="text-sm leading-7 text-muted-foreground">
+                Parents often need one safe place to start. We review resources for clinical
+                accuracy, usefulness, and whether the content stays within appropriate educational
+                boundaries.
+              </p>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-3">
+              <div className="soft-panel p-4">
+                <Microscope className="h-5 w-5 text-primary" />
+                <p className="mt-3 text-sm font-semibold text-foreground">Evidence-aware</p>
+                <p className="mt-1 text-xs leading-6 text-muted-foreground">
+                  We prefer resources that align with current pediatric and SLP guidance.
+                </p>
+              </div>
+              <div className="soft-panel p-4">
+                <ShieldCheck className="h-5 w-5 text-primary" />
+                <p className="mt-3 text-sm font-semibold text-foreground">Clearly framed</p>
+                <p className="mt-1 text-xs leading-6 text-muted-foreground">
+                  We note when a resource is best used for ideas, education, or community support.
+                </p>
+              </div>
+              <div className="soft-panel p-4">
+                <Users className="h-5 w-5 text-primary" />
+                <p className="mt-3 text-sm font-semibold text-foreground">Parent usable</p>
+                <p className="mt-1 text-xs leading-6 text-muted-foreground">
+                  We bias toward resources parents can actually use in real routines and decisions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </FadeIn>
 
       {/* Platform filter */}
@@ -107,12 +185,10 @@ export default function ResourcesPage() {
 
       {/* Educational preamble */}
       <FadeIn delay={0.2}>
-        <div className="rounded-xl bg-sage-50 border border-sage-200 p-4 text-sm leading-relaxed text-sage-800">
-          <strong>Why this list?</strong> Social media is full of speech-language
-          advice — some great, some misleading. Every resource here has been
-          reviewed by a licensed SLP for accuracy, helpfulness, and alignment
-          with current evidence. These creators and communities supplement (never
-          replace) professional therapy.
+        <div className="field-note p-4 text-sm leading-relaxed text-foreground">
+          <strong>How to use this page:</strong> Think of this as a curated starter map. Some
+          resources are strongest for demonstrations, some for longer explanations, and some for
+          parent community. None of them replace direct evaluation or treatment.
         </div>
       </FadeIn>
 
@@ -139,7 +215,8 @@ export default function ResourcesPage() {
         <StaggerChildren className="grid gap-4 sm:grid-cols-2">
           {filtered.map((resource) => (
             <StaggerItem key={resource.id}>
-              <div className="rounded-xl border bg-card p-5 space-y-3 hover:shadow-warm-sm hover:border-primary/30 transition-all h-full flex flex-col">
+              <div className="guide-surface h-full p-5">
+                <div className="relative z-10 flex h-full flex-col space-y-3">
                 {/* Header: platform badge + staff pick */}
                 <div className="flex items-center justify-between gap-2">
                   <span
@@ -153,7 +230,7 @@ export default function ResourcesPage() {
                   {resource.isStaffPick && (
                     <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-700">
                       <Star className="w-3 h-3 fill-amber-500" />
-                      Editor's Pick
+                      Editor&apos;s Pick
                     </span>
                   )}
                 </div>
@@ -171,9 +248,18 @@ export default function ResourcesPage() {
                 </div>
 
                 {/* Description */}
-                <p className="text-sm leading-relaxed text-muted-foreground flex-1">
+                <p className="flex-1 text-sm leading-relaxed text-muted-foreground">
                   {resource.description}
                 </p>
+
+                <div className="soft-panel p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                    {platformSignals[resource.platform].label}
+                  </p>
+                  <p className="mt-2 text-xs leading-6 text-muted-foreground">
+                    {platformSignals[resource.platform].note}
+                  </p>
+                </div>
 
                 {/* Topic tags */}
                 <div className="flex flex-wrap gap-1.5">
@@ -209,6 +295,7 @@ export default function ResourcesPage() {
                 >
                   Visit <ExternalLink className="w-3.5 h-3.5" />
                 </a>
+                </div>
               </div>
             </StaggerItem>
           ))}

@@ -2,7 +2,7 @@
 
 import { Suspense, useState } from "react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { Heart, Loader2, CheckCircle2 } from "lucide-react";
 
@@ -14,8 +14,6 @@ function SignupForm() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const pathParam = searchParams.get("path");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,7 +31,7 @@ function SignupForm() {
       options: {
         data: {
           display_name: name,
-          active_path: pathParam,
+          active_path: "child",
         },
         emailRedirectTo: `${window.location.origin}/auth/callback`,
       },
@@ -45,9 +43,7 @@ function SignupForm() {
       return;
     }
 
-    // If path was pre-selected from landing page, go to dashboard
-    // Otherwise, go to path chooser
-    router.push(pathParam ? "/dashboard" : "/choose");
+    router.push("/choose");
     router.refresh();
   };
 

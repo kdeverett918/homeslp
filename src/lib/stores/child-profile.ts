@@ -6,7 +6,7 @@ import { persist } from "zustand/middleware";
 interface ChildProfile {
   childName: string;
   childAgeMonths: number | null;
-  path: "child" | "adult" | null;
+  path: "child" | null;
 }
 
 interface ChildProfileStore extends ChildProfile {

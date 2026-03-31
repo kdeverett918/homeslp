@@ -4,12 +4,9 @@ import { useState } from "react";
 import { LayoutGrid, Play, Lightbulb, Clock } from "lucide-react";
 import { FadeIn, StaggerChildren, StaggerItem, ScaleOnHover } from "@/components/motion";
 import { WordFinder } from "@/components/games/word-finder";
-import { usePath } from "@/components/path/PathProvider";
 
 export default function GamesPage() {
   const [activeGame, setActiveGame] = useState<string | null>(null);
-  const { isChild, isAdult } = usePath();
-  const wordFinderMode = isAdult ? "adult" : "child";
 
   if (activeGame === "word-finder") {
     return (
@@ -17,7 +14,7 @@ export default function GamesPage() {
         <button onClick={() => setActiveGame(null)} className="text-sm text-muted-foreground hover:text-foreground">
           &larr; Back to games
         </button>
-        <WordFinder mode={wordFinderMode} />
+        <WordFinder />
       </div>
     );
   }
@@ -42,7 +39,7 @@ export default function GamesPage() {
               <div className="flex-1">
                 <h3 className="font-heading font-semibold">Word Finder</h3>
                 <p className="text-xs text-muted-foreground mt-1">
-                  Match words to their meanings. {wordFinderMode === "child" ? "Kid-friendly vocabulary for young learners." : "Clinical SLP vocabulary and terminology."}
+                  Match words to their meanings with kid-friendly vocabulary for young learners.
                 </p>
               </div>
               <div className="flex items-center justify-between">

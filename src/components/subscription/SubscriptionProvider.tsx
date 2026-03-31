@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState, useCallback } from "react";
 import { createClient } from "@/lib/supabase/client";
-import { BETA_MODE, SUPABASE_CONFIGURED } from "@/lib/beta";
+import { SUPABASE_CONFIGURED } from "@/lib/beta";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { getUserTier, getTrialDaysLeft, canAccess as checkAccess } from "@/lib/content-gating";
 import type { Subscription, SubscriptionStatus, AccessTier } from "@/types";
@@ -31,15 +31,21 @@ const SubscriptionContext = createContext<SubscriptionContextType>({
   refresh: async () => {},
 });
 
-export function SubscriptionProvider({ children }: { children: React.ReactNode }) {
+export function SubscriptionProvider({
+  children,
+  betaMode,
+}: {
+  children: React.ReactNode;
+  betaMode: boolean;
+}) {
   const { user, isAuthenticated } = useAuth();
   const [subscription, setSubscription] = useState<Subscription | null>(null);
-  const [loading, setLoading] = useState(!BETA_MODE);
+  const [loading, setLoading] = useState(!betaMode && SUPABASE_CONFIGURED);
 
   const supabase = SUPABASE_CONFIGURED ? createClient() : null;
 
-  const fetchSubscription = useCallback(async () => {
-    if (BETA_MODE || !supabase || !user?.id) {
+  const refresh = useCallback(async () => {
+    if (betaMode || !supabase || !user?.id) {
       setSubscription(null);
       setLoading(false);
       return;
@@ -53,32 +59,57 @@ export function SubscriptionProvider({ children }: { children: React.ReactNode }
 
     setSubscription(data);
     setLoading(false);
-  }, [user?.id, supabase]);
+  }, [betaMode, supabase, user]);
 
   useEffect(() => {
-    if (BETA_MODE) {
-      setLoading(false);
+    if (betaMode || !supabase) {
       return;
     }
-    if (isAuthenticated) {
-      fetchSubscription();
-    } else {
-      setSubscription(null);
-      setLoading(false);
-    }
-  }, [isAuthenticated, fetchSubscription]);
+
+    let cancelled = false;
+
+    const syncSubscription = async () => {
+      if (!isAuthenticated || !user?.id) {
+        if (!cancelled) {
+          setSubscription(null);
+          setLoading(false);
+        }
+        return;
+      }
+
+      const { data } = await supabase
+        .from("subscriptions")
+        .select("*")
+        .eq("user_id", user.id)
+        .single();
+
+      if (!cancelled) {
+        setSubscription(data);
+        setLoading(false);
+      }
+    };
+
+    void syncSubscription();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [betaMode, isAuthenticated, supabase, user]);
 
   useEffect(() => {
-    if (BETA_MODE || !supabase) return;
+    if (betaMode || !supabase) return;
+
     const handleFocus = () => {
-      if (isAuthenticated) fetchSubscription();
+      if (isAuthenticated && user?.id) {
+        void refresh();
+      }
     };
+
     window.addEventListener("focus", handleFocus);
     return () => window.removeEventListener("focus", handleFocus);
-  }, [isAuthenticated, fetchSubscription, supabase]);
+  }, [betaMode, isAuthenticated, refresh, supabase, user]);
 
-  // In beta mode, grant full access
-  if (BETA_MODE) {
+  if (betaMode) {
     return (
       <SubscriptionContext.Provider
         value={{
@@ -104,11 +135,7 @@ export function SubscriptionProvider({ children }: { children: React.ReactNode }
   const isPaid = isTrialing || isActive;
   const daysLeftInTrial = getTrialDaysLeft(subscription?.trial_end ?? null);
   const userTier = getUserTier(status);
-
-  const canAccessTier = useCallback(
-    (tier: AccessTier): boolean => checkAccess(userTier, tier),
-    [userTier]
-  );
+  const canAccessTier = (tier: AccessTier): boolean => checkAccess(userTier, tier);
 
   return (
     <SubscriptionContext.Provider
@@ -121,7 +148,7 @@ export function SubscriptionProvider({ children }: { children: React.ReactNode }
         daysLeftInTrial,
         canAccess: canAccessTier,
         loading,
-        refresh: fetchSubscription,
+        refresh,
       }}
     >
       {children}

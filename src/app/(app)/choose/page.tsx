@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { usePath } from "@/components/path/PathProvider";
-import { Baby, Heart, UserRound } from "lucide-react";
+import { ArrowRight, Baby, CheckCircle2, Heart } from "lucide-react";
 import { useState } from "react";
 
 export default function ChoosePath() {
@@ -10,87 +10,53 @@ export default function ChoosePath() {
   const { setPath } = usePath();
   const [loading, setLoading] = useState(false);
 
-  const handleChoose = async (path: "child" | "adult") => {
+  const handleContinue = async () => {
     setLoading(true);
-    await setPath(path);
-    // Also set a cookie so server components can read it in beta mode
-    document.cookie = `homeslp-beta-path=${path};path=/;max-age=31536000`;
+    await setPath("child");
     router.push("/dashboard");
     router.refresh();
   };
 
   return (
     <div className="flex min-h-[60vh] flex-col items-center justify-center px-4">
-      <div className="max-w-2xl text-center space-y-8">
-        <div>
-          <h1 className="font-heading text-3xl font-bold sm:text-4xl">
-            Who are we helping today?
-          </h1>
-          <p className="mt-3 text-muted-foreground">
-            Choose your path to get personalized content. You can switch anytime
-            in settings.
-          </p>
-        </div>
+      <div className="guide-surface max-w-3xl p-8 sm:p-10">
+        <div className="relative z-10 space-y-8 text-center">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl border border-primary/20 bg-primary/12 text-primary shadow-warm-sm">
+            <Baby className="h-8 w-8" />
+          </div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
-          <button
-            onClick={() => handleChoose("child")}
-            disabled={loading}
-            className="group rounded-2xl border-2 border-border bg-card p-8 text-left transition-all hover:border-primary hover:shadow-warm-md disabled:opacity-50"
-          >
-            <div className="w-14 h-14 rounded-xl bg-rose-100 flex items-center justify-center mb-4 group-hover:bg-rose-200 transition-colors">
-              <Baby className="w-7 h-7 text-rose-600" />
-            </div>
-            <h2 className="font-heading text-xl font-bold">My Child</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Speech delays, late talking, language development for toddlers and
-              young children.
+          <div className="space-y-3">
+            <h1 className="font-heading text-3xl font-bold sm:text-4xl">
+              Set up your child&apos;s guide
+            </h1>
+            <p className="mx-auto max-w-2xl text-base leading-8 text-muted-foreground">
+              HomeSLP is now focused entirely on children. Continue to unlock milestone
+              guidance, home activities, feeding watch-fors, language support, and parent
+              coaching built for everyday routines.
             </p>
-            <ul className="mt-4 space-y-1.5 text-xs text-muted-foreground">
-              <li className="flex items-center gap-2">
-                <Heart className="w-3 h-3 text-primary" />
-                Weekly language-building blueprints
-              </li>
-              <li className="flex items-center gap-2">
-                <Heart className="w-3 h-3 text-primary" />
-                Curated videos with SLP annotations
-              </li>
-              <li className="flex items-center gap-2">
-                <Heart className="w-3 h-3 text-primary" />
-                Printable activity cards
-              </li>
-            </ul>
-          </button>
+          </div>
+
+          <div className="grid gap-3 text-left sm:grid-cols-3">
+            {[
+              "Research-backed milestone guidance",
+              "Daily parent tips and weekly blueprints",
+              "Tools for speech, language, play, feeding, and regulation",
+            ].map((item) => (
+              <div key={item} className="soft-panel flex items-start gap-3 p-4">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <p className="text-sm leading-7 text-foreground">{item}</p>
+              </div>
+            ))}
+          </div>
 
           <button
-            onClick={() => handleChoose("adult")}
+            onClick={handleContinue}
             disabled={loading}
-            className="group rounded-2xl border-2 border-border bg-card p-8 text-left transition-all hover:border-sage-500 hover:shadow-warm-md disabled:opacity-50"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-warm-sm transition-colors hover:bg-primary/90 disabled:opacity-50"
           >
-            <div className="w-14 h-14 rounded-xl bg-sage-100 flex items-center justify-center mb-4 group-hover:bg-sage-200 transition-colors">
-              <UserRound className="w-7 h-7 text-sage-600" />
-            </div>
-            <h2 className="font-heading text-xl font-bold">
-              My Loved One (Adult)
-            </h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Stroke recovery, swallowing difficulties, communication challenges,
-              Parkinson&apos;s, TBI.
-            </p>
-            <ul className="mt-4 space-y-1.5 text-xs text-muted-foreground">
-              <li className="flex items-center gap-2">
-                <Heart className="w-3 h-3 text-sage-500" />
-                IDDSI recipe library
-              </li>
-              <li className="flex items-center gap-2">
-                <Heart className="w-3 h-3 text-sage-500" />
-                Swallowing exercise videos
-              </li>
-              <li className="flex items-center gap-2">
-                <Heart className="w-3 h-3 text-sage-500" />
-                Communication boards & tools
-              </li>
-            </ul>
+            <Heart className="h-4 w-4 fill-current" />
+            Continue to child dashboard
+            <ArrowRight className="h-4 w-4" />
           </button>
         </div>
       </div>

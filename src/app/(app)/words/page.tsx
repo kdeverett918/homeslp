@@ -90,7 +90,7 @@ export default function WordsPage() {
           )}
           {!norm && (
             <p className="mt-3 text-xs text-muted-foreground text-center">
-              Set your child's age in Settings to see how their vocabulary compares to typical ranges.
+              Set your child&apos;s age in Settings to see how their vocabulary compares to typical ranges.
             </p>
           )}
         </div>
@@ -126,7 +126,7 @@ export default function WordsPage() {
               ))}
             </div>
             <p className="text-xs text-muted-foreground">
-              Sound effects count! "Vroom", "moo", "uh-oh" are all words. So are signs and gestures if used consistently.
+              Sound effects count! &quot;Vroom&quot;, &quot;moo&quot;, &quot;uh-oh&quot; are all words. So are signs and gestures if used consistently.
             </p>
           </form>
         </FadeIn>
@@ -169,7 +169,7 @@ export default function WordsPage() {
       ) : (
         <div className="rounded-xl bg-muted/30 p-8 text-center text-sm text-muted-foreground">
           <BookOpen className="w-8 h-8 mx-auto mb-3 text-muted-foreground/50" />
-          <p>No words logged yet. Tap "Add Word" to start tracking!</p>
+          <p>No words logged yet. Tap &quot;Add Word&quot; to start tracking!</p>
           <p className="text-xs mt-2">Remember: animal sounds, sound effects, and signs all count as words.</p>
         </div>
       )}

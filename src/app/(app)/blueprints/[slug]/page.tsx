@@ -6,9 +6,8 @@ import { notFound, redirect } from "next/navigation";
 import { ArrowLeft, Download, ExternalLink, Play, Stethoscope } from "lucide-react";
 import { FadeIn } from "@/components/motion";
 import { createClient } from "@/lib/supabase/server";
-import { BETA_MODE } from "@/lib/beta";
+import { getBetaModeServer } from "@/lib/beta-server";
 import { pediatricBlueprints } from "@/data/blueprints/pediatric";
-import { adultBlueprints } from "@/data/blueprints/adult";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -16,19 +15,18 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const all = [...pediatricBlueprints, ...adultBlueprints];
-  const bp = all.find((b) => b.slug === slug);
+  const bp = pediatricBlueprints.find((b) => b.slug === slug);
   return { title: bp?.title ?? "Blueprint" };
 }
 
 export default async function BlueprintDetailPage({ params }: Props) {
+  const betaMode = await getBetaModeServer();
   const { slug } = await params;
-  const all = [...pediatricBlueprints, ...adultBlueprints];
-  const bp = all.find((b) => b.slug === slug);
+  const bp = pediatricBlueprints.find((b) => b.slug === slug);
 
   if (!bp) notFound();
 
-  if (!BETA_MODE) {
+  if (!betaMode) {
     const supabase = await createClient();
     if (!supabase) redirect("/login");
     const { data: { user } } = await supabase.auth.getUser();
@@ -45,7 +43,7 @@ export default async function BlueprintDetailPage({ params }: Props) {
       <FadeIn>
         <div>
           <div className="flex items-center gap-3 mb-3">
-            <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${bp.path === "child" ? "bg-rose-100" : "bg-sage-100"}`}>
+            <div className="h-10 w-10 rounded-lg bg-rose-100 flex items-center justify-center">
               <span className="font-heading font-bold text-sm">W{bp.weekNumber}</span>
             </div>
             <div>
@@ -123,7 +121,7 @@ export default async function BlueprintDetailPage({ params }: Props) {
           {bp.refrigeratorPdf.techniques.map((tech, i) => (
             <div key={i} className="rounded-xl border bg-card p-5 space-y-2">
               <div className="flex items-center gap-2">
-                <span className={`w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center ${bp.path === "child" ? "bg-rose-100 text-rose-600" : "bg-sage-100 text-sage-600"}`}>
+                <span className="w-6 h-6 rounded-full bg-rose-100 text-rose-600 text-xs font-bold flex items-center justify-center">
                   {i + 1}
                 </span>
                 <p className="text-sm font-medium">{tech.activityContext}</p>

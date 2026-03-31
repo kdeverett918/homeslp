@@ -15,7 +15,7 @@ export default function TermsPage() {
         <p className="text-muted-foreground">
           HomeSLP is an educational platform providing speech-language pathology
           educational content, curated media, printable resources, and community
-          features for parents and caregivers. It is created and maintained by a
+          features for parents and family members supporting children. It is created and maintained by a
           licensed Speech-Language Pathologist.
         </p>
 

@@ -12,7 +12,7 @@ export interface ParentWin {
     | "other";
   story: string;
   weeksOnPlatform: number;
-  path: "child" | "adult";
+  path: "child";
 }
 
 export const parentWins: ParentWin[] = [
@@ -330,33 +330,6 @@ export const parentWins: ParentWin[] = [
       "I used the doctor visit script from the app at our 2-year checkup and for the first time I didn't freeze when the pediatrician said 'any concerns?' I said everything I needed to say and got the referral. I felt like a different person walking out of there.",
     weeksOnPlatform: 6,
     path: "child",
-  },
-  {
-    id: "win-36",
-    childAgeMonths: 60,
-    category: "milestone",
-    story:
-      "My mom had a stroke last year and couldn't say my name for months. Yesterday she looked at me and said 'Sarah, pass the salt.' Clear as a bell. I passed the salt and neither of us said anything else but we both knew.",
-    weeksOnPlatform: 16,
-    path: "adult",
-  },
-  {
-    id: "win-37",
-    childAgeMonths: 72,
-    category: "other",
-    story:
-      "My husband has been doing the swallowing exercises every day after his radiation treatment. He ate scrambled eggs this morning. Soft, but REAL food. Not from a tube. He cried. I cried. The dog got some eggs too.",
-    weeksOnPlatform: 10,
-    path: "adult",
-  },
-  {
-    id: "win-38",
-    childAgeMonths: 55,
-    category: "social",
-    story:
-      "My dad has aphasia from his stroke and he's been so frustrated. Today he used his communication board at the coffee shop to order his own drink. The barista waited patiently and said 'one medium coffee, coming up.' Dad smiled. Actually smiled.",
-    weeksOnPlatform: 8,
-    path: "adult",
   },
   {
     id: "win-39",

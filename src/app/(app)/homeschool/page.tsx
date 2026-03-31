@@ -156,7 +156,7 @@ export default function HomeschoolPage() {
 
       <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-xs text-amber-800">
         <p className="font-medium">Important</p>
-        <p className="mt-0.5">This information describes general federal protections under IDEA and Section 504. Homeschooler protections vary significantly by state. This is not legal advice. For guidance specific to your situation, contact your state's Parent Training and Information Center (PTI) or a special education attorney.</p>
+        <p className="mt-0.5">This information describes general federal protections under IDEA and Section 504. Homeschooler protections vary significantly by state. This is not legal advice. For guidance specific to your situation, contact your state&apos;s Parent Training and Information Center (PTI) or a special education attorney.</p>
       </div>
 
       <StaggerChildren className="space-y-3">

@@ -3,33 +3,34 @@
 import { createContext, useContext, useCallback } from "react";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { createClient } from "@/lib/supabase/client";
-import { BETA_MODE, SUPABASE_CONFIGURED } from "@/lib/beta";
+import { SUPABASE_CONFIGURED } from "@/lib/beta";
 import type { ContentPath } from "@/types";
 
 interface PathContextType {
   activePath: ContentPath | null;
   setPath: (path: ContentPath) => Promise<void>;
   isChild: boolean;
-  isAdult: boolean;
 }
 
 const PathContext = createContext<PathContextType>({
   activePath: null,
   setPath: async () => {},
   isChild: false,
-  isAdult: false,
 });
 
-export function PathProvider({ children }: { children: React.ReactNode }) {
+export function PathProvider({
+  children,
+  betaMode,
+}: {
+  children: React.ReactNode;
+  betaMode: boolean;
+}) {
   const { profile, refreshProfile } = useAuth();
   const supabase = SUPABASE_CONFIGURED ? createClient() : null;
 
   const setPath = useCallback(
     async (path: ContentPath) => {
-      if (BETA_MODE) {
-        if (typeof window !== "undefined") {
-          localStorage.setItem("homeslp-beta-path", path);
-        }
+      if (betaMode) {
         await refreshProfile();
         return;
       }
@@ -40,10 +41,10 @@ export function PathProvider({ children }: { children: React.ReactNode }) {
         .eq("id", profile.id);
       await refreshProfile();
     },
-    [profile?.id, supabase, refreshProfile]
+    [betaMode, profile, supabase, refreshProfile]
   );
 
-  const activePath = profile?.active_path ?? null;
+  const activePath = profile?.active_path === "child" ? "child" : null;
 
   return (
     <PathContext.Provider
@@ -51,7 +52,6 @@ export function PathProvider({ children }: { children: React.ReactNode }) {
         activePath,
         setPath,
         isChild: activePath === "child",
-        isAdult: activePath === "adult",
       }}
     >
       {children}

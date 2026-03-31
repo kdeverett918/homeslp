@@ -35,12 +35,12 @@ export default function SoundsPage() {
           <Volume2 className="w-7 h-7 text-primary" />
           <h1 className="font-heading text-2xl font-bold sm:text-3xl">Sound Development</h1>
         </div>
-        <p className="mt-1.5 text-muted-foreground">See which speech sounds are typical at your child's age.</p>
+        <p className="mt-1.5 text-muted-foreground">See which speech sounds are typical at your child&apos;s age.</p>
       </FadeIn>
 
       <FadeIn delay={0.1}>
         <div className="rounded-xl border bg-card p-5 space-y-3">
-          <label className="text-sm font-medium">Child's age</label>
+          <label className="text-sm font-medium">Child&apos;s age</label>
           <div className="flex items-center gap-4">
             <input type="range" min={6} max={84} value={filterAge} onChange={(e) => setFilterAge(Number(e.target.value))} className="flex-1 accent-primary" />
             <div className="text-center min-w-[80px]">
@@ -103,7 +103,7 @@ export default function SoundsPage() {
       ))}
 
       <p className="text-xs text-muted-foreground text-center italic">
-        Sound development timelines are general guidelines based on research averages (Sander 1972, Shriberg 1993). Individual variation is normal and many sounds aren't expected until age 6-7. This information does not replace evaluation by a licensed speech-language pathologist.
+        Sound development timelines are general guidelines based on research averages (Sander 1972, Shriberg 1993). Individual variation is normal and many sounds aren&apos;t expected until age 6-7. This information does not replace evaluation by a licensed speech-language pathologist.
       </p>
     </div>
   );

@@ -1,9 +1,9 @@
 // Core types for HomeSLP
 
-export type ContentPath = 'child' | 'adult';
+export type ContentPath = "child";
 export type AccessTier = 'free' | 'trial' | 'paid';
 export type SubscriptionStatus = 'trialing' | 'active' | 'past_due' | 'canceled' | 'incomplete' | 'unpaid';
-export type QuizType = 'speech-milestones' | 'swallow-risk';
+export type QuizType = "speech-milestones";
 export type RiskLevel = 'low' | 'moderate' | 'high';
 export type ForumCategory = 'wins' | 'questions' | 'tips' | 'introductions';
 

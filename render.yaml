@@ -11,6 +11,8 @@ services:
       - key: NODE_ENV
         value: production
       - key: NEXT_PUBLIC_SITE_URL
+        value: https://homeslp.com
+      - key: NEXT_PUBLIC_BETA_MODE
         sync: false
       - key: NEXT_PUBLIC_SUPABASE_URL
         sync: false

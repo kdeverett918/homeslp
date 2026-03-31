@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, XCircle, RotateCcw, Trophy } from "lucide-react";
 
@@ -33,29 +33,6 @@ const PEDIATRIC_QUESTIONS: Question[] = [
   { prompt: "What does \"night\" mean?", options: ["When it's dark outside", "When it's sunny", "When it rains", "When it's windy"], correct: 0 },
 ];
 
-const ADULT_QUESTIONS: Question[] = [
-  { prompt: "Which word means 'to eat'?", options: ["Consume", "Construct", "Compute", "Compose"], correct: 0 },
-  { prompt: "What does 'swallow' mean?", options: ["To jump", "To push food/liquid to the stomach", "To breathe deeply", "To speak loudly"], correct: 1 },
-  { prompt: "Which is a body part used for speech?", options: ["Elbow", "Kneecap", "Tongue", "Ankle"], correct: 2 },
-  { prompt: "What does 'articulate' mean?", options: ["To run fast", "To dance", "To pronounce clearly", "To paint"], correct: 2 },
-  { prompt: "Which word relates to voice?", options: ["Larynx", "Femur", "Retina", "Patella"], correct: 0 },
-  { prompt: "What is 'dysphagia'?", options: ["Difficulty reading", "Difficulty swallowing", "Difficulty walking", "Difficulty sleeping"], correct: 1 },
-  { prompt: "Which word means 'to communicate'?", options: ["Isolate", "Express", "Demolish", "Excavate"], correct: 1 },
-  { prompt: "What does 'fluency' describe?", options: ["Physical strength", "Smooth flow of speech", "Visual acuity", "Musical talent"], correct: 1 },
-  { prompt: "Which is related to language development?", options: ["Vocabulary", "Velocity", "Viscosity", "Volatility"], correct: 0 },
-  { prompt: "What does 'aspiration' mean in medical terms?", options: ["A big dream", "Food/liquid entering the airway", "Deep breathing", "Sweating"], correct: 1 },
-  { prompt: "What does 'phonology' study?", options: ["Speech sounds in language", "Written words", "Body movement", "Brain chemistry"], correct: 0 },
-  { prompt: "Which term describes voice quality?", options: ["Hoarseness", "Fluency", "Cognition", "Mobility"], correct: 0 },
-  { prompt: "What is an 'SLP'?", options: ["Speech-language pathologist", "Special learning partner", "Sound level processor", "Speech lab program"], correct: 0 },
-  { prompt: "What does 'receptive language' mean?", options: ["Understanding what's said", "Speaking clearly", "Reading fast", "Writing neatly"], correct: 0 },
-  { prompt: "Which is a feeding consistency level?", options: ["Pureed", "Rapid", "Acute", "Lateral"], correct: 0 },
-  { prompt: "What does 'expressive' mean in speech terms?", options: ["Ability to produce language", "Ability to hear", "Ability to read", "Ability to remember"], correct: 0 },
-  { prompt: "What is 'AAC'?", options: ["Augmentative alternative communication", "Acute articulation correction", "Advanced audio calibration", "Annual assessment checklist"], correct: 0 },
-  { prompt: "What does 'pragmatics' refer to?", options: ["Social use of language", "Grammar rules", "Sound production", "Written language"], correct: 0 },
-  { prompt: "Which word means difficulty producing speech sounds?", options: ["Articulation disorder", "Fluency disorder", "Voice disorder", "Language disorder"], correct: 0 },
-  { prompt: "What is 'IDDSI'?", options: ["International Dysphagia Diet framework", "Internal dietary diagnostic system", "Integrated digital data system", "International disease development index"], correct: 0 },
-];
-
 function shuffleArray<T>(arr: T[]): T[] {
   const copy = [...arr];
   for (let i = copy.length - 1; i > 0; i--) {
@@ -65,12 +42,8 @@ function shuffleArray<T>(arr: T[]): T[] {
   return copy;
 }
 
-interface WordFinderProps {
-  mode?: "child" | "adult";
-}
-
-export function WordFinder({ mode = "child" }: WordFinderProps) {
-  const pool = mode === "child" ? PEDIATRIC_QUESTIONS : ADULT_QUESTIONS;
+export function WordFinder() {
+  const pool = PEDIATRIC_QUESTIONS;
 
   const [questions, setQuestions] = useState<Question[]>(() => shuffleArray(pool).slice(0, 10));
   const [currentQ, setCurrentQ] = useState(0);
