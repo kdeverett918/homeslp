@@ -16,6 +16,7 @@ import { pediatricBlueprints } from "@/data/blueprints/pediatric";
 import { adultBlueprints } from "@/data/blueprints/adult";
 import { dailyTips } from "@/data/daily-tips";
 import { DailyTipCard } from "@/components/daily-tip-card";
+import { CheckInCard } from "@/components/checkin-card";
 import { cookies } from "next/headers";
 
 export const dynamic = "force-dynamic";
@@ -125,6 +126,9 @@ export default async function DashboardPage() {
           </Link>
         </div>
       )}
+
+      {/* Weekly Check-In */}
+      {isChild && <CheckInCard />}
 
       {/* Daily Tip */}
       <DailyTipCard

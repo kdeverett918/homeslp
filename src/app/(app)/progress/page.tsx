@@ -1,10 +1,11 @@
 "use client";
 
-import { Flame, Star, BookOpen, Trophy, TrendingUp, CheckCircle2, MessageCircle } from "lucide-react";
+import { Flame, Star, BookOpen, Trophy, TrendingUp, CheckCircle2, MessageCircle, CalendarCheck, ArrowRight } from "lucide-react";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion";
 import { ProgressRing } from "@/components/ui/progress-ring";
 import { useWordTracker } from "@/lib/stores/word-tracker";
 import { useMilestoneTracker } from "@/lib/stores/milestone-tracker";
+import { useCheckInStore, BADGES } from "@/lib/stores/checkin-store";
 import { useChildProfile } from "@/lib/stores/child-profile";
 import { pediatricBlueprints } from "@/data/blueprints/pediatric";
 import { adultBlueprints } from "@/data/blueprints/adult";
@@ -14,12 +15,15 @@ import Link from "next/link";
 export default function ProgressPage() {
   const { getWordCount, words } = useWordTracker();
   const { getCheckedCount } = useMilestoneTracker();
+  const checkInStore = useCheckInStore();
   const { childName, childAgeMonths } = useChildProfile();
   const { activePath } = usePath();
 
   const wordCount = getWordCount();
   const milestoneCount = getCheckedCount();
   const blueprints = activePath === "child" ? pediatricBlueprints : adultBlueprints;
+  const level = checkInStore.getLevel();
+  const xpProgress = checkInStore.getXPProgress();
 
   // Calculate word growth milestones
   const wordMilestones = [
@@ -81,13 +85,18 @@ export default function ProgressPage() {
         <StaggerItem>
           <div className="rounded-xl border bg-card p-5 text-center space-y-2">
             <div className="mx-auto w-16 h-16 flex items-center justify-center">
-              <ProgressRing value={0} size={64} color="hsl(var(--destructive))" label={`${blueprints.length}`} />
+              <ProgressRing
+                value={Math.min((checkInStore.entries.length / 12) * 100, 100)}
+                size={64}
+                color="hsl(350, 55%, 55%)"
+                label={`${checkInStore.entries.length}`}
+              />
             </div>
             <div>
-              <p className="text-xs text-muted-foreground">Blueprints</p>
+              <p className="text-xs text-muted-foreground">Check-Ins</p>
               <div className="flex items-center justify-center gap-1 mt-0.5">
-                <BookOpen className="w-3.5 h-3.5 text-primary" />
-                <span className="font-heading font-bold text-sm">{blueprints.length} weeks</span>
+                <CalendarCheck className="w-3.5 h-3.5 text-primary" />
+                <span className="font-heading font-bold text-sm">{checkInStore.entries.length} done</span>
               </div>
             </div>
           </div>
@@ -164,6 +173,59 @@ export default function ProgressPage() {
           )}
         </div>
       </FadeIn>
+
+      {/* Check-In Journey (child path) */}
+      {activePath === "child" && (
+        <FadeIn delay={0.28}>
+          <div className="rounded-xl border bg-card p-5 space-y-4">
+            <h2 className="font-heading font-semibold text-sm flex items-center gap-2">
+              <CalendarCheck className="w-4 h-4 text-primary" /> Parent Journey
+            </h2>
+            {checkInStore.entries.length === 0 ? (
+              <div className="text-center py-4 space-y-2">
+                <p className="text-sm text-muted-foreground">Start weekly check-ins to track your journey.</p>
+                <Link href="/check-in" className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90">
+                  First Check-In <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            ) : (
+              <div className="space-y-3">
+                {/* Level & streak row */}
+                <div className="flex items-center gap-4 rounded-lg bg-muted/40 p-3">
+                  <span className="text-2xl">{level.icon}</span>
+                  <div className="flex-1">
+                    <p className="text-sm font-medium">{level.name}</p>
+                    <p className="text-[10px] text-muted-foreground">{checkInStore.totalXP} XP · {checkInStore.entries.length} check-ins</p>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Flame className={`w-4 h-4 ${checkInStore.currentStreak > 0 ? "text-orange-500" : "text-muted-foreground/30"}`} />
+                    <span className="font-heading font-bold text-sm">{checkInStore.currentStreak}</span>
+                  </div>
+                </div>
+                {/* Badges earned */}
+                {checkInStore.earnedBadges.length > 0 && (
+                  <div>
+                    <p className="text-xs text-muted-foreground mb-2">Badges earned ({checkInStore.earnedBadges.length}/{BADGES.length}):</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {checkInStore.earnedBadges.map(bId => {
+                        const badge = BADGES.find(b => b.id === bId);
+                        return badge ? (
+                          <span key={bId} className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800" title={badge.description}>
+                            {badge.icon} {badge.name}
+                          </span>
+                        ) : null;
+                      })}
+                    </div>
+                  </div>
+                )}
+                <Link href="/check-in" className="text-sm text-primary hover:underline flex items-center gap-1">
+                  View full journey <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            )}
+          </div>
+        </FadeIn>
+      )}
 
       {/* Blueprint Checklist */}
       <FadeIn delay={0.3}>

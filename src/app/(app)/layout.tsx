@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
   Baby,
   BookOpen,
+  CalendarCheck,
   Clock,
   FileText,
   GraduationCap,
@@ -48,6 +49,7 @@ export default function AppLayout({
           </div>
           <nav className="flex-1 overflow-y-auto space-y-0.5 px-3 py-4">
             <ActiveNavLink href="/dashboard" icon={Home} label="Dashboard" />
+            <ActiveNavLink href="/check-in" icon={CalendarCheck} label="Weekly Check-In" />
 
             <NavSectionHeader>Learn</NavSectionHeader>
             <ActiveNavLink href="/blueprints" icon={BookOpen} label="Blueprints" />
@@ -93,8 +95,8 @@ export default function AppLayout({
           {/* Mobile bottom nav */}
           <nav className="flex border-t bg-background lg:hidden">
             <ActiveBottomNavLink href="/dashboard" icon={Home} label="Home" />
+            <ActiveBottomNavLink href="/check-in" icon={CalendarCheck} label="Check-In" />
             <ActiveBottomNavLink href="/check" icon={Search} label="Check" />
-            <ActiveBottomNavLink href="/words" icon={BookOpen} label="Words" />
             <ActiveBottomNavLink href="/activities" icon={Zap} label="Activities" />
             <ActiveBottomNavLink href="/settings" icon={Settings} label="More" />
           </nav>
