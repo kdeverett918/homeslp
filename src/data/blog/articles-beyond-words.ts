@@ -1,7 +1,5 @@
 import type { BlogArticle } from "@/types/content";
-
-const STANDARD_DISCLAIMER =
-  "This article is for educational purposes only and does not replace professional evaluation or treatment by a licensed speech-language pathologist. If you have concerns about your child's development, please consult a qualified professional.";
+import { BLOG_DISCLAIMER } from "./constants";
 
 // ─── ARTICLE 10 ─────────────────────────────────────────────────────────
 const whatSLPsWishParentsKnew: BlogArticle = {
@@ -181,7 +179,7 @@ const whatSLPsWishParentsKnew: BlogArticle = {
     },
   ],
 
-  disclaimer: STANDARD_DISCLAIMER,
+  disclaimer: BLOG_DISCLAIMER,
 };
 
 // ─── ARTICLE 11 ─────────────────────────────────────────────────────────
@@ -339,7 +337,7 @@ const pickyEatingFeedingDifficulties: BlogArticle = {
     },
   ],
 
-  disclaimer: STANDARD_DISCLAIMER,
+  disclaimer: BLOG_DISCLAIMER,
 };
 
 // ─── ARTICLE 12 ─────────────────────────────────────────────────────────
@@ -497,7 +495,7 @@ const playBuildsLanguage: BlogArticle = {
     },
   ],
 
-  disclaimer: STANDARD_DISCLAIMER,
+  disclaimer: BLOG_DISCLAIMER,
 };
 
 export const beyondWordsArticles: BlogArticle[] = [

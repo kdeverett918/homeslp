@@ -1,7 +1,5 @@
 import type { BlogArticle } from "@/types/content";
-
-const STANDARD_DISCLAIMER =
-  "This article is for educational purposes only and does not replace professional evaluation or treatment by a licensed speech-language pathologist. If you have concerns about your child's development, please consult a qualified professional.";
+import { BLOG_DISCLAIMER } from "./constants";
 
 export const parentKnowledgeArticles: BlogArticle[] = [
   // ─── ARTICLE 4 ──────────────────────────────────────────────────────
@@ -158,7 +156,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
           "Potegal, M., & Davidson, R. J. (2003). Temper tantrums in young children: 1. Behavioral composition. Journal of Developmental & Behavioral Pediatrics, 24(3), 140-147.",
       },
     ],
-    disclaimer: STANDARD_DISCLAIMER,
+    disclaimer: BLOG_DISCLAIMER,
   },
 
   // ─── ARTICLE 5 ──────────────────────────────────────────────────────
@@ -310,7 +308,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
           "Sperry, D. E., Sperry, L. L., & Miller, P. J. (2019). Reexamining the verbal environments of children from different socioeconomic backgrounds. Child Development, 90(4), 1303-1318.",
       },
     ],
-    disclaimer: STANDARD_DISCLAIMER,
+    disclaimer: BLOG_DISCLAIMER,
   },
 
   // ─── ARTICLE 6 ──────────────────────────────────────────────────────
@@ -462,6 +460,6 @@ export const parentKnowledgeArticles: BlogArticle[] = [
           "American Academy of Pediatric Dentistry. (2023). Policy on oral habits. The Reference Manual of Pediatric Dentistry. American Academy of Pediatric Dentistry, 131-133.",
       },
     ],
-    disclaimer: STANDARD_DISCLAIMER,
+    disclaimer: BLOG_DISCLAIMER,
   },
 ];

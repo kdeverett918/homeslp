@@ -343,6 +343,8 @@ details[open] > div {
 
   #blog-article-print h1 { font-size: 1.5rem; }
   #blog-article-print h2 { font-size: 1.1rem; }
+  #blog-article-print header,
+  #handout-print header { display: block !important; }
 
   /* B&W mode */
   .print-bw * {

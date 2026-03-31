@@ -1,7 +1,5 @@
 import type { BlogArticle } from "@/types/content";
-
-const STANDARD_DISCLAIMER =
-  "This article is for educational purposes only and does not replace professional evaluation or treatment by a licensed speech-language pathologist. If you have concerns about your child's development, please consult a qualified professional.";
+import { BLOG_DISCLAIMER } from "./constants";
 
 export const earlyDevelopmentArticles: BlogArticle[] = [
   // ─── ARTICLE 1: The Secret Language of Babbling ──────────────────────
@@ -147,7 +145,7 @@ export const earlyDevelopmentArticles: BlogArticle[] = [
       },
     ],
 
-    disclaimer: STANDARD_DISCLAIMER,
+    disclaimer: BLOG_DISCLAIMER,
   },
 
   // ─── ARTICLE 2: Screen Time & Speech ─────────────────────────────────
@@ -292,7 +290,7 @@ export const earlyDevelopmentArticles: BlogArticle[] = [
       },
     ],
 
-    disclaimer: STANDARD_DISCLAIMER,
+    disclaimer: BLOG_DISCLAIMER,
   },
 
   // ─── ARTICLE 3: Bilingual Kids Talk Later ────────────────────────────
@@ -442,6 +440,6 @@ export const earlyDevelopmentArticles: BlogArticle[] = [
       },
     ],
 
-    disclaimer: STANDARD_DISCLAIMER,
+    disclaimer: BLOG_DISCLAIMER,
   },
 ];

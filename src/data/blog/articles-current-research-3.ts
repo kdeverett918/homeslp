@@ -1,7 +1,5 @@
 import type { BlogArticle } from "@/types/content";
-
-const STANDARD_DISCLAIMER =
-  "This article is for educational purposes only and does not replace professional evaluation or treatment by a licensed speech-language pathologist. If you have concerns about your child's development, please consult a qualified professional.";
+import { BLOG_DISCLAIMER } from "./constants";
 
 export const currentResearch3Articles: BlogArticle[] = [
   // ─── ARTICLE 19: How Music Builds Your Child's Brain for Language ─────
@@ -164,7 +162,7 @@ export const currentResearch3Articles: BlogArticle[] = [
       },
     ],
 
-    disclaimer: STANDARD_DISCLAIMER,
+    disclaimer: BLOG_DISCLAIMER,
   },
 
   // ─── ARTICLE 20: Debunking Viral Speech Therapy Myths ─────────────────
@@ -365,6 +363,6 @@ export const currentResearch3Articles: BlogArticle[] = [
       },
     ],
 
-    disclaimer: STANDARD_DISCLAIMER,
+    disclaimer: BLOG_DISCLAIMER,
   },
 ];

@@ -1,9 +1,9 @@
 "use client";
 
-import { use } from "react";
+import { use, useState } from "react";
 import { FadeIn } from "@/components/motion";
 import { PrintControls } from "@/components/ui/print-controls";
-import { blogArticles, blogCategories } from "@/data/blog";
+import { blogArticles, blogCategories, blogCategoryStyle } from "@/data/blog";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -17,7 +17,6 @@ import {
   BookOpen,
   CheckCircle2,
   Share2,
-  Download,
 } from "lucide-react";
 
 interface Props {
@@ -51,17 +50,9 @@ const calloutConfig = {
   },
 };
 
-const categoryStyle: Record<string, { bg: string; text: string }> = {
-  "speech-development": { bg: "bg-rose-100", text: "text-rose-700" },
-  "language-development": { bg: "bg-blue-100", text: "text-blue-700" },
-  "feeding-swallowing": { bg: "bg-amber-100", text: "text-amber-700" },
-  "parent-tips": { bg: "bg-sage-100", text: "text-sage-700" },
-  "myths-facts": { bg: "bg-purple-100", text: "text-purple-700" },
-  milestones: { bg: "bg-orange-100", text: "text-orange-700" },
-};
-
 export default function BlogArticlePage({ params }: Props) {
   const { slug } = use(params);
+  const [copied, setCopied] = useState(false);
   const article = blogArticles.find((a) => a.slug === slug);
 
   if (!article) {
@@ -89,10 +80,7 @@ export default function BlogArticlePage({ params }: Props) {
   const catLabel = blogCategories.find(
     (c) => c.value === article.category
   )?.label;
-  const style = categoryStyle[article.category] ?? {
-    bg: "bg-muted",
-    text: "text-muted-foreground",
-  };
+  const style = blogCategoryStyle[article.category];
 
   // Get related articles (same category, excluding current)
   const related = blogArticles
@@ -111,14 +99,14 @@ export default function BlogArticlePage({ params }: Props) {
         // User cancelled share
       }
     } else {
-      await navigator.clipboard.writeText(window.location.href);
-      alert("Link copied to clipboard!");
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } catch {
+        // Clipboard API not available
+      }
     }
-  };
-
-  const handleDownload = () => {
-    // Use print dialog with save-as-PDF option
-    window.print();
   };
 
   return (
@@ -138,16 +126,12 @@ export default function BlogArticlePage({ params }: Props) {
               className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-accent transition-colors"
               aria-label="Share article"
             >
-              <Share2 className="w-4 h-4" />
-              <span className="hidden sm:inline">Share</span>
-            </button>
-            <button
-              onClick={handleDownload}
-              className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-accent transition-colors"
-              aria-label="Download as PDF"
-            >
-              <Download className="w-4 h-4" />
-              <span className="hidden sm:inline">Save PDF</span>
+              {copied ? (
+                <CheckCircle2 className="w-4 h-4 text-primary" />
+              ) : (
+                <Share2 className="w-4 h-4" />
+              )}
+              <span className="hidden sm:inline">{copied ? "Copied!" : "Share"}</span>
             </button>
             <PrintControls targetId="blog-article-print" />
           </div>
@@ -161,7 +145,7 @@ export default function BlogArticlePage({ params }: Props) {
           className="rounded-2xl border bg-card p-6 sm:p-8 space-y-6 print:border-0 print:shadow-none print:p-0"
         >
           {/* Header */}
-          <header className="text-center border-b pb-6 space-y-3">
+          <header className="text-center border-b pb-6 space-y-3 print:block">
             <p className="text-xs font-medium text-primary tracking-wide uppercase print:text-black">
               HomeSLP
             </p>

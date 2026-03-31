@@ -9,6 +9,7 @@ import { currentResearch3Articles } from "./articles-current-research-3";
 import { currentResearch4Articles } from "./articles-current-research-4";
 
 export type { BlogCategory };
+export { BLOG_DISCLAIMER, blogCategoryStyle } from "./constants";
 
 export const blogArticles: BlogArticle[] = [
   ...earlyDevelopmentArticles,

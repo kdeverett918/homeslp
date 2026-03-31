@@ -1,7 +1,5 @@
 import type { BlogArticle } from "@/types/content";
-
-const STANDARD_DISCLAIMER =
-  "This article is for educational purposes only and does not replace professional evaluation or treatment by a licensed speech-language pathologist. If you have concerns about your child's development, please consult a qualified professional.";
+import { BLOG_DISCLAIMER } from "./constants";
 
 // ─── ARTICLE 21 ─────────────────────────────────────────────────────────
 const gesturesPredictLanguage: BlogArticle = {
@@ -75,7 +73,7 @@ const gesturesPredictLanguage: BlogArticle = {
     {
       heading: "When to Worry: Absence of Pointing as an Early Red Flag",
       content:
-        "The updated American Academy of Pediatrics (AAP) developmental surveillance guidelines, reinforced in their 2023 clinical report on early identification of developmental delays, emphasize that absence of pointing by 14 to 16 months is a significant red flag warranting developmental screening. This is not about creating anxiety — most children point well before their first birthday. But pointing is so foundational to communication development that its absence can signal broader difficulties with joint attention, social engagement, or communicative intent. Landa (2021), in her work published in the Journal of Autism and Developmental Disorders, found that reduced gesture use in the first year of life was one of the earliest observable differences in children later diagnosed with autism spectrum disorder. Importantly, this does not mean that every late pointer has autism — far from it. But it does mean that gesture development deserves the same attention we give to walking and talking. If your child is not pointing by 14 months, not using any gestures (waving, reaching with an open hand, shaking their head) by 12 months, or has lost gestures they previously used, contact your pediatrician or request an early intervention evaluation. Early action protects your child's developmental trajectory.",
+        "The updated American Academy of Pediatrics (AAP) developmental surveillance guidelines, reinforced in their 2020 clinical report on early identification of developmental delays, emphasize that absence of pointing by 14 to 16 months is a significant red flag warranting developmental screening. This is not about creating anxiety — most children point well before their first birthday. But pointing is so foundational to communication development that its absence can signal broader difficulties with joint attention, social engagement, or communicative intent. Landa (2018), in her work published in the Journal of Autism and Developmental Disorders, found that reduced gesture use in the first year of life was one of the earliest observable differences in children later diagnosed with autism spectrum disorder. Importantly, this does not mean that every late pointer has autism — far from it. But it does mean that gesture development deserves the same attention we give to walking and talking. If your child is not pointing by 14 months, not using any gestures (waving, reaching with an open hand, shaking their head) by 12 months, or has lost gestures they previously used, contact your pediatrician or request an early intervention evaluation. Early action protects your child's developmental trajectory.",
       callout: {
         type: "warning",
         text: "If your child is 14 months or older and does not point to show you things (not just to request items), talk to your pediatrician. Absence of declarative pointing — pointing just to share interest — is one of the earliest and most reliable developmental red flags.",
@@ -147,18 +145,18 @@ const gesturesPredictLanguage: BlogArticle = {
         "Fitzpatrick, E. M., Thibert, J., Bhatt, J., & Bherer, M. (2023). Baby sign language: A systematic review of its effects on language development. Journal of Speech, Language, and Hearing Research, 66(4), 1331-1352.",
     },
     {
-      label: "Landa (2021)",
+      label: "Landa (2018)",
       detail:
-        "Landa, R. J. (2021). Efficacy of early interventions for infants and young children with, and at risk for, autism spectrum disorders. International Review of Psychiatry, 30(1), 25-39.",
+        "Landa, R. J. (2018). Efficacy of early interventions for infants and young children with, and at risk for, autism spectrum disorders. International Review of Psychiatry, 30(1), 25-39.",
     },
     {
-      label: "AAP (2023)",
+      label: "AAP (2020)",
       detail:
-        "Lipkin, P. H., & Macias, M. M. (2023). Promoting optimal development: Identifying infants and young children with developmental disorders through developmental surveillance and screening. Pediatrics, 145(1), e20193449. (Updated clinical report.)",
+        "Lipkin, P. H., & Macias, M. M. (2020). Promoting optimal development: Identifying infants and young children with developmental disorders through developmental surveillance and screening. Pediatrics, 145(1), e20193449.",
     },
   ],
 
-  disclaimer: STANDARD_DISCLAIMER,
+  disclaimer: BLOG_DISCLAIMER,
 };
 
 // ─── ARTICLE 22 ─────────────────────────────────────────────────────────
@@ -192,7 +190,7 @@ const childhoodStutteringNewResearch: BlogArticle = {
     {
       heading: "What Stuttering Actually Is (and Is Not)",
       content:
-        "Let us start by clearing away some misconceptions. Stuttering is not caused by anxiety. It is not caused by bad parenting. It is not caused by being shy, being nervous, or having \"too many thoughts.\" Childhood-onset stuttering is a neurodevelopmental condition with strong genetic and neurological underpinnings. Brain imaging research by Chang and colleagues (2020), published in Brain, found that children who stutter show differences in white matter connectivity in the speech-motor network — specifically in the pathways connecting auditory processing regions with motor planning areas. These are structural differences in how the brain is wired for speech, not personality traits or emotional states. That said, emotions absolutely interact with stuttering. Excitement, fatigue, and stress can increase the frequency of stuttering moments — but they are amplifiers, not causes. The distinction matters enormously, because it means your child is not stuttering because they are anxious. They may be anxious because they are stuttering. Understanding the direction of that arrow changes everything about how you respond.",
+        "Let us start by clearing away some misconceptions. Stuttering is not caused by anxiety. It is not caused by bad parenting. It is not caused by being shy, being nervous, or having \"too many thoughts.\" Childhood-onset stuttering is a neurodevelopmental condition with strong genetic and neurological underpinnings. Brain imaging research by Chang and colleagues (2019), published in The Neuroscientist, found that children who stutter show differences in white matter connectivity in the speech-motor network — specifically in the pathways connecting auditory processing regions with motor planning areas. These are structural differences in how the brain is wired for speech, not personality traits or emotional states. That said, emotions absolutely interact with stuttering. Excitement, fatigue, and stress can increase the frequency of stuttering moments — but they are amplifiers, not causes. The distinction matters enormously, because it means your child is not stuttering because they are anxious. They may be anxious because they are stuttering. Understanding the direction of that arrow changes everything about how you respond.",
       callout: {
         type: "note",
         text: "Stuttering runs in families. If a parent, sibling, or close relative stuttered as a child, the probability of childhood stuttering increases significantly. Genetics account for roughly 70% of the risk, according to current twin and family studies.",
@@ -224,7 +222,7 @@ const childhoodStutteringNewResearch: BlogArticle = {
         "If you remember only one section of this article, make it this one. How you respond to your child's stuttering matters — not because you can cause or cure it with your reactions, but because you shape your child's emotional relationship with speaking. The research-backed guidance from both the American Institute for Stuttering and ASHA's updated clinical practice resources is clear on what helps and what hurts. Do: slow down your own speaking rate (not your child's — yours). When you model slower, more relaxed speech, your child's system naturally downshifts without being told to. Do: maintain natural eye contact and a relaxed facial expression while your child is stuttering. Your face is a mirror — if you look worried, they learn that stuttering is something to worry about. Do: give your child time. Resist the urge to finish their sentences or rush them. Do: listen to WHAT they are saying, not HOW they are saying it. And here is the critical \"do not\" list: do not say \"slow down,\" \"take a breath,\" \"think about what you want to say,\" or \"start over.\" These phrases, however well-intentioned, communicate that the child is doing something wrong. Stuttering is not a behavior to correct. It is a neurological event to navigate with patience.",
       callout: {
         type: "tip",
-        text: "The single most powerful thing you can do is slow down YOUR speech when talking to your child. Not exaggeratedly slow — just unhurried. Research shows that when parents reduce their speaking rate, children's fluency improves without anyone ever mentioning stuttering (Millard et al., 2020).",
+        text: "The single most powerful thing you can do is slow down YOUR speech when talking to your child. Not exaggeratedly slow — just unhurried. Research shows that when parents reduce their speaking rate, children's fluency improves without anyone ever mentioning stuttering (Millard et al., 2018).",
       },
     },
     {
@@ -245,10 +243,10 @@ const childhoodStutteringNewResearch: BlogArticle = {
     {
       heading: "Evidence-Based Treatment: What Works Right Now",
       content:
-        "If your child does need intervention, the good news is that stuttering treatment for preschoolers is more effective than for almost any other communication disorder — IF it starts early. The Lidcombe Program, developed in Australia, is one of the most extensively studied treatments for preschool stuttering. Long-term outcome data, including a 2020 systematic review by Onslow and colleagues published in the Journal of Fluency Disorders, shows that Lidcombe produces significant and lasting reductions in stuttering frequency, with treatment effects maintained at follow-up points up to 5 years post-treatment. The program is parent-delivered: you learn to provide structured verbal feedback during daily conversations, praising smooth speech and gently acknowledging stuttering moments in a way that is matter-of-fact rather than corrective. Another prominent approach, the RESTART-DCM model (Demands and Capacities Model), updated by de Sonneville-Koedoot and colleagues (2020), focuses on reducing environmental demands while building the child's capacities — adjusting speaking rate at home, reducing time pressure, simplifying questions, and building the child's confidence. A randomized controlled trial showed that RESTART-DCM produced outcomes comparable to Lidcombe, giving families and clinicians flexibility in choosing an approach that fits. The critical message for parents: early intervention for stuttering is not about \"fixing\" your child. It is about giving their neurological system the best possible support during a critical window of development.",
+        "If your child does need intervention, the good news is that stuttering treatment for preschoolers is more effective than for almost any other communication disorder — IF it starts early. The Lidcombe Program, developed in Australia, is one of the most extensively studied treatments for preschool stuttering. Long-term outcome data, including a 2020 systematic review by Onslow and colleagues published in the Journal of Fluency Disorders, shows that Lidcombe produces significant and lasting reductions in stuttering frequency, with treatment effects maintained at follow-up points up to 5 years post-treatment. The program is parent-delivered: you learn to provide structured verbal feedback during daily conversations, praising smooth speech and gently acknowledging stuttering moments in a way that is matter-of-fact rather than corrective. Another prominent approach, the RESTART-DCM model (Demands and Capacities Model), tested by de Sonneville-Koedoot and colleagues (2015), focuses on reducing environmental demands while building the child's capacities — adjusting speaking rate at home, reducing time pressure, simplifying questions, and building the child's confidence. A randomized controlled trial showed that RESTART-DCM produced outcomes comparable to Lidcombe, giving families and clinicians flexibility in choosing an approach that fits. The critical message for parents: early intervention for stuttering is not about \"fixing\" your child. It is about giving their neurological system the best possible support during a critical window of development.",
       bulletPoints: [
         "Lidcombe Program: parent-delivered, structured feedback approach with strong long-term outcome data (Onslow et al., 2020)",
-        "RESTART-DCM: focuses on reducing demands and building capacities, shown to be equally effective in RCTs (de Sonneville-Koedoot et al., 2020)",
+        "RESTART-DCM: focuses on reducing demands and building capacities, shown to be equally effective in RCTs (de Sonneville-Koedoot et al., 2015)",
         "Both approaches are most effective when started before age 5, during the window of highest neuroplasticity",
         "Treatment is not about eliminating all disfluency — it is about reducing severity, building confidence, and preventing negative attitudes toward speaking",
       ],
@@ -288,9 +286,9 @@ const childhoodStutteringNewResearch: BlogArticle = {
 
   sources: [
     {
-      label: "Chang et al. (2020)",
+      label: "Chang et al. (2019)",
       detail:
-        "Chang, S. E., Garnett, E. O., Etchell, A., & Chow, H. M. (2020). Functional and neuroanatomical bases of developmental stuttering: Current insights. The Neuroscientist, 25(6), 566-582.",
+        "Chang, S. E., Garnett, E. O., Etchell, A., & Chow, H. M. (2019). Functional and neuroanatomical bases of developmental stuttering: Current insights. The Neuroscientist, 25(6), 566-582.",
     },
     {
       label: "Singer et al. (2022)",
@@ -308,9 +306,9 @@ const childhoodStutteringNewResearch: BlogArticle = {
         "Onslow, M., Jones, M., O'Brian, S., Packman, A., & Menzies, R. (2020). Lidcombe Program: Systematic review and update on long-term outcomes. Journal of Fluency Disorders, 64, 105762.",
     },
     {
-      label: "de Sonneville-Koedoot et al. (2020)",
+      label: "de Sonneville-Koedoot et al. (2015)",
       detail:
-        "de Sonneville-Koedoot, C., Stolk, E., Rietveld, T., & Franken, M. C. (2020). Direct versus indirect treatment for preschool children who stutter: The RESTART randomized trial. PLOS ONE, 10(7), e0133758. (Long-term follow-up published 2020.)",
+        "de Sonneville-Koedoot, C., Stolk, E., Rietveld, T., & Franken, M. C. (2015). Direct versus indirect treatment for preschool children who stutter: The RESTART randomized trial. PLOS ONE, 10(7), e0133758.",
     },
     {
       label: "Tumanova et al. (2021)",
@@ -318,13 +316,13 @@ const childhoodStutteringNewResearch: BlogArticle = {
         "Tumanova, V., Woods, C., & Wang, Q. (2021). Effects of physiological arousal on speech motor control and speech motor practice in preschool-age children who stutter. Journal of Speech, Language, and Hearing Research, 64(7), 2454-2471.",
     },
     {
-      label: "Millard et al. (2020)",
+      label: "Millard et al. (2018)",
       detail:
-        "Millard, S. K., Zebrowski, P., & Kelman, E. (2020). Palin Parent-Child Interaction Therapy: The bigger picture. American Journal of Speech-Language Pathology, 27(3S), 1211-1223.",
+        "Millard, S. K., Zebrowski, P., & Kelman, E. (2018). Palin Parent-Child Interaction Therapy: The bigger picture. American Journal of Speech-Language Pathology, 27(3S), 1211-1223.",
     },
   ],
 
-  disclaimer: STANDARD_DISCLAIMER,
+  disclaimer: BLOG_DISCLAIMER,
 };
 
 export const currentResearch4Articles: BlogArticle[] = [

@@ -1,7 +1,5 @@
 import type { BlogArticle } from "@/types/content";
-
-const STANDARD_DISCLAIMER =
-  "This article is for educational purposes only and does not replace professional evaluation or treatment by a licensed speech-language pathologist. If you have concerns about your child's development, please consult a qualified professional.";
+import { BLOG_DISCLAIMER } from "./constants";
 
 // ─── ARTICLE 16 ─────────────────────────────────────────────────────────
 const telehealthSpeechTherapy: BlogArticle = {
@@ -150,7 +148,7 @@ const telehealthSpeechTherapy: BlogArticle = {
     },
   ],
 
-  disclaimer: STANDARD_DISCLAIMER,
+  disclaimer: BLOG_DISCLAIMER,
 };
 
 // ─── ARTICLE 17 ─────────────────────────────────────────────────────────
@@ -300,7 +298,7 @@ const parentCoachingSpeechTherapy: BlogArticle = {
     },
   ],
 
-  disclaimer: STANDARD_DISCLAIMER,
+  disclaimer: BLOG_DISCLAIMER,
 };
 
 // ─── ARTICLE 18 ─────────────────────────────────────────────────────────
@@ -451,7 +449,7 @@ const lateTalkersNewResearch: BlogArticle = {
     },
   ],
 
-  disclaimer: STANDARD_DISCLAIMER,
+  disclaimer: BLOG_DISCLAIMER,
 };
 
 export const currentResearch2Articles: BlogArticle[] = [

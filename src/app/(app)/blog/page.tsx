@@ -4,8 +4,9 @@ import { useState } from "react";
 import { Newspaper, Clock, ChevronRight, Sparkles, Search } from "lucide-react";
 import Link from "next/link";
 import { PageHeader } from "@/components/ui/page-header";
+import { FilterPills } from "@/components/ui/filter-pills";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion";
-import { blogArticles, blogCategories, type BlogCategory } from "@/data/blog";
+import { blogArticles, blogCategories, blogCategoryStyle, type BlogCategory } from "@/data/blog";
 
 const filterOptions = ["All", ...blogCategories.map((c) => c.label)] as const;
 type FilterOption = (typeof filterOptions)[number];
@@ -15,18 +16,13 @@ function filterToCategory(filter: FilterOption): BlogCategory | null {
   return found?.value ?? null;
 }
 
-const categoryStyle: Record<BlogCategory, { bg: string; text: string }> = {
-  "speech-development": { bg: "bg-rose-100", text: "text-rose-700" },
-  "language-development": { bg: "bg-blue-100", text: "text-blue-700" },
-  "feeding-swallowing": { bg: "bg-amber-100", text: "text-amber-700" },
-  "parent-tips": { bg: "bg-sage-100", text: "text-sage-700" },
-  "myths-facts": { bg: "bg-purple-100", text: "text-purple-700" },
-  milestones: { bg: "bg-orange-100", text: "text-orange-700" },
-};
-
 export default function BlogPage() {
   const [filter, setFilter] = useState<FilterOption>("All");
   const [search, setSearch] = useState("");
+  const [randomFact] = useState(() => {
+    const article = blogArticles[Math.floor(Math.random() * blogArticles.length)];
+    return article?.funFacts[0]?.text ?? "Babies can distinguish all speech sounds in all languages until about 10 months of age!";
+  });
 
   const category = filterToCategory(filter);
   let filtered = category
@@ -59,48 +55,39 @@ export default function BlogPage() {
           <Sparkles className="w-5 h-5 text-primary shrink-0 mt-0.5" />
           <p className="text-sm text-foreground/80">
             <span className="font-semibold">Did you know?</span>{" "}
-            {blogArticles[Math.floor(Math.random() * blogArticles.length)]?.funFacts[0]?.text ??
-              "Babies can distinguish all speech sounds in all languages until about 10 months of age!"}
+            {randomFact}
           </p>
         </div>
       </FadeIn>
 
       {/* Search */}
       <FadeIn delay={0.1}>
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-          <input
-            type="text"
-            placeholder="Search articles..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full rounded-lg border bg-card pl-10 pr-4 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-          />
-        </div>
+        <search>
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <input
+              type="text"
+              placeholder="Search articles..."
+              aria-label="Search articles"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full rounded-lg border bg-card pl-10 pr-4 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+            />
+          </div>
+        </search>
       </FadeIn>
 
       {/* Category filters */}
       <FadeIn delay={0.15}>
-        <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
-          {filterOptions.map((option) => (
-            <button
-              key={option}
-              onClick={() => setFilter(option)}
-              className={`shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition-colors whitespace-nowrap ${
-                filter === option
-                  ? "bg-primary text-primary-foreground shadow-warm-sm"
-                  : "bg-muted text-muted-foreground hover:bg-muted/80"
-              }`}
-            >
-              {option !== "All" && (
-                <span className="mr-1.5">
-                  {blogCategories.find((c) => c.label === option)?.emoji}
-                </span>
-              )}
-              {option}
-            </button>
-          ))}
-        </div>
+        <FilterPills
+          options={filterOptions}
+          value={filter}
+          onChange={setFilter}
+          formatLabel={(opt) => {
+            const cat = blogCategories.find((c) => c.label === opt);
+            return cat ? `${cat.emoji} ${opt}` : opt;
+          }}
+        />
       </FadeIn>
 
       {/* Results count */}
@@ -126,7 +113,7 @@ export default function BlogPage() {
       ) : (
         <StaggerChildren className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((article) => {
-            const style = categoryStyle[article.category];
+            const style = blogCategoryStyle[article.category];
             const catLabel = blogCategories.find(
               (c) => c.value === article.category
             )?.label;

@@ -1,7 +1,5 @@
 import type { BlogArticle } from "@/types/content";
-
-const STANDARD_DISCLAIMER =
-  "This article is for educational purposes only and does not replace professional evaluation or treatment by a licensed speech-language pathologist. If you have concerns about your child's development, please consult a qualified professional.";
+import { BLOG_DISCLAIMER } from "./constants";
 
 export const currentResearch1Articles: BlogArticle[] = [
   // ─── ARTICLE 13: How COVID Changed What We Know About Children's Language ─────
@@ -161,7 +159,7 @@ export const currentResearch1Articles: BlogArticle[] = [
       },
     ],
 
-    disclaimer: STANDARD_DISCLAIMER,
+    disclaimer: BLOG_DISCLAIMER,
   },
 
   // ─── ARTICLE 14: AAC Won't Stop Your Child from Talking ──────────────────
@@ -329,7 +327,7 @@ export const currentResearch1Articles: BlogArticle[] = [
       },
     ],
 
-    disclaimer: STANDARD_DISCLAIMER,
+    disclaimer: BLOG_DISCLAIMER,
   },
 
   // ─── ARTICLE 15: Tongue-Tie: Cutting Through the Hype ────────────────────
@@ -491,6 +489,6 @@ export const currentResearch1Articles: BlogArticle[] = [
       },
     ],
 
-    disclaimer: STANDARD_DISCLAIMER,
+    disclaimer: BLOG_DISCLAIMER,
   },
 ];

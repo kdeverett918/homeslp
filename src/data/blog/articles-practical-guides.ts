@@ -1,7 +1,5 @@
 import type { BlogArticle } from "@/types/content";
-
-const STANDARD_DISCLAIMER =
-  "This article is for educational purposes only and does not replace professional evaluation or treatment by a licensed speech-language pathologist. If you have concerns about your child's development, please consult a qualified professional.";
+import { BLOG_DISCLAIMER } from "./constants";
 
 export const practicalGuideArticles: BlogArticle[] = [
   // ─── ARTICLE 7: FIRST 50 WORDS ──────────────────────────────────────
@@ -157,7 +155,7 @@ export const practicalGuideArticles: BlogArticle[] = [
       },
     ],
 
-    disclaimer: STANDARD_DISCLAIMER,
+    disclaimer: BLOG_DISCLAIMER,
   },
 
   // ─── ARTICLE 8: EAR INFECTIONS & SPEECH ────────────────────────────
@@ -307,7 +305,7 @@ export const practicalGuideArticles: BlogArticle[] = [
       },
     ],
 
-    disclaimer: STANDARD_DISCLAIMER,
+    disclaimer: BLOG_DISCLAIMER,
   },
 
   // ─── ARTICLE 9: READING ALOUD ─────────────────────────────────────
@@ -450,6 +448,6 @@ export const practicalGuideArticles: BlogArticle[] = [
       },
     ],
 
-    disclaimer: STANDARD_DISCLAIMER,
+    disclaimer: BLOG_DISCLAIMER,
   },
 ];
