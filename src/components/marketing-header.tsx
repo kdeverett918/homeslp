@@ -6,16 +6,9 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  { href: "/families", label: "Parent Guide" },
+  { href: "/families", label: "For Parents" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/research", label: "Research Standards" },
-  { href: "/beta", label: "Beta Preview" },
-];
-
-const guideLinks = [
-  { href: "/milestones", label: "Milestones" },
-  { href: "/check", label: "Quick Check" },
-  { href: "/resources", label: "Trusted Resources" },
+  { href: "/research", label: "Our Standards" },
 ];
 
 export function MarketingHeader() {
@@ -23,7 +16,7 @@ export function MarketingHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-xl">
-      <div className="border-b border-border/50 bg-white/45">
+      <div className="border-b border-border/50 bg-white/70">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-5 gap-y-2 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground sm:px-6">
           <span className="inline-flex items-center gap-2">
             <Microscope className="h-3.5 w-3.5 text-primary" />
@@ -62,21 +55,6 @@ export function MarketingHeader() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <div className="rounded-full border border-border/80 bg-white/60 p-1 shadow-warm-sm">
-            {guideLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="inline-flex rounded-full px-3 py-2 text-xs font-semibold text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          <Button asChild variant="outline" size="sm">
-            <Link href="/beta">Preview All Content</Link>
-          </Button>
           <Button asChild variant="outline" size="sm">
             <Link href="/login">Log in</Link>
           </Button>
@@ -114,30 +92,7 @@ export function MarketingHeader() {
               ))}
             </div>
 
-            <div className="soft-panel space-y-3 p-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                Helpful next steps
-              </p>
-              <div className="grid gap-2 sm:grid-cols-3">
-                {guideLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="rounded-[1rem] border border-border/70 bg-white/70 px-3 py-3 text-sm font-semibold text-foreground"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <div className="grid gap-3 sm:grid-cols-3">
-              <Button asChild variant="outline">
-                <Link href="/beta" onClick={() => setOpen(false)}>
-                  Preview All Content
-                </Link>
-              </Button>
+            <div className="grid gap-3 sm:grid-cols-2">
               <Button asChild variant="outline">
                 <Link href="/login" onClick={() => setOpen(false)}>
                   Log in

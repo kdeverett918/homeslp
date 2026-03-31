@@ -59,9 +59,9 @@ export default function MarketingLayout({
                 </p>
                 <div className="mt-4 grid gap-3">
                   {[
-                    { href: "/families", label: "Explore the parent guide" },
-                    { href: "/check", label: "Try the quick milestone check" },
-                    { href: "/research", label: "Read our research standards" },
+                    { href: "/families", label: "See how it works" },
+                    { href: "/pricing", label: "View pricing plans" },
+                    { href: "/research", label: "Read our standards" },
                   ].map((item) => (
                     <Link
                       key={item.href}
@@ -88,35 +88,32 @@ export default function MarketingLayout({
 
             <div className="grid gap-8 text-sm text-muted-foreground md:grid-cols-4">
               <div>
-                <h3 className="font-heading text-base font-semibold text-foreground">For Parents</h3>
+                <h3 className="font-heading text-base font-semibold text-foreground">Get Started</h3>
                 <ul className="mt-3 space-y-2">
-                  <li><Link href="/families" className="ink-link">Parent guide</Link></li>
-                  <li><Link href="/milestones" className="ink-link">Milestones</Link></li>
-                  <li><Link href="/check" className="ink-link">Quick check</Link></li>
-                  <li><Link href="/resources" className="ink-link">Trusted resources</Link></li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-heading text-base font-semibold text-foreground">Research & Review</h3>
-                <ul className="mt-3 space-y-2">
-                  <li><Link href="/research" className="ink-link">Editorial standards</Link></li>
-                  <li><Link href="/disclaimer" className="ink-link">Medical disclaimer</Link></li>
-                  <li><Link href="/privacy" className="ink-link">Privacy policy</Link></li>
-                  <li><Link href="/terms" className="ink-link">Terms of service</Link></li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-heading text-base font-semibold text-foreground">Plans & Access</h3>
-                <ul className="mt-3 space-y-2">
-                  <li><Link href="/beta" className="ink-link">Beta preview</Link></li>
+                  <li><Link href="/families" className="ink-link">How It Works</Link></li>
                   <li><Link href="/pricing" className="ink-link">Pricing</Link></li>
-                  <li><Link href="/login" className="ink-link">Log in</Link></li>
-                  <li><a href="mailto:hello@homeslp.com" className="ink-link">hello@homeslp.com</a></li>
+                  <li><Link href="/signup" className="ink-link">Start Free Trial</Link></li>
+                  <li><Link href="/login" className="ink-link">Log In</Link></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-heading text-base font-semibold text-foreground">Learn More</h3>
+                <ul className="mt-3 space-y-2">
+                  <li><Link href="/research" className="ink-link">Our Standards</Link></li>
+                  <li><Link href="/blog" className="ink-link">Blog</Link></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-heading text-base font-semibold text-foreground">Legal</h3>
+                <ul className="mt-3 space-y-2">
+                  <li><Link href="/terms" className="ink-link">Terms of Service</Link></li>
+                  <li><Link href="/privacy" className="ink-link">Privacy Policy</Link></li>
+                  <li><Link href="/disclaimer" className="ink-link">Disclaimer</Link></li>
                 </ul>
               </div>
               <div>
                 <h3 className="font-heading text-base font-semibold text-foreground">Important Note</h3>
-                <p className="mt-3 leading-7">
+                <p className="mt-3 leading-7 text-foreground/70">
                   HomeSLP provides general educational guidance. It does not replace a medical
                   evaluation and does not create a patient-provider relationship.
                 </p>
