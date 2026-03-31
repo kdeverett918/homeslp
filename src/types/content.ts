@@ -1,5 +1,56 @@
 import type { ContentPath, AccessTier, RiskLevel } from './index';
 
+// ─── BLOG ARTICLES ─────────────────────────────────────────────────────
+export type BlogCategory =
+  | "speech-development"
+  | "language-development"
+  | "feeding-swallowing"
+  | "parent-tips"
+  | "myths-facts"
+  | "milestones";
+
+export interface BlogSource {
+  label: string;
+  detail: string;
+}
+
+export interface BlogFunFact {
+  emoji: string;
+  text: string;
+}
+
+export interface BlogCallout {
+  type: "tip" | "warning" | "note" | "fun-fact";
+  text: string;
+}
+
+export interface BlogSection {
+  heading: string;
+  content: string;
+  bulletPoints?: string[];
+  callout?: BlogCallout;
+}
+
+export interface BlogArticle {
+  id: string;
+  slug: string;
+  title: string;
+  subtitle: string;
+  category: BlogCategory;
+  tags: string[];
+  readingTimeMinutes: number;
+  publishedDate: string;
+  updatedDate?: string;
+  author: string;
+  heroEmoji: string;
+  introduction: string;
+  sections: BlogSection[];
+  funFacts: BlogFunFact[];
+  keyTakeaways: string[];
+  sources: BlogSource[];
+  disclaimer: string;
+}
+
 export interface RefrigeratorTechnique {
   activityContext: string;
   technique: string;
