@@ -3,7 +3,7 @@
 import { use, useState } from "react";
 import { FadeIn } from "@/components/motion";
 import { PrintControls } from "@/components/ui/print-controls";
-import { blogArticles, blogCategories, blogCategoryStyle } from "@/data/blog";
+import { blogArticles, blogCategories } from "@/data/blog";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -80,8 +80,6 @@ export default function BlogArticlePage({ params }: Props) {
   const catLabel = blogCategories.find(
     (c) => c.value === article.category
   )?.label;
-  const style = blogCategoryStyle[article.category];
-
   // Get related articles (same category, excluding current)
   const related = blogArticles
     .filter((a) => a.category === article.category && a.id !== article.id)
@@ -116,14 +114,14 @@ export default function BlogArticlePage({ params }: Props) {
         <div className="flex items-center justify-between gap-4 print:hidden">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+            className="trust-pill text-sm hover:border-primary/30 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" /> All Articles
           </Link>
           <div className="flex items-center gap-2">
             <button
               onClick={handleShare}
-              className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium hover:bg-accent transition-colors"
+              className="trust-pill text-sm hover:border-primary/30 transition-colors"
               aria-label="Share article"
             >
               {copied ? (
@@ -142,67 +140,63 @@ export default function BlogArticlePage({ params }: Props) {
       <FadeIn delay={0.1}>
         <article
           id="blog-article-print"
-          className="rounded-2xl border bg-card p-6 sm:p-8 space-y-6 print:border-0 print:shadow-none print:p-0"
+          className="space-y-8 print:p-0"
         >
           {/* Header */}
-          <header className="text-center border-b pb-6 space-y-3 print:block">
-            <p className="text-xs font-medium text-primary tracking-wide uppercase print:text-black">
-              HomeSLP
-            </p>
-            <span className="text-5xl block">{article.heroEmoji}</span>
-            <span
-              className={`inline-block rounded-full px-3 py-1 text-xs font-medium ${style.bg} ${style.text}`}
-            >
-              {catLabel}
-            </span>
-            <h1 className="font-heading text-2xl sm:text-3xl font-bold leading-tight">
-              {article.title}
-            </h1>
-            <p className="text-muted-foreground">{article.subtitle}</p>
-            <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground pt-1">
-              <span className="flex items-center gap-1">
-                <Clock className="w-3.5 h-3.5" />
-                {article.readingTimeMinutes} min read
-              </span>
-              <span className="flex items-center gap-1">
-                <Calendar className="w-3.5 h-3.5" />
-                {new Date(article.publishedDate).toLocaleDateString("en-US", {
-                  month: "long",
-                  day: "numeric",
-                  year: "numeric",
-                })}
-              </span>
-            </div>
-            {/* Tags */}
-            <div className="flex flex-wrap justify-center gap-1.5 pt-1">
-              {article.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-muted px-2.5 py-0.5 text-[11px] text-muted-foreground"
-                >
-                  {tag}
+          <header className="guide-surface p-6 sm:p-8 space-y-4 print:block print:border-0 print:shadow-none print:bg-transparent">
+            <div className="relative z-10 space-y-3 text-center">
+              <div className="section-kicker mx-auto">{catLabel}</div>
+              <span className="text-5xl block">{article.heroEmoji}</span>
+              <h1 className="font-heading text-2xl sm:text-3xl font-bold leading-tight tracking-tight">
+                {article.title}
+              </h1>
+              <p className="text-muted-foreground max-w-lg mx-auto leading-relaxed">{article.subtitle}</p>
+              <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground pt-1">
+                <span className="flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5" />
+                  {article.readingTimeMinutes} min read
                 </span>
-              ))}
+                <span className="text-border">|</span>
+                <span className="flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5" />
+                  {new Date(article.publishedDate).toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
+                </span>
+              </div>
+              {/* Tags */}
+              <div className="flex flex-wrap justify-center gap-1.5 pt-1">
+                {article.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="trust-pill text-[11px] py-0.5 px-2.5"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </header>
 
           {/* Introduction */}
-          <div className="text-sm sm:text-base leading-relaxed text-foreground/90">
+          <div className="text-sm sm:text-base leading-7 text-foreground/85">
             {article.introduction}
           </div>
 
           {/* Fun facts banner */}
           {article.funFacts.length > 0 && (
-            <div className="rounded-xl bg-gradient-to-br from-accent/20 via-primary/5 to-secondary/10 border border-accent/20 p-5 space-y-3">
+            <div className="field-note p-5 space-y-3">
               <div className="flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-primary" />
-                <h2 className="font-heading text-sm font-bold uppercase tracking-wide">
+                <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   Quick Fun Facts
                 </h2>
               </div>
-              <ul className="space-y-2">
+              <ul className="space-y-2.5">
                 {article.funFacts.map((fact, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-sm">
+                  <li key={i} className="flex items-start gap-2.5 text-sm leading-relaxed">
                     <span className="text-lg shrink-0 leading-5">
                       {fact.emoji}
                     </span>
@@ -216,11 +210,10 @@ export default function BlogArticlePage({ params }: Props) {
           {/* Sections */}
           {article.sections.map((section, i) => (
             <div key={i} className="space-y-3">
-              <h2 className="font-heading text-lg font-semibold flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+              <h2 className="font-heading text-lg font-semibold pl-3 border-l-2 border-primary/40">
                 {section.heading}
               </h2>
-              <p className="text-sm sm:text-base leading-relaxed text-foreground/85">
+              <p className="text-sm sm:text-base leading-7 text-foreground/85">
                 {section.content}
               </p>
               {section.bulletPoints && section.bulletPoints.length > 0 && (
@@ -235,7 +228,7 @@ export default function BlogArticlePage({ params }: Props) {
               )}
               {section.callout && (
                 <div
-                  className={`rounded-lg border p-4 ${calloutConfig[section.callout.type].bg}`}
+                  className={`rounded-2xl border p-4 sm:p-5 ${calloutConfig[section.callout.type].bg}`}
                 >
                   <div className="flex items-start gap-2.5">
                     {(() => {
@@ -266,14 +259,14 @@ export default function BlogArticlePage({ params }: Props) {
 
           {/* Key Takeaways */}
           {article.keyTakeaways.length > 0 && (
-            <div className="rounded-xl bg-primary/5 border border-primary/10 p-5 space-y-3">
+            <div className="soft-panel p-5 sm:p-6 space-y-3">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-primary" />
-                <h2 className="font-heading text-sm font-bold uppercase tracking-wide">
+                <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   Key Takeaways
                 </h2>
               </div>
-              <ul className="space-y-2">
+              <ul className="space-y-2.5">
                 {article.keyTakeaways.map((takeaway, i) => (
                   <li key={i} className="flex items-start gap-2.5 text-sm">
                     <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
@@ -286,23 +279,23 @@ export default function BlogArticlePage({ params }: Props) {
 
           {/* Sources */}
           {article.sources.length > 0 && (
-            <div className="space-y-3 border-t pt-5">
-              <div className="flex items-center gap-2">
-                <BookOpen className="w-4 h-4 text-muted-foreground" />
-                <h2 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  Evidence & Sources
-                </h2>
+            <details className="border-t pt-5 group">
+              <summary className="flex items-center gap-2 cursor-pointer text-xs font-semibold uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors">
+                <BookOpen className="w-4 h-4" />
+                Evidence & Sources ({article.sources.length})
+              </summary>
+              <div className="mt-3">
+                <ol className="space-y-1.5 text-xs text-muted-foreground list-decimal list-inside">
+                  {article.sources.map((source, i) => (
+                    <li key={i}>
+                      <span className="font-medium">{source.label}</span>
+                      {" — "}
+                      {source.detail}
+                    </li>
+                  ))}
+                </ol>
               </div>
-              <ol className="space-y-1.5 text-xs text-muted-foreground list-decimal list-inside">
-                {article.sources.map((source, i) => (
-                  <li key={i}>
-                    <span className="font-medium">{source.label}</span>
-                    {" — "}
-                    {source.detail}
-                  </li>
-                ))}
-              </ol>
-            </div>
+            </details>
           )}
 
           {/* Disclaimer */}
@@ -329,7 +322,7 @@ export default function BlogArticlePage({ params }: Props) {
                 <Link
                   key={rel.id}
                   href={`/blog/${rel.slug}`}
-                  className="group rounded-xl border bg-card p-4 shadow-warm-sm transition-all hover:shadow-warm-md hover:border-primary/20"
+                  className="group card-lift rounded-2xl border border-border/70 bg-card p-4 shadow-warm-sm"
                 >
                   <span className="text-2xl">{rel.heroEmoji}</span>
                   <h3 className="mt-2 font-heading text-sm font-semibold leading-snug group-hover:text-primary transition-colors line-clamp-2">

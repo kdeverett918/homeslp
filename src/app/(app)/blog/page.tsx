@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Newspaper, Clock, ChevronRight, Sparkles, Search } from "lucide-react";
+import { Newspaper, Clock, ChevronRight, Sparkles, Search, BookOpen } from "lucide-react";
 import Link from "next/link";
-import { PageHeader } from "@/components/ui/page-header";
 import { FilterPills } from "@/components/ui/filter-pills";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion";
 import { blogArticles, blogCategories, blogCategoryStyle, type BlogCategory } from "@/data/blog";
@@ -41,22 +40,36 @@ export default function BlogPage() {
 
   return (
     <div className="max-w-5xl space-y-6">
+      {/* Hero Section */}
       <FadeIn>
-        <PageHeader
-          icon={Newspaper}
-          title="Parent Articles"
-          subtitle="Evidence-based articles to help you understand your child's speech and language development. Download or print any article to keep."
-        />
+        <div className="guide-surface p-6 sm:p-8">
+          <div className="relative z-10 space-y-3">
+            <div className="section-kicker">Parent Articles</div>
+            <h1 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight">
+              Understanding Your Child&apos;s Development
+            </h1>
+            <p className="text-muted-foreground max-w-xl leading-relaxed">
+              Evidence-based articles written by SLPs to help you understand speech, language, and feeding milestones. Print or save any article.
+            </p>
+            <div className="flex items-center gap-2 text-xs text-muted-foreground pt-1">
+              <Newspaper className="w-4 h-4" />
+              <span>{blogArticles.length} articles</span>
+              <span className="text-border">|</span>
+              <BookOpen className="w-4 h-4" />
+              <span>Evidence-based</span>
+            </div>
+          </div>
+        </div>
       </FadeIn>
 
       {/* Fun fact banner */}
       <FadeIn delay={0.05}>
-        <div className="rounded-xl bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/20 border border-primary/10 p-4 flex items-start gap-3">
+        <div className="field-note p-4 flex items-start gap-3">
           <Sparkles className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-          <p className="text-sm text-foreground/80">
-            <span className="font-semibold">Did you know?</span>{" "}
-            {randomFact}
-          </p>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">Did you know?</p>
+            <p className="text-sm text-foreground/80 leading-relaxed">{randomFact}</p>
+          </div>
         </div>
       </FadeIn>
 
@@ -71,7 +84,7 @@ export default function BlogPage() {
               aria-label="Search articles"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full rounded-lg border bg-card pl-10 pr-4 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+              className="w-full rounded-xl border border-border/70 bg-card pl-10 pr-4 py-2.5 text-sm shadow-warm-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/40 transition-all"
             />
           </div>
         </search>
@@ -92,8 +105,8 @@ export default function BlogPage() {
 
       {/* Results count */}
       <FadeIn delay={0.2}>
-        <p className="text-sm text-muted-foreground">
-          {filtered.length} article{filtered.length !== 1 ? "s" : ""}
+        <p className="text-xs text-muted-foreground tracking-wide">
+          Showing {filtered.length} article{filtered.length !== 1 ? "s" : ""}
           {category ? ` in ${filter}` : ""}
           {search.trim() ? ` matching "${search}"` : ""}
         </p>
@@ -102,8 +115,8 @@ export default function BlogPage() {
       {/* Article grid */}
       {filtered.length === 0 ? (
         <FadeIn delay={0.25}>
-          <div className="rounded-xl border bg-card p-8 text-center">
-            <Newspaper className="mx-auto h-12 w-12 text-muted-foreground/40" />
+          <div className="soft-panel p-8 text-center">
+            <Newspaper className="mx-auto h-12 w-12 text-muted-foreground/30" />
             <h2 className="mt-4 font-heading text-lg font-bold">No articles found</h2>
             <p className="mt-2 text-sm text-muted-foreground">
               Try adjusting your search or filter to find what you&apos;re looking for.
@@ -121,29 +134,31 @@ export default function BlogPage() {
               <StaggerItem key={article.id}>
                 <Link
                   href={`/blog/${article.slug}`}
-                  className="group flex h-full flex-col rounded-xl border bg-card p-5 shadow-warm-sm transition-all hover:shadow-warm-md hover:border-primary/20"
+                  className="group card-lift flex h-full flex-col rounded-2xl border border-border/70 bg-card p-5 shadow-warm-sm"
                 >
-                  {/* Hero emoji */}
+                  {/* Emoji in a colored circle */}
                   <div className="mb-3 flex items-center justify-between">
-                    <span className="text-3xl">{article.heroEmoji}</span>
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border/50 bg-gradient-to-br from-white to-muted/50 text-2xl shadow-warm-sm">
+                      {article.heroEmoji}
+                    </span>
                     <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                       <Clock className="w-3.5 h-3.5" />
-                      {article.readingTimeMinutes} min read
+                      {article.readingTimeMinutes} min
                     </div>
                   </div>
 
                   {/* Category badge */}
                   <span
-                    className={`inline-block self-start rounded-full px-2.5 py-0.5 text-xs font-medium mb-2 ${style.bg} ${style.text}`}
+                    className={`inline-block self-start rounded-full px-2.5 py-0.5 text-[11px] font-semibold mb-2 ${style.bg} ${style.text}`}
                   >
                     {catLabel}
                   </span>
 
-                  {/* Title */}
+                  {/* Title and subtitle */}
                   <h2 className="font-heading text-base font-semibold leading-snug group-hover:text-primary transition-colors">
                     {article.title}
                   </h2>
-                  <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">
+                  <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2 leading-relaxed">
                     {article.subtitle}
                   </p>
 
@@ -152,7 +167,7 @@ export default function BlogPage() {
                     {article.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full bg-muted px-2 py-0.5 text-[11px] text-muted-foreground"
+                        className="rounded-full border border-border/50 bg-muted/50 px-2 py-0.5 text-[11px] text-muted-foreground"
                       >
                         {tag}
                       </span>
@@ -160,9 +175,9 @@ export default function BlogPage() {
                   </div>
 
                   {/* Read more */}
-                  <div className="mt-auto pt-4 flex items-center gap-1 text-sm font-medium text-primary">
+                  <div className="mt-auto pt-4 flex items-center gap-1.5 text-sm font-semibold text-primary">
                     Read article
-                    <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                    <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </div>
                 </Link>
               </StaggerItem>
