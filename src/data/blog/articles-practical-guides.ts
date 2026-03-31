@@ -96,8 +96,8 @@ export const practicalGuideArticles: BlogArticle[] = [
           "The single best thing you can do is talk with your child, not at them. Research consistently shows that the quality of language interaction matters far more than the sheer quantity of words. Here are evidence-backed strategies you can start today:",
         bulletPoints: [
           "Follow their interest: Label what your child is already looking at or reaching for. If they're staring at the dog, that's the perfect time for 'dog!' or 'big dog!'",
-          "Use parentese: That slightly exaggerated, musical way of talking to babies isn't silly; it's scientifically proven to help word learning. Slow down, stretch out vowels, and vary your pitch.",
-          "Expand and model: If your child says 'ba,' you can respond with 'Ball! Yes, big ball!' You're not correcting them; you're showing them the target.",
+          "Use parentese: That slightly exaggerated, musical way of talking to babies isn't silly — it's scientifically proven to help word learning. Slow down, stretch out vowels, and vary your pitch.",
+          "Expand and model: If your child says 'ba,' you can respond with 'Ball! Yes, big ball!' You're not correcting them — you're showing them the target.",
           "Read together every day: Board books with simple pictures are vocabulary goldmines (more on this in our reading article!).",
           "Reduce screen time: The American Academy of Pediatrics recommends avoiding screens before 18 months (except video calls) because children learn words best from live human interaction.",
           "Narrate your routines: Bath time, cooking, getting dressed. 'Now we put on your socks. One sock, two socks!'",
@@ -108,7 +108,7 @@ export const practicalGuideArticles: BlogArticle[] = [
     funFacts: [
       {
         emoji: "\u{1F6AB}",
-        text: "\"No\" is universally one of the first 10 words children produce across virtually every language studied. Toddlers quickly learn the power of refusal!",
+        text: "In one study, the word \"no\" appeared before \"yes\" in children's vocabularies by an average of three months. Turns out, refusing things is highly motivating!",
       },
       {
         emoji: "\u{1F42E}",
@@ -336,7 +336,7 @@ export const practicalGuideArticles: BlogArticle[] = [
       {
         heading: "The Research Is Unambiguous",
         content:
-          "In the world of child development research, it's rare to find a topic where the evidence all points in the same direction. Shared book reading is one of those topics.\n\nBus, van IJzendoorn, and Pellegrini (1995) conducted a landmark meta-analysis of 29 studies and found that parent-child book reading was associated with significant gains in language growth, emergent literacy, and reading achievement. The effect was robust across socioeconomic groups and held up even when controlling for other variables like parental education.\n\nMol and Bus (2011) followed up with another meta-analysis and found that the frequency of shared reading in the preschool years predicted language and literacy outcomes well into elementary school. Children who were read to regularly performed significantly better on measures of vocabulary, reading comprehension, and overall language ability.\n\nBut perhaps the most striking finding comes from the sheer volume of language exposure. A landmark calculation from the Read Aloud 15 Minutes campaign, based on children's book word counts, estimated that a child who is read 5 picture books per day from birth will enter kindergarten having heard approximately 1.4 million more words than a child who was never read to. That's not 1.4 million random words; it's 1.4 million words in rich, grammatically complex, contextually meaningful sentences, the exact kind of input that builds strong language networks in the brain.",
+          "In the world of child development research, it's rare to find a topic where the evidence all points in the same direction. Shared book reading is one of those topics.\n\nBus, van IJzendoorn, and Pellegrini (1995) conducted a landmark meta-analysis of 29 studies and found that parent-child book reading was associated with significant gains in language growth, emergent literacy, and reading achievement. The effect was robust across socioeconomic groups and held up even when controlling for other variables like parental education.\n\nMol and Bus (2011) followed up with another meta-analysis and found that the frequency of shared reading in the preschool years predicted language and literacy outcomes well into elementary school. Children who were read to regularly performed significantly better on measures of vocabulary, reading comprehension, and overall language ability.\n\nBut perhaps the most striking finding comes from the sheer volume of language exposure. A landmark calculation from the Read Aloud 15 Minutes campaign, based on children's book word counts, estimated that a child who is read 5 picture books per day from birth will enter kindergarten having heard approximately 1.4 million more words than a child who was never read to. That's not 1.4 million random words — it's 1.4 million words in rich, grammatically complex, contextually meaningful sentences — the exact kind of input that builds strong language networks in the brain.",
         callout: {
           type: "fun-fact",
           text: "Children's books contain 50% more rare and sophisticated words than prime-time television or even college-educated adults' everyday conversation (Cunningham & Stanovich, 1998). Reading aloud exposes children to language they would almost never hear otherwise.",
@@ -363,12 +363,12 @@ export const practicalGuideArticles: BlogArticle[] = [
       {
         heading: "Physical Books vs. Screens: Why Paper Wins",
         content:
-          "In an age of tablets and e-readers, it's worth asking: does the format matter? Research suggests it does, especially for young children.\n\nMunzer et al. (2019) found that parent-toddler interactions during electronic book reading featured fewer dialogic exchanges, less collaborative turn-taking, and more device-focused comments (\"Don't push that button,\" \"Swipe here\") compared to print book reading. Parents reading physical books used richer vocabulary, asked more open-ended questions, and engaged in more back-and-forth conversation.\n\nTroseth et al. (2020) found that toddlers learned new words better from physical books than from video or interactive apps, even when the content was identical. The social interaction, the shared attention, the ability to point and discuss together seems to be a critical ingredient that screens disrupt.\n\nThis doesn't mean you should never use a book app or read an e-book. But when it comes to language building, a simple board book and a lap to sit on outperform the most sophisticated technology available. The secret ingredient isn't the book; it's the interaction between you and your child.",
+          "In an age of tablets and e-readers, it's worth asking: does the format matter? Research suggests it does, especially for young children.\n\nMunzer et al. (2019) found that parent-toddler interactions during electronic book reading featured fewer dialogic exchanges, less collaborative turn-taking, and more device-focused comments (\"Don't push that button,\" \"Swipe here\") compared to print book reading. Parents reading physical books used richer vocabulary, asked more open-ended questions, and engaged in more back-and-forth conversation.\n\nTroseth et al. (2020) found that toddlers learned new words better from physical books than from video or interactive apps, even when the content was identical. The social interaction, the shared attention, the ability to point and discuss together seems to be a critical ingredient that screens disrupt.\n\nThis doesn't mean you should never use a book app or read an e-book. But when it comes to language building, a simple board book and a lap to sit on outperform the most sophisticated technology available. The secret ingredient isn't the book — it's the interaction between you and your child.",
       },
       {
         heading: "Reading to Newborns: Yes, Really",
         content:
-          "\"But my baby can't even understand words yet. What's the point of reading to a newborn?\"\n\nWe hear this question constantly, and the answer might surprise you. Research using functional MRI has shown that infants as young as 3 months show activation in language-processing areas of the brain during story time (Dehaene-Lambertz et al., 2002). They're not understanding the words, but they are absorbing the rhythm, melody, and cadence of language, what linguists call prosody.\n\nProsody is far more important than most people realize. It's how babies begin to segment the speech stream into words. It's how they learn which syllables are stressed. It's how they start to distinguish questions from statements. And the exaggerated prosody that parents naturally use when reading aloud (\"Where is the BUNNY? There he IS!\") is perfectly calibrated to help infants tune into language structure.\n\nBeyond the linguistic benefits, reading to a newborn builds secure attachment through skin contact, shared attention, and the soothing sound of a parent's voice. You're building a positive association with books that will pay dividends for years to come.",
+          "\"But my baby can't even understand words yet. What's the point of reading to a newborn?\"\n\nWe hear this question constantly, and the answer might surprise you. Research using functional MRI has shown that infants as young as 3 months show activation in language-processing areas of the brain during story time (Dehaene-Lambertz et al., 2002). They're not understanding the words, but they are absorbing the rhythm, melody, and cadence of language — what linguists call prosody.\n\nProsody is far more important than most people realize. It's how babies begin to segment the speech stream into words. It's how they learn which syllables are stressed. It's how they start to distinguish questions from statements. And the exaggerated prosody that parents naturally use when reading aloud (\"Where is the BUNNY? There he IS!\") is perfectly calibrated to help infants tune into language structure.\n\nBeyond the linguistic benefits, reading to a newborn builds secure attachment through skin contact, shared attention, and the soothing sound of a parent's voice. You're building a positive association with books that will pay dividends for years to come.",
         callout: {
           type: "tip",
           text: "For newborns, high-contrast board books (black and white patterns) are visually engaging, but honestly, you can read anything. Your 2-week-old doesn't care if it's 'Goodnight Moon' or the sports section. What matters is your voice, your closeness, and the rhythm of language.",
@@ -404,7 +404,7 @@ export const practicalGuideArticles: BlogArticle[] = [
       },
       {
         emoji: "\u{1F4DA}",
-        text: "Children's picture books contain 50% more rare and complex words than prime-time television or typical adult conversation. Books are a vocabulary goldmine.",
+        text: "A child who hears just 3 books per day from birth will have been read to for roughly 900 hours by the time they start kindergarten. That's more language exposure than many classrooms provide in a year.",
       },
       {
         emoji: "\u{1F501}",
@@ -445,6 +445,16 @@ export const practicalGuideArticles: BlogArticle[] = [
         label: "Cunningham & Stanovich (1998)",
         detail:
           "Cunningham, A. E., & Stanovich, K. E. (1998). What reading does for the mind. American Educator, 22(1-2), 8\u201315.",
+      },
+      {
+        label: "Munzer et al. (2019)",
+        detail:
+          "Munzer, T. G., Miller, A. L., Weeks, H. M., Kaciroti, N., & Radesky, J. (2019). Differences in parent-toddler interactions with electronic versus print books. Pediatrics, 143(4), e20182012.",
+      },
+      {
+        label: "Troseth et al. (2020)",
+        detail:
+          "Troseth, G. L., Strouse, G. A., & Russo Johnson, C. E. (2020). Early digital literacy: Learning to learn from video. In F. C. Blumberg & P. J. Brooks (Eds.), Cognitive Development in Digital Contexts (pp. 29\u201351). Academic Press.",
       },
     ],
 

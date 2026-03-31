@@ -85,7 +85,7 @@ const whatSLPsWishParentsKnew: BlogArticle = {
         "The human brain undergoes extraordinary growth in the first three years of life. Neural connections are forming at a rate of over one million per second. This period of rapid neuroplasticity means the brain is uniquely primed to absorb language — and uniquely responsive to intervention. Research on early intervention programs consistently shows larger effect sizes for children who begin services before age three compared to those who start later (Guralnick, 1998). This does not mean intervention after three is pointless — far from it. But the return on investment, both neurologically and practically, is highest when you start early.",
       callout: {
         type: "note",
-        text: "In the U.S., early intervention services (birth to 3) are federally mandated under Part C of IDEA. They are often free or low-cost, and you do NOT need a doctor's referral to request an evaluation in most states.",
+        text: "In the U.S., early intervention services (birth to 3) are federally mandated under IDEA and often free — you do NOT need a doctor's referral to request an evaluation.",
       },
     },
     {
@@ -112,19 +112,19 @@ const whatSLPsWishParentsKnew: BlogArticle = {
   funFacts: [
     {
       emoji: "🎓",
-      text: "SLPs complete a minimum of six years of higher education, including a master's degree, hundreds of clinical hours, and a national certification exam (the Praxis) before they can practice independently.",
+      text: "SLPs need a minimum of six years of higher education, a master's degree, hundreds of clinical hours, and a national exam before they can practice independently.",
     },
     {
       emoji: "📜",
-      text: "The profession of speech-language pathology has existed since the 1920s, when it was first formalized at universities in the United States and Europe. Early practitioners were often called \"speech correctionists.\"",
+      text: "The first SLPs were called \"speech correctionists\" when the profession was formalized in the 1920s.",
     },
     {
       emoji: "🌍",
-      text: "SLPs do not just work on speech sounds — the scope of practice includes voice, fluency, language, cognition, swallowing, and even the use of augmentative and alternative communication (AAC) devices.",
+      text: "SLPs do not just work on speech sounds — their scope covers voice, fluency, language, cognition, swallowing, and AAC devices.",
     },
     {
       emoji: "🧠",
-      text: "The average SLP's caseload includes clients ranging from newborns in the NICU to adults recovering from strokes — the breadth of the field is enormous.",
+      text: "A single SLP's caseload can span from NICU newborns to adults recovering from strokes.",
     },
   ],
 
@@ -173,9 +173,19 @@ const whatSLPsWishParentsKnew: BlogArticle = {
         "Eriksson, M., Marschik, P. B., Tulviste, T., et al. (2012). Differences between girls and boys in emerging language skills: Evidence from 10 language communities. British Journal of Developmental Psychology, 30(2), 326-343.",
     },
     {
-      label: "ASHA Position Statements",
+      label: "Guralnick (1998)",
       detail:
-        "American Speech-Language-Hearing Association. Roles and responsibilities of speech-language pathologists in early intervention. Available at asha.org.",
+        "Guralnick, M. J. (1998). Effectiveness of early intervention for vulnerable children: A developmental perspective. American Journal on Mental Retardation, 102(4), 319-345.",
+    },
+    {
+      label: "Kashinath et al. (2006)",
+      detail:
+        "Kashinath, S., Woods, J., & Goldstein, H. (2006). Enhancing generalized teaching strategy use in daily routines by parents of children with autism. Journal of Speech, Language, and Hearing Research, 49(3), 466-485.",
+    },
+    {
+      label: "ASHA (2008)",
+      detail:
+        "American Speech-Language-Hearing Association. (2008). Roles and responsibilities of speech-language pathologists in early intervention [Position statement]. Available at asha.org.",
     },
   ],
 
@@ -237,7 +247,7 @@ const pickyEatingFeedingDifficulties: BlogArticle = {
       ],
       callout: {
         type: "warning",
-        text: "Choking and aspiration are serious safety concerns. If your child coughs, gags, or turns red during meals more than occasionally, seek an evaluation that includes a swallowing assessment. Do not assume they will \"grow out of it.\"",
+        text: "If your child coughs, gags, or turns red during meals more than occasionally, seek an evaluation that includes a swallowing assessment. Do not assume they will \"grow out of it.\"",
       },
     },
     {
@@ -246,7 +256,7 @@ const pickyEatingFeedingDifficulties: BlogArticle = {
         "For many children with feeding difficulties, the problem is not about taste at all — it is about sensory processing. The mouth is one of the most sensory-rich areas of the body, and children who are hypersensitive to oral input may experience textures as genuinely overwhelming. Imagine biting into a food that feels like chewing on sandpaper — that is closer to the lived experience of a child with oral sensory defensiveness than most adults realize. Temperature matters too: some children can only tolerate room-temperature foods because cold or hot triggers a sensory alarm. Smell can be an immediate deal-breaker, causing gagging before food even reaches the lips. Understanding that your child's refusal is not defiance but a genuine sensory experience is the first step toward compassionate, effective intervention.",
       callout: {
         type: "tip",
-        text: "Try a \"food exploration\" approach: let your child touch, smell, lick, and play with new foods without any pressure to eat them. Building comfort with the sensory properties of food is a legitimate step toward acceptance.",
+        text: "Try a \"food exploration\" approach: let your child touch, smell, lick, and play with new foods without any pressure to eat. Building sensory comfort is a legitimate step toward acceptance.",
       },
     },
     {
@@ -285,19 +295,19 @@ const pickyEatingFeedingDifficulties: BlogArticle = {
   funFacts: [
     {
       emoji: "👅",
-      text: "Children have approximately 10,000 taste buds spread across the tongue, cheeks, and roof of the mouth. Adults have only about 5,000. This means children literally experience flavors more intensely than adults do — that \"too strong\" reaction to broccoli is real.",
+      text: "Children have roughly 10,000 taste buds compared to an adult's 5,000 — they literally taste flavors twice as intensely as you do.",
     },
     {
       emoji: "🔄",
-      text: "Research shows it can take 15 to 20 neutral exposures to a new food before a child willingly accepts it. Most parents give up after 3 to 5 attempts — long before the food ever had a fair chance.",
+      text: "It takes 15 to 20 neutral exposures before a child may accept a new food — but most parents give up after just 3 to 5 tries.",
     },
     {
       emoji: "🍽️",
-      text: "Eating requires the coordination of 26 muscles and 6 cranial nerves. It is one of the most complex sensorimotor tasks the human body performs — and your child learned it as an infant.",
+      text: "Eating coordinates 26 muscles and 6 cranial nerves — making it one of the most complex physical tasks the human body performs.",
     },
     {
       emoji: "🧬",
-      text: "About 25% of children are born as \"supertasters\" — they have a genetic variation that makes them more sensitive to bitter compounds found in many vegetables. Their pickiness may have a genuine biological basis.",
+      text: "About 25% of children are \"supertasters\" with a genetic variation that makes bitter compounds in vegetables taste dramatically stronger.",
     },
   ],
 
@@ -403,7 +413,7 @@ const playBuildsLanguage: BlogArticle = {
       ],
       callout: {
         type: "tip",
-        text: "You do not need expensive toys. A cardboard box can become a car, a boat, a house, or a spaceship. The simpler the toy, the more your child's language has to fill in the gaps — and that is exactly what we want.",
+        text: "You do not need expensive toys. The simpler the object, the more your child's language has to fill in the gaps.",
       },
     },
     {
@@ -423,7 +433,7 @@ const playBuildsLanguage: BlogArticle = {
         "There is a reason SLPs spend so much time sitting on the floor. When you get down to your child's physical level during play, several things happen at once. Eye contact becomes natural rather than forced. You enter their visual field, which means they can see your mouth and facial expressions — critical for speech and language learning. You signal that you are a play partner, not a director standing overhead issuing instructions. And you gain access to their world — you can see what they see, follow their gaze, and respond to their interests in real time. This concept of \"following the child's lead\" is central to virtually every evidence-based early language intervention model, including Enhanced Milieu Teaching, Hanen's It Takes Two to Talk, and DIR/Floortime. The message is consistent: children learn language best when adults enter their world, not when we drag them into ours.",
       callout: {
         type: "tip",
-        text: "Try dedicating 10 to 15 minutes of daily \"floor time\" where you follow your child's lead completely. No agenda, no teaching goal — just be present, comment on what they do, and let them direct the play. You may be surprised at how much language emerges.",
+        text: "Try 10 to 15 minutes of daily \"floor time\" where you follow your child's lead completely — no agenda, no teaching goal, just presence and commentary.",
       },
     },
     {
@@ -443,19 +453,19 @@ const playBuildsLanguage: BlogArticle = {
   funFacts: [
     {
       emoji: "📚",
-      text: "Research suggests children can learn up to three times more new words during play-based interactions than during structured, drill-based teaching — because engagement and motivation supercharge memory encoding.",
+      text: "Children can learn up to three times more new words during play than during structured drills.",
     },
     {
       emoji: "🧠",
-      text: "Pretend play activates many of the same brain regions used for language comprehension, including areas responsible for understanding others' intentions and mental states (theory of mind).",
+      text: "A child who can pretend a banana is a phone has the same symbolic thinking skills needed to let the word \"banana\" represent the actual fruit.",
     },
     {
       emoji: "📱",
-      text: "In Sosa's 2016 study, parents spoke an average of 56 fewer words per minute when children played with electronic toys compared to traditional toys. Over a 30-minute play session, that adds up to nearly 1,700 fewer words of input.",
+      text: "Parents speak about 56 fewer words per minute when kids play with electronic toys — that adds up to nearly 1,700 fewer words in a single 30-minute session.",
     },
     {
       emoji: "🧱",
-      text: "A simple set of wooden blocks has been a recommended developmental toy for over 100 years — and modern research confirms that block play is associated with stronger spatial language, math skills, and executive function.",
+      text: "Wooden blocks have been a recommended developmental toy for over 100 years — and modern research still backs them for spatial language, math, and executive function.",
     },
   ],
 

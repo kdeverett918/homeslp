@@ -1,11 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import { Newspaper, Clock, ChevronRight, Sparkles, Search, BookOpen } from "lucide-react";
 import Link from "next/link";
-import { FilterPills } from "@/components/ui/filter-pills";
+import {
+  BookOpen,
+  ChevronRight,
+  Clock,
+  Newspaper,
+  Search,
+  Sparkles,
+} from "lucide-react";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion";
-import { blogArticles, blogCategories, blogCategoryStyle, type BlogCategory } from "@/data/blog";
+import { FilterPills } from "@/components/ui/filter-pills";
+import {
+  blogArticles,
+  blogCategories,
+  blogCategoryStyle,
+  type BlogCategory,
+} from "@/data/blog";
 
 const filterOptions = ["All", ...blogCategories.map((c) => c.label)] as const;
 type FilterOption = (typeof filterOptions)[number];
@@ -19,8 +31,12 @@ export default function BlogPage() {
   const [filter, setFilter] = useState<FilterOption>("All");
   const [search, setSearch] = useState("");
   const [randomFact] = useState(() => {
-    const article = blogArticles[Math.floor(Math.random() * blogArticles.length)];
-    return article?.funFacts[0]?.text ?? "Babies can distinguish all speech sounds in all languages until about 10 months of age!";
+    const article =
+      blogArticles[Math.floor(Math.random() * blogArticles.length)];
+    return (
+      article?.funFacts[0]?.text ??
+      "Babies can distinguish all speech sounds in all languages until about 10 months of age!"
+    );
   });
 
   const category = filterToCategory(filter);
@@ -34,7 +50,7 @@ export default function BlogPage() {
       (a) =>
         a.title.toLowerCase().includes(q) ||
         a.subtitle.toLowerCase().includes(q) ||
-        a.tags.some((t) => t.toLowerCase().includes(q))
+        a.tags.some((t) => t.toLowerCase().includes(q)),
     );
   }
 
@@ -49,7 +65,9 @@ export default function BlogPage() {
               Understanding Your Child&apos;s Development
             </h1>
             <p className="text-muted-foreground max-w-xl leading-relaxed">
-              Evidence-based articles written by SLPs to help you understand speech, language, and feeding milestones. Print or save any article.
+              Evidence-based articles written by SLPs to help you understand
+              speech, language, and feeding milestones. Print or save any
+              article.
             </p>
             <div className="flex items-center gap-2 text-xs text-muted-foreground pt-1">
               <Newspaper className="w-4 h-4" />
@@ -67,8 +85,12 @@ export default function BlogPage() {
         <div className="field-note p-4 flex items-start gap-3">
           <Sparkles className="w-5 h-5 text-primary shrink-0 mt-0.5" />
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">Did you know?</p>
-            <p className="text-sm text-foreground/80 leading-relaxed">{randomFact}</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">
+              Did you know?
+            </p>
+            <p className="text-sm text-foreground/80 leading-relaxed">
+              {randomFact}
+            </p>
           </div>
         </div>
       </FadeIn>
@@ -117,9 +139,12 @@ export default function BlogPage() {
         <FadeIn delay={0.25}>
           <div className="soft-panel p-8 text-center">
             <Newspaper className="mx-auto h-12 w-12 text-muted-foreground/30" />
-            <h2 className="mt-4 font-heading text-lg font-bold">No articles found</h2>
+            <h2 className="mt-4 font-heading text-lg font-bold">
+              No articles found
+            </h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              Try adjusting your search or filter to find what you&apos;re looking for.
+              Try adjusting your search or filter to find what you&apos;re
+              looking for.
             </p>
           </div>
         </FadeIn>
@@ -128,7 +153,7 @@ export default function BlogPage() {
           {filtered.map((article) => {
             const style = blogCategoryStyle[article.category];
             const catLabel = blogCategories.find(
-              (c) => c.value === article.category
+              (c) => c.value === article.category,
             )?.label;
             return (
               <StaggerItem key={article.id}>

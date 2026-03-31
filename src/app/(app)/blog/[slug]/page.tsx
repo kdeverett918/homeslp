@@ -1,23 +1,23 @@
 "use client";
 
 import { use, useState } from "react";
+import Link from "next/link";
+import {
+  AlertTriangle,
+  ArrowLeft,
+  BookOpen,
+  Calendar,
+  CheckCircle2,
+  Clock,
+  Info,
+  Lightbulb,
+  Newspaper,
+  Share2,
+  Sparkles,
+} from "lucide-react";
 import { FadeIn } from "@/components/motion";
 import { PrintControls } from "@/components/ui/print-controls";
 import { blogArticles, blogCategories } from "@/data/blog";
-import Link from "next/link";
-import {
-  ArrowLeft,
-  Newspaper,
-  Clock,
-  Calendar,
-  Lightbulb,
-  AlertTriangle,
-  Info,
-  Sparkles,
-  BookOpen,
-  CheckCircle2,
-  Share2,
-} from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -78,8 +78,9 @@ export default function BlogArticlePage({ params }: Props) {
   }
 
   const catLabel = blogCategories.find(
-    (c) => c.value === article.category
+    (c) => c.value === article.category,
   )?.label;
+
   // Get related articles (same category, excluding current)
   const related = blogArticles
     .filter((a) => a.category === article.category && a.id !== article.id)
@@ -129,7 +130,9 @@ export default function BlogArticlePage({ params }: Props) {
               ) : (
                 <Share2 className="w-4 h-4" />
               )}
-              <span className="hidden sm:inline">{copied ? "Copied!" : "Share"}</span>
+              <span className="hidden sm:inline">
+                {copied ? "Copied!" : "Share"}
+              </span>
             </button>
             <PrintControls targetId="blog-article-print" />
           </div>
@@ -150,7 +153,9 @@ export default function BlogArticlePage({ params }: Props) {
               <h1 className="font-heading text-2xl sm:text-3xl font-bold leading-tight tracking-tight">
                 {article.title}
               </h1>
-              <p className="text-muted-foreground max-w-lg mx-auto leading-relaxed">{article.subtitle}</p>
+              <p className="text-muted-foreground max-w-lg mx-auto leading-relaxed">
+                {article.subtitle}
+              </p>
               <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground pt-1">
                 <span className="flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5" />
@@ -159,11 +164,14 @@ export default function BlogArticlePage({ params }: Props) {
                 <span className="text-border">|</span>
                 <span className="flex items-center gap-1.5">
                   <Calendar className="w-3.5 h-3.5" />
-                  {new Date(article.publishedDate).toLocaleDateString("en-US", {
-                    month: "long",
-                    day: "numeric",
-                    year: "numeric",
-                  })}
+                  {new Date(article.publishedDate).toLocaleDateString(
+                    "en-US",
+                    {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    },
+                  )}
                 </span>
               </div>
               {/* Tags */}
@@ -196,7 +204,10 @@ export default function BlogArticlePage({ params }: Props) {
               </div>
               <ul className="space-y-2.5">
                 {article.funFacts.map((fact, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-sm leading-relaxed">
+                  <li
+                    key={i}
+                    className="flex items-start gap-2.5 text-sm leading-relaxed"
+                  >
                     <span className="text-lg shrink-0 leading-5">
                       {fact.emoji}
                     </span>
@@ -232,7 +243,8 @@ export default function BlogArticlePage({ params }: Props) {
                 >
                   <div className="flex items-start gap-2.5">
                     {(() => {
-                      const Icon = calloutConfig[section.callout.type].icon;
+                      const Icon =
+                        calloutConfig[section.callout.type].icon;
                       return (
                         <Icon
                           className={`mt-0.5 h-4 w-4 shrink-0 ${calloutConfig[section.callout.type].text}`}
@@ -268,7 +280,10 @@ export default function BlogArticlePage({ params }: Props) {
               </div>
               <ul className="space-y-2.5">
                 {article.keyTakeaways.map((takeaway, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-sm">
+                  <li
+                    key={i}
+                    className="flex items-start gap-2.5 text-sm"
+                  >
                     <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                     <span>{takeaway}</span>
                   </li>

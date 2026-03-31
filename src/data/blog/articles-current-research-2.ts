@@ -108,11 +108,11 @@ const telehealthSpeechTherapy: BlogArticle = {
   ],
 
   keyTakeaways: [
-    "Systematic reviews show telehealth speech therapy produces outcomes comparable to in-person therapy for many conditions including articulation, language, and fluency",
-    "Telehealth naturally shifts sessions toward a parent coaching model, which the evidence suggests may actually improve skill carryover to daily life",
-    "Feeding therapy and services for very young children (under 2) remain better suited to in-person delivery, though hybrid models can bridge the gap",
-    "The practical benefits of telehealth — reduced travel, fewer cancellations, increased session consistency — may contribute to better outcomes beyond clinical effectiveness alone",
-    "Active parent participation during telehealth sessions is the single biggest factor in making virtual therapy successful",
+    "Systematic reviews show telehealth speech therapy produces outcomes comparable to in-person therapy for many conditions including articulation, language, and fluency.",
+    "Telehealth naturally shifts sessions toward a parent coaching model, which the evidence suggests may actually improve skill carryover to daily life.",
+    "Feeding therapy and services for very young children (under 2) remain better suited to in-person delivery, though hybrid models can bridge the gap.",
+    "The practical benefits of telehealth — reduced travel, fewer cancellations, increased session consistency — may contribute to better outcomes beyond clinical effectiveness alone.",
+    "Active parent participation during telehealth sessions is the single biggest factor in making virtual therapy successful.",
   ],
 
   sources: [
@@ -258,11 +258,11 @@ const parentCoachingSpeechTherapy: BlogArticle = {
   ],
 
   keyTakeaways: [
-    "Parent-implemented language interventions produce significant positive effects on child language outcomes, confirmed across multiple meta-analyses and over 25 randomized controlled trials",
-    "The dosage advantage is real: coached parents can increase a child's weekly intervention time by 300% or more compared to clinician-only therapy",
-    "True parent coaching involves modeling, guided practice, and feedback — not just sending home worksheets",
-    "Evidence-based programs like Enhanced Milieu Teaching and Hanen It Takes Two to Talk have strong research supporting their effectiveness with diverse populations",
-    "The best therapy model combines SLP expertise in communication science with parent expertise in their own child — neither alone is as powerful as both together",
+    "Parent-implemented language interventions produce significant positive effects on child language outcomes, confirmed across multiple meta-analyses and over 25 randomized controlled trials.",
+    "The dosage advantage is real: coached parents can increase a child's weekly intervention time by 300% or more compared to clinician-only therapy.",
+    "True parent coaching involves modeling, guided practice, and feedback — not just sending home worksheets.",
+    "Evidence-based programs like Enhanced Milieu Teaching and Hanen It Takes Two to Talk have strong research supporting their effectiveness with diverse populations.",
+    "The best therapy model combines SLP expertise in communication science with parent expertise in their own child — neither alone is as powerful as both together.",
   ],
 
   sources: [
@@ -409,11 +409,11 @@ const lateTalkersNewResearch: BlogArticle = {
   ],
 
   keyTakeaways: [
-    "A late talker is specifically defined as a child aged 18-30 months with fewer than 50 words and no two-word combinations, without other developmental diagnoses",
-    "The \"70% catch up\" statistic is real but misleading — many former late talkers show subtle language and literacy differences that persist into adolescence",
-    "Gesture use, particularly pointing, is the single strongest positive predictor of language outcomes in late talkers",
-    "Parent input quality matters enormously — contingent responding (talking about what your child is focused on) is more powerful than simply increasing the quantity of words",
-    "The safest approach is to evaluate early and develop a plan based on your child's specific risk profile, rather than adopting a blanket \"wait and see\" approach",
+    "A late talker is specifically defined as a child aged 18-30 months with fewer than 50 words and no two-word combinations, without other developmental diagnoses.",
+    "The \"70% catch up\" statistic is real but misleading — many former late talkers show subtle language and literacy differences that persist into adolescence.",
+    "Gesture use, particularly pointing, is the single strongest positive predictor of language outcomes in late talkers.",
+    "Parent input quality matters enormously — contingent responding (talking about what your child is focused on) is more powerful than simply increasing the quantity of words.",
+    "The safest approach is to evaluate early and develop a plan based on your child's specific risk profile, rather than adopting a blanket \"wait and see\" approach.",
   ],
 
   sources: [

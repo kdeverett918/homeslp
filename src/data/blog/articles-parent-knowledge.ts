@@ -20,7 +20,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
       "functional-communication",
       "emotions",
     ],
-    readingTimeMinutes: 7,
+    readingTimeMinutes: 8,
     publishedDate: "2026-03-30",
     author: "HomeSLP Team",
     heroEmoji: "😤",
@@ -39,7 +39,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
       {
         heading: "When Language Delays Make It Worse",
         content:
-          "For most kids, tantrums naturally decrease as their vocabulary grows — usually around age 3 to 4. But what happens when language development is slower than expected? A landmark meta-analysis by Yew and O'Kearney (2013) found that children with language delays are two to three times more likely to have behavioral problems than their typically developing peers. This isn't because these children are \"bad kids.\" It's because they have even fewer tools to express their needs. Think about it: if a typically developing 2-year-old gets frustrated because they can't find the right word, a child with a language delay may not even have approximate words to try. The result is more frequent, more intense, and longer-lasting meltdowns. Importantly, this research also showed that as language skills improved — whether through natural development or speech-language therapy — behavioral problems often decreased as well. The behavior wasn't the core issue. Communication was.",
+          "For most kids, tantrums naturally decrease as their vocabulary grows — usually around age 3 to 4. But what happens when language development is slower than expected? A landmark study by Yew and O'Kearney (2013) found that children with language delays are two to three times more likely to have behavioral problems than their typically developing peers. This isn't because these children are \"bad kids\" — it's because they have even fewer tools to express their needs. If a typically developing 2-year-old gets frustrated because they can't find the right word, a child with a language delay may not even have approximate words to try. The result is more frequent, more intense, and longer-lasting meltdowns. Importantly, as language skills improved — whether through natural development or speech-language therapy — behavioral problems often decreased as well. The behavior wasn't the core issue. Communication was.",
         bulletPoints: [
           "Children with language delays show 2-3x higher rates of behavioral difficulties (Yew & O'Kearney, 2013)",
           "Behavior problems often improve as communication skills develop",
@@ -67,7 +67,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
         heading:
           "Signs, Words, or Pictures — Any System Counts",
         content:
-          "Parents sometimes worry that using sign language or picture boards will prevent their child from learning to talk. Research tells us the opposite is true. Giving children any system to communicate actually supports spoken language development. Baby sign language (simplified signs from American Sign Language) gives pre-verbal children a bridge to communication. Studies show that children who use signs tend to develop spoken vocabulary at the same rate or faster than non-signing peers. Picture Exchange Communication System (PECS) and simple picture boards let children point to what they need. Even a homemade set of photos taped to the refrigerator — milk, crackers, juice, outside, help — can be transformative. The goal isn't to pick the \"right\" system. The goal is to reduce the gap between what your child wants to say and what they can say. Any tool that shrinks that gap will reduce frustration.",
+          "Parents sometimes worry that using sign language or picture boards will prevent their child from learning to talk. Research tells us the opposite is true — giving children any system to communicate actually supports spoken language development. Baby sign language (simplified signs from American Sign Language) gives pre-verbal children a bridge to communication, and studies show that children who use signs tend to develop spoken vocabulary at the same rate or faster than non-signing peers. Picture boards and systems like PECS let children point to what they need. Even a homemade set of photos taped to the refrigerator — milk, crackers, juice, outside, help — can be transformative. The goal isn't to pick the \"right\" system. It's to reduce the gap between what your child wants to say and what they can say. Any tool that shrinks that gap will reduce frustration.",
         bulletPoints: [
           "Baby signs for early communicators: \"more,\" \"all done,\" \"help,\" \"eat,\" \"drink\"",
           "Picture boards on the fridge or in a small book your child can carry",
@@ -79,7 +79,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
         heading:
           "\"Name It to Tame It\" — The Power of Labeling Emotions",
         content:
-          "Neuroscientist Dan Siegel coined the phrase \"name it to tame it\" to describe a powerful neurological process: when we put words to our emotions, we activate the prefrontal cortex (the brain's regulator) and calm the amygdala (the brain's alarm system). This works for toddlers too — even before they can say the emotion words themselves. When you narrate your child's emotional experience — \"You're so frustrated! You wanted the red car and brother has it\" — you're doing several things at once. You're validating their experience, so they feel understood. You're modeling the vocabulary of emotions, which they'll eventually use themselves. And you're literally helping their brain regulate by connecting language to feeling. Over time, children who hear their emotions labeled regularly become better at recognizing and managing those emotions independently. A 2-year-old who hears \"you're angry\" a hundred times will eventually be a 4-year-old who says \"I'm angry\" instead of throwing a block.",
+          "Neuroscientist Dan Siegel coined the phrase \"name it to tame it\" to describe a powerful brain process: when we put words to our emotions, we activate the prefrontal cortex (the brain's regulator) and calm the amygdala (the brain's alarm system). This works for toddlers too — even before they can say the emotion words themselves. When you narrate your child's emotional experience — \"You're so frustrated! You wanted the red car and brother has it\" — you're doing several things at once: validating their experience so they feel understood, modeling the vocabulary of emotions, and literally helping their brain regulate by connecting language to feeling. Over time, children who hear their emotions labeled regularly become better at recognizing and managing those emotions independently. A 2-year-old who hears \"you're angry\" a hundred times will eventually be a 4-year-old who says \"I'm angry\" instead of throwing a block.",
         callout: {
           type: "tip",
           text: "Start with the big four emotions: happy, sad, mad, and scared. Use them in real time — \"You look mad that we have to leave the park.\" Don't worry about being wrong; your child will correct you (\"No! SAD!\"), and that's actually perfect.",
@@ -89,7 +89,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
         heading:
           "When Tantrums Signal Something Beyond Typical Development",
         content:
-          "While tantrums are a completely normal part of toddlerhood, certain patterns may signal that something more is going on and a professional evaluation would be helpful. Frequency and intensity matter: while the average toddler has several tantrums per week, daily tantrums that last more than 25 minutes, involve self-injury (head-banging, biting themselves), or consistently include aggression toward others may warrant a closer look. The context matters too. Tantrums that seem to come out of nowhere — with no identifiable trigger — can sometimes indicate sensory processing differences, anxiety, or other developmental considerations. And if tantrums aren't decreasing as your child approaches age 4, especially if language milestones are also behind, that's a strong signal to talk with your pediatrician or seek a speech-language evaluation. The goal isn't to pathologize normal toddler behavior. Most tantrums are developmentally appropriate. But if your gut is telling you something feels different about your child's meltdowns, trust that instinct and ask for help.",
+          "While tantrums are a completely normal part of toddlerhood, certain patterns may signal that something more is going on. Frequency and intensity matter: daily tantrums that last more than 25 minutes, involve self-injury (head-banging, biting themselves), or consistently include aggression toward others may warrant a closer look. Context matters too — tantrums that seem to come out of nowhere, with no identifiable trigger, can sometimes indicate sensory processing differences, anxiety, or other developmental considerations. And if tantrums aren't decreasing as your child approaches age 4, especially if language milestones are also behind, that's a strong signal to talk with your pediatrician or seek a speech-language evaluation. Most tantrums are developmentally appropriate. But if your gut is telling you something feels different about your child's meltdowns, trust that instinct and ask for help.",
         bulletPoints: [
           "Tantrums lasting longer than 25 minutes on a regular basis",
           "Self-injurious behavior during meltdowns (head-banging, biting self)",
@@ -119,7 +119,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
       },
       {
         emoji: "✋",
-        text: "Research by Acredolo and Goodwyn (2000) found that babies who learned simple signs said their first spoken words at the same age as non-signers and had larger vocabularies by age 2.",
+        text: "Babies who learn simple signs don't talk later — they actually tend to have larger spoken vocabularies by age 2 than non-signers.",
       },
     ],
     keyTakeaways: [
@@ -177,7 +177,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
       "brain-development",
       "early-language",
     ],
-    readingTimeMinutes: 8,
+    readingTimeMinutes: 9,
     publishedDate: "2026-03-30",
     author: "HomeSLP Team",
     heroEmoji: "💬",
@@ -197,7 +197,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
         heading:
           "It's Not Just Quantity — It's Quality (Conversational Turns)",
         content:
-          "In the decades since Hart and Risley's landmark work, researchers have refined the picture significantly. Technology like the LENA system (a small recording device that clips to a child's clothing and analyzes language throughout the day) has allowed researchers to measure language environments with unprecedented precision. What the LENA research has revealed is that raw word count isn't the whole story. The most powerful predictor of language development isn't the number of words spoken at a child — it's the number of conversational turns between parent and child. A conversational turn is a back-and-forth exchange: you say something, your child responds (with a word, a babble, a gesture), and you respond to that. These serve-and-return interactions are the gold standard of language input. Talking at your child while they passively listen (even if you're saying thousands of words) is far less effective than a simple exchange where your baby babbles \"ba ba,\" you say \"yes, a ball! You see the ball!\" and they babble back excitedly.",
+          "In the decades since Hart and Risley's landmark work, researchers have refined the picture significantly. Technology like the LENA system — a small recording device that clips to a child's clothing and analyzes language throughout the day — has allowed researchers to measure language environments with unprecedented precision. What LENA research has revealed is that raw word count isn't the whole story. The most powerful predictor of language development isn't the number of words spoken at a child — it's the number of conversational turns between parent and child. A conversational turn is a back-and-forth exchange: you say something, your child responds (with a word, a babble, a gesture), and you respond to that. Talking at your child while they passively listen is far less effective than a simple exchange where your baby babbles \"ba ba,\" you say \"Yes, a ball! You see the ball!\" and they babble back excitedly.",
         bulletPoints: [
           "Conversational turns are more predictive of language outcomes than total word count",
           "Even pre-verbal babies participate in conversational turns through coos, babbles, and gestures",
@@ -209,7 +209,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
         heading:
           "Brain Scans Tell the Story: Romeo et al. (2018)",
         content:
-          "In 2018, a research team led by Rachel Romeo at MIT provided some of the most compelling evidence yet for the power of conversational turns. Using fMRI brain imaging, they scanned the brains of 4- to 6-year-old children and compared the results to recordings of their home language environments. The findings were remarkable. The number of conversational turns a child experienced — not the total number of words they heard — predicted differences in brain structure. Specifically, children who had more conversational turns showed greater activation in Broca's area (a key region for speech production and language processing) and had stronger connections between language regions of the brain. What made this study especially powerful was that the brain differences held up even after accounting for family income and education. In other words, a child from any socioeconomic background who experienced rich conversational exchanges developed stronger language circuitry. The takeaway is profound: your conversations with your child are literally building their brain.",
+          "In 2018, a research team led by Rachel Romeo at MIT provided some of the most compelling evidence yet for the power of conversational turns. Using fMRI brain imaging, they scanned the brains of 4- to 6-year-old children and compared the results to recordings of their home language environments. The number of conversational turns a child experienced — not the total number of words they heard — predicted differences in brain structure. Children who had more conversational turns showed greater activation in Broca's area (a key brain region for language processing) and had stronger connections between language regions. What made this study especially powerful was that these brain differences held up even after accounting for family income and education — meaning a child from any background who experienced rich conversational exchanges developed stronger language circuitry. The takeaway is profound: your conversations with your child are literally building their brain.",
         callout: {
           type: "fun-fact",
           text: "The Romeo et al. study found that just a few extra conversational turns per day were associated with measurable differences in brain structure. You don't need to talk nonstop — you just need to talk with your child, not at them.",
@@ -219,7 +219,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
         heading:
           "The \"Parentese\" Advantage: Why Baby Talk Is Actually Brilliant",
         content:
-          "That high-pitched, sing-songy, exaggerated way you naturally talk to babies? It has a name — \"parentese\" (also called infant-directed speech) — and it turns out it's not silly at all. It's one of the most effective language-teaching tools humans have ever developed, and we do it instinctively. Parentese is characterized by a higher pitch, slower tempo, exaggerated vowel sounds, and simpler sentence structure. Research by Patricia Kuhl and colleagues at the University of Washington found that babies prefer parentese over adult-directed speech across every culture studied — from Seattle to Taipei to rural Kenya. But it's not just a preference. Parentese actually helps babies learn language faster. The exaggerated vowels make speech sounds clearer and easier to distinguish. The slower pace gives the developing brain more time to process. The higher pitch captures attention. And the natural pauses in parentese create space for the baby to respond — setting up those crucial conversational turns. A 2020 study from Kuhl's lab found that coaching parents to use more parentese led to measurable increases in their children's babbling and word production. Parentese isn't dumbing things down — it's tuning your signal to your child's frequency.",
+          "That high-pitched, sing-songy, exaggerated way you naturally talk to babies? It has a name — \"parentese\" (also called infant-directed speech) — and it turns out it's not silly at all. It's one of the most effective language-teaching tools humans have ever developed, and we do it instinctively. Parentese is characterized by a higher pitch, slower tempo, exaggerated vowel sounds, and simpler sentence structure. Research by Patricia Kuhl and colleagues at the University of Washington found that babies prefer parentese over adult-directed speech across every culture studied — from Seattle to Taipei to rural Kenya. But it's more than just a preference — parentese actually helps babies learn language faster. The exaggerated vowels make sounds clearer, the slower pace gives the brain more time to process, and the natural pauses create space for the baby to respond — setting up those crucial conversational turns. A 2020 study from Kuhl's lab found that coaching parents to use more parentese led to measurable increases in their children's babbling and word production. Parentese isn't dumbing things down — it's tuning your signal to your child's frequency.",
         bulletPoints: [
           "Use a higher pitch and exaggerated intonation — it captures your baby's attention",
           "Slow down and enunciate — stretch out vowel sounds (\"Look at the baaaaaall!\")",
@@ -232,7 +232,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
         heading:
           "Practical Strategies: Building a Language-Rich Home",
         content:
-          "The research is clear, but what does it look like in your actual day? The good news is that building a language-rich environment doesn't require flashcards, special toys, or setting aside dedicated \"language time.\" It's about weaving interaction into what you're already doing. The most powerful strategies are surprisingly simple. Narrate your day: describe what you're doing as you do it. \"I'm cutting the banana. Slice, slice! Now I'm putting it on your plate.\" This bathes your child in language that's connected to real, visible actions — the easiest kind of language to learn. Expand their utterances: when your toddler says \"truck,\" you say \"Yes! A big red truck! The truck is going fast.\" You're not correcting them — you're adding language around their interest. Give wait time: after you say something, pause for 5-10 seconds. This feels like an eternity, but it gives your child's brain time to formulate a response. Many parents inadvertently fill every silence, leaving no space for the child to participate in the conversation.",
+          "The research is clear, but what does it look like in your actual day? The good news is that building a language-rich environment doesn't require flashcards, special toys, or dedicated \"language time.\" It's about weaving interaction into what you're already doing. Narrate your day — describe what you're doing as you do it: \"I'm cutting the banana. Slice, slice! Now I'm putting it on your plate.\" This connects language to real, visible actions — the easiest kind for children to learn. Expand their utterances — when your toddler says \"truck,\" you say \"Yes! A big red truck! The truck is going fast.\" You're not correcting them; you're adding language around their interest. And give wait time — after you say something, pause for 5-10 seconds. It feels like an eternity, but it gives your child's brain time to formulate a response. Many parents inadvertently fill every silence, leaving no space for the child to participate.",
         bulletPoints: [
           "Narrate daily routines: cooking, shopping, bathing, getting dressed",
           "Follow your child's lead — talk about what THEY are looking at or doing",
@@ -243,13 +243,13 @@ export const parentKnowledgeArticles: BlogArticle[] = [
         ],
         callout: {
           type: "tip",
-          text: "You don't need to narrate every second of every day. Quality matters more than quantity. Even 15 minutes of focused, interactive conversation during meals or play is more valuable than hours of background talking while distracted.",
+          text: "You don't need to narrate every second of the day. Even 15 minutes of focused, interactive conversation during meals or play is more valuable than hours of background talking while distracted.",
         },
       },
       {
         heading: "The Bigger Picture: Equity and Access",
         content:
-          "It's important to acknowledge that the \"word gap\" research has been both immensely valuable and sometimes oversimplified. Early interpretations focused heavily on socioeconomic status, which led to valid criticism that the narrative blamed parents in poverty rather than addressing the systemic barriers — longer work hours, less parental leave, fewer resources — that limit the time and energy parents have for interaction. Researchers like Sperry, Sperry, and Miller (2019) have also shown that when you include speech from all caregivers and community members (not just parents), the gap narrows significantly in many communities. Updated work by Weisleder and Fernald (2013) confirmed that within any income bracket, children who heard more child-directed speech processed language faster and developed larger vocabularies. The practical message for all parents is the same: your voice matters. The conversations you have with your child — no matter how simple, no matter what language you speak — are building the foundation for everything that comes next. And no one in the world is better positioned to have those conversations than you.",
+          "It's important to acknowledge that the \"word gap\" research has been both immensely valuable and sometimes oversimplified. Early interpretations focused heavily on socioeconomic status, which led to valid criticism that the narrative blamed parents in poverty rather than addressing systemic barriers — longer work hours, less parental leave, fewer resources — that limit the time and energy parents have for interaction. Researchers like Sperry, Sperry, and Miller (2019) have shown that when you include speech from all caregivers and community members (not just parents), the gap narrows significantly. Updated work by Weisleder and Fernald (2013) confirmed that within any income bracket, children who heard more child-directed speech processed language faster and developed larger vocabularies. The practical message for all parents is the same: your voice matters. The conversations you have with your child — no matter how simple, no matter what language you speak — are building the foundation for everything that comes next.",
         callout: {
           type: "note",
           text: "If you speak a language other than English at home, keep speaking it. Bilingual language input supports brain development just as powerfully as monolingual input. Your home language is a gift, not a barrier.",
@@ -259,7 +259,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
     funFacts: [
       {
         emoji: "👶",
-        text: "Babies show a preference for parentese (infant-directed speech) across every culture that has been studied — from North America to East Africa to East Asia. It appears to be a universal human behavior.",
+        text: "Babies prefer parentese (infant-directed speech) across every culture studied — from North America to East Africa to East Asia. It's a universal human behavior.",
       },
       {
         emoji: "🔬",
@@ -267,11 +267,11 @@ export const parentKnowledgeArticles: BlogArticle[] = [
       },
       {
         emoji: "📺",
-        text: "Children under 2 learn essentially no language from screens, even \"educational\" ones. Language learning requires a live, responsive human partner. This has been replicated in over a dozen studies.",
+        text: "Children under 2 learn essentially no language from screens, even \"educational\" ones — language learning requires a live, responsive human partner.",
       },
       {
         emoji: "🌍",
-        text: "Babies can distinguish every sound in every human language until about 10 months of age, when they begin specializing in the sounds of the language(s) they hear most. This is called perceptual narrowing.",
+        text: "Babies can distinguish every sound in every human language until about 10 months, when they start specializing in the sounds they hear most — a process called perceptual narrowing.",
       },
     ],
     keyTakeaways: [
@@ -329,7 +329,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
       "lisping",
       "myths",
     ],
-    readingTimeMinutes: 7,
+    readingTimeMinutes: 10,
     publishedDate: "2026-03-30",
     author: "HomeSLP Team",
     heroEmoji: "🍼",
@@ -340,7 +340,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
         heading:
           "Non-Nutritive Sucking: It's Normal and It's Important",
         content:
-          "First, some reassuring context. Non-nutritive sucking — sucking on a pacifier, thumb, fingers, or blanket corner that isn't providing nutrition — is one of the earliest and most natural reflexes humans have. It's visible on ultrasound as early as 15 weeks gestation. That's right: your baby was practicing their sucking skills months before they were born. This reflex serves critical functions in early development. It helps organize the infant's neurobehavioral state (fancy way of saying it helps them calm down and focus). It supports the development of oral muscles needed for feeding. And it provides a reliable self-soothing mechanism during a period when babies have very few ways to regulate their own distress. The American Academy of Pediatrics (AAP) actually supports pacifier use in infancy, in part because research suggests it may reduce the risk of sudden infant death syndrome (SIDS) when used during sleep. So if your infant is happily using a pacifier, there's strong reason to feel good about that choice.",
+          "First, some reassuring context. Non-nutritive sucking — sucking on a pacifier, thumb, fingers, or blanket corner that isn't providing nutrition — is one of the earliest and most natural reflexes humans have. It's visible on ultrasound as early as 15 weeks gestation. Your baby was practicing their sucking skills months before they were born. This reflex serves critical functions in early development: it helps babies calm down and focus, supports the oral muscles needed for feeding, and provides a reliable self-soothing mechanism during a period when babies have very few ways to manage their own distress. The American Academy of Pediatrics (AAP) actually supports pacifier use in infancy, in part because research suggests it may reduce the risk of sudden infant death syndrome (SIDS) when used during sleep. So if your infant is happily using a pacifier, there's strong reason to feel good about that choice.",
         callout: {
           type: "note",
           text: "The AAP recommends offering a pacifier at nap time and bedtime in the first year of life as a potential protective factor against SIDS. However, for breastfed infants, they suggest waiting until breastfeeding is well established (typically around 3-4 weeks).",
@@ -350,7 +350,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
         heading:
           "The Dental Connection: How Sucking Habits Affect the Mouth",
         content:
-          "Here's where timing becomes crucial. The primary concern with prolonged non-nutritive sucking isn't about speech directly — it's about dental and jaw development, which then can affect speech. When a child sucks on a pacifier or thumb for extended periods past the age of 2-3, the constant pressure can alter the developing oral structures. The three most common changes are anterior open bite (the front teeth don't come together when the mouth is closed, leaving a gap), posterior crossbite (the upper back teeth sit inside the lower back teeth instead of outside), and increased overjet (the upper front teeth protrude outward). Research by Barbosa et al. (2009) found that children who used pacifiers beyond 24 months had significantly higher rates of these dental changes compared to children who stopped earlier. Warren et al. (2005) similarly found that non-nutritive sucking habits persisting beyond 36 months were associated with increased risk of malocclusion. The critical point is that these changes are often reversible if the habit stops before the permanent teeth come in (around age 6-7). The jaw and palate are still malleable in young children, and once the pressure source is removed, natural growth can correct many of the changes.",
+          "Here's where timing becomes crucial. The primary concern with prolonged non-nutritive sucking isn't about speech directly — it's about dental and jaw development, which can then affect speech. When a child sucks on a pacifier or thumb for extended periods past the age of 2-3, the constant pressure can alter the developing oral structures. The three most common changes are anterior open bite (the front teeth don't touch when the mouth is closed), posterior crossbite (the upper back teeth sit inside the lower back teeth instead of outside), and increased overjet (the upper front teeth protrude outward). Research by Barbosa et al. (2009) found that children who used pacifiers beyond 24 months had significantly higher rates of these dental changes. Warren et al. (2005) similarly found that sucking habits persisting beyond 36 months were associated with increased risk of teeth misalignment. The critical point is that these changes are often reversible if the habit stops before the permanent teeth come in (around age 6-7). The jaw and palate are still malleable in young children, and once the pressure source is removed, natural growth can correct many of the changes.",
         bulletPoints: [
           "Anterior open bite: front teeth don't touch when mouth is closed",
           "Posterior crossbite: misalignment of upper and lower back teeth",
@@ -362,7 +362,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
         heading:
           "How Dental Changes Affect Speech Sounds",
         content:
-          "When the structure of the mouth changes, the production of certain speech sounds can be affected. This is where the pacifier-speech connection actually lives — it's typically an indirect pathway from habit to dental change to speech pattern, rather than a direct effect of the pacifier itself. The sounds most commonly affected are those produced with the tongue tip near or touching the upper front teeth or the ridge just behind them. These include /s/ and /z/ (which require precise airflow through a narrow groove in the tongue), /sh/ and /zh/ sounds, and /t/, /d/, /n/, and /l/ to a lesser degree. An anterior open bite can cause a frontal lisp, where the tongue pushes through the gap between the teeth during /s/ and /z/ production. A crossbite can lead to a lateral lisp, where air escapes over the sides of the tongue. Shotts, McDaniel, and Neeley (2008) studied the relationship between prolonged pacifier use and speech sound disorders and found that children who used pacifiers beyond 3 years of age had higher rates of speech distortions, particularly on sibilant sounds (/s/, /z/, /sh/). However, it's important to note that many children who use pacifiers past age 2 or 3 develop completely normal speech. The habit is a risk factor, not a guarantee of problems.",
+          "When the structure of the mouth changes, certain speech sounds can be affected. This is where the pacifier-speech connection actually lives — it's typically an indirect pathway from habit to dental change to speech pattern, rather than a direct effect of the pacifier itself. The sounds most commonly affected are those produced with the tongue tip near the upper front teeth or the ridge just behind them: /s/ and /z/ (which require precise airflow through a narrow groove in the tongue), /sh/ sounds, and /t/, /d/, /n/, and /l/ to a lesser degree. An anterior open bite can cause a frontal lisp, where the tongue pushes through the gap between the teeth during /s/ and /z/ production. A crossbite can lead to a lateral lisp, where air escapes over the sides of the tongue. Shotts, McDaniel, and Neeley (2008) found that children who used pacifiers beyond 3 years of age had higher rates of speech distortions, particularly on \"hissing\" sounds like /s/, /z/, and /sh/. However, many children who use pacifiers past age 2 or 3 develop completely normal speech. The habit is a risk factor, not a guarantee of problems.",
         callout: {
           type: "warning",
           text: "If your child is over 3 and still regularly using a pacifier or sucking their thumb, and you notice they have difficulty with /s/, /z/, or /sh/ sounds, or their tongue pokes between their teeth when talking, consider discussing it with your pediatric dentist and an SLP.",
@@ -371,7 +371,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
       {
         heading: "Age Matters: A Timeline of Risk",
         content:
-          "The research paints a fairly clear picture when it comes to timing. In the first 12 months, non-nutritive sucking carries minimal concern for speech or dental development. This is the age when sucking is most physiologically appropriate and beneficial. The AAP supports pacifier use during this period. Between 12 and 24 months, risk remains low, but this is a good window to start gently reducing reliance on the pacifier, particularly during waking hours. Many speech-language pathologists recommend limiting pacifier use to sleep times by around 12 months. Between 24 and 36 months is the transition zone. Most major health organizations, including the American Academy of Pediatric Dentistry (AAPD), recommend weaning from pacifiers by age 2-3. The longer the habit continues past this point, the greater the risk of dental changes. Beyond 36 months, the risk of dental and potential speech effects increases meaningfully. The combination of frequency (how often), duration (how many hours per day), and intensity (how forcefully the child sucks) all factor into the level of risk.",
+          "The research paints a fairly clear picture when it comes to timing. In the first 12 months, non-nutritive sucking carries minimal concern — this is the age when sucking is most developmentally appropriate, and the AAP supports pacifier use during this period. Between 12 and 24 months, risk remains low, but this is a good window to start gently reducing reliance on the pacifier, particularly during waking hours. Many speech-language pathologists recommend limiting pacifier use to sleep times by around 12 months. Between 24 and 36 months is the transition zone — most major health organizations, including the American Academy of Pediatric Dentistry (AAPD), recommend weaning by this age. Beyond 36 months, the risk of dental and potential speech effects increases meaningfully. How much risk depends on frequency (how often), duration (how many hours per day), and intensity (how forcefully the child sucks).",
         bulletPoints: [
           "0-12 months: Minimal concern. Pacifiers are developmentally appropriate and may reduce SIDS risk",
           "12-24 months: Low risk. Begin limiting to sleep times and transition periods",
@@ -381,14 +381,14 @@ export const parentKnowledgeArticles: BlogArticle[] = [
         ],
         callout: {
           type: "note",
-          text: "These are general guidelines based on population-level research. Individual risk depends on the specific child, the frequency and intensity of the habit, their genetic predisposition for dental alignment, and other factors. When in doubt, consult your pediatric dentist.",
+          text: "These are general guidelines based on research averages. Individual risk depends on your child, how often and intensely they suck, and their natural dental alignment. When in doubt, consult your pediatric dentist.",
         },
       },
       {
         heading:
           "Practical Weaning Strategies That Actually Work",
         content:
-          "Deciding to wean is one thing. Actually doing it with a toddler who is deeply attached to their pacifier or thumb is another. Here are evidence-informed, child-respectful approaches that work. The gradual reduction method tends to be easier on everyone. Start by limiting the pacifier to sleep times only, then to bedtime only, then phase it out. Give the child advance notice: \"After your birthday, pacifiers will be just for nighttime.\" Toddlers do better with transitions when they know what's coming. For older children (3+), many families have success with a \"goodbye\" ritual — the pacifier fairy, mailing them to babies who need them, or planting them in the garden to \"grow\" into a toy. These narratives give the child agency and meaning in the transition rather than making it feel like something was taken from them. For thumb-sucking, which can't simply be removed, positive reinforcement for times when the child ISN'T sucking is more effective than punishment or nagging when they are. Bitter-tasting nail coatings can serve as a gentle reminder but should be used as part of a supportive strategy, not as a standalone punishment.",
+          "Deciding to wean is one thing. Actually doing it with a toddler who is deeply attached to their pacifier or thumb is another. The gradual reduction method tends to be easiest on everyone: limit the pacifier to sleep times only, then bedtime only, then phase it out. Give advance notice — \"After your birthday, pacifiers will be just for nighttime\" — because toddlers handle transitions better when they know what's coming. For older children (3+), many families have success with a \"goodbye\" ritual — the pacifier fairy, mailing them to babies who need them, or planting them in the garden to \"grow\" into a toy. These narratives give the child agency in the transition rather than making it feel like something was taken from them. For thumb-sucking, which can't simply be removed, positive reinforcement for times when the child isn't sucking is more effective than punishment or nagging. Bitter-tasting nail coatings can serve as a gentle reminder but should be part of a supportive strategy, not a standalone measure.",
         bulletPoints: [
           "Gradual reduction: all day, then nap + bed, then bed only, then none",
           "Give advance notice — toddlers handle transitions better with warnings",
@@ -405,7 +405,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
       {
         heading: "The Bottom Line: Don't Panic, Do Plan",
         content:
-          "If your baby is using a pacifier right now, relax. You're not ruining their speech. If your 18-month-old is still attached to their binky, you have time. If your 3-year-old is a dedicated thumb-sucker and you're just now reading this, it's not too late — most dental changes at this age are still reversible. The key principles are straightforward: use pacifiers freely in infancy when they serve important developmental functions, begin gradually reducing during the toddler years, aim to be done by age 3 if possible, and watch for signs of dental changes or speech sound difficulties along the way. And if your child does develop a lisp or articulation error related to a sucking habit, know that these are among the most treatable speech issues an SLP can address. With the habit resolved and the dental structures normalizing, many children self-correct. Those who don't respond very well to targeted articulation therapy. This is one area of parenting where the evidence truly does say: don't panic, do plan, and give yourself grace.",
+          "If your baby is using a pacifier right now, relax. You're not ruining their speech. If your 18-month-old is still attached to their binky, you have time. If your 3-year-old is a dedicated thumb-sucker and you're just now reading this, it's not too late — most dental changes at this age are still reversible. The key principles are straightforward: use pacifiers freely in infancy, begin gradually reducing during the toddler years, aim to be done by age 3 if possible, and watch for signs of dental changes or speech sound difficulties along the way. If your child does develop a lisp or articulation error related to a sucking habit, know that these are among the most treatable issues an SLP can address. With the habit resolved and the dental structures normalizing, many children self-correct — and those who don't respond very well to targeted therapy. This is one area of parenting where the evidence truly does say: don't panic, do plan, and give yourself grace.",
       },
     ],
     funFacts: [
@@ -415,7 +415,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
       },
       {
         emoji: "🌎",
-        text: "Pacifier use varies dramatically across cultures. In Scandinavian countries, pacifier use rates exceed 80%, while in some East Asian cultures, they are rarely used. Speech development outcomes are comparable across these populations.",
+        text: "Pacifier use rates exceed 80% in Scandinavian countries but are rare in some East Asian cultures — yet speech development outcomes are comparable across these populations.",
       },
       {
         emoji: "🦷",
@@ -423,7 +423,7 @@ export const parentKnowledgeArticles: BlogArticle[] = [
       },
       {
         emoji: "📏",
-        text: "Researchers measure sucking intensity with pressure sensors. The average thumb-sucker generates about twice the intraoral pressure of a pacifier user, which is one reason thumb-sucking tends to cause more dental changes.",
+        text: "The average thumb-sucker generates about twice the mouth pressure of a pacifier user, which is one reason thumb-sucking tends to cause more dental changes.",
       },
     ],
     keyTakeaways: [
