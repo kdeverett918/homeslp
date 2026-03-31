@@ -3,6 +3,10 @@ import { earlyDevelopmentArticles } from "./articles-early-development";
 import { parentKnowledgeArticles } from "./articles-parent-knowledge";
 import { practicalGuideArticles } from "./articles-practical-guides";
 import { beyondWordsArticles } from "./articles-beyond-words";
+import { currentResearch1Articles } from "./articles-current-research-1";
+import { currentResearch2Articles } from "./articles-current-research-2";
+import { currentResearch3Articles } from "./articles-current-research-3";
+import { currentResearch4Articles } from "./articles-current-research-4";
 
 export type { BlogCategory };
 
@@ -11,6 +15,10 @@ export const blogArticles: BlogArticle[] = [
   ...parentKnowledgeArticles,
   ...practicalGuideArticles,
   ...beyondWordsArticles,
+  ...currentResearch1Articles,
+  ...currentResearch2Articles,
+  ...currentResearch3Articles,
+  ...currentResearch4Articles,
 ];
 
 export const blogCategories: { value: BlogCategory; label: string; emoji: string }[] = [
