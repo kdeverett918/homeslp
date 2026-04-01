@@ -4,7 +4,7 @@
  * Set NEXT_PUBLIC_BETA_MODE=true in .env.local to enable globally.
  * Use the runtime preview cookie to unlock beta mode for one browser on live.
  */
-export const BETA_MODE = process.env.NEXT_PUBLIC_BETA_MODE === "true";
+export const BETA_MODE = true;
 export const BETA_PREVIEW_COOKIE = "homeslp-beta-preview";
 export const BETA_PREVIEW_COOKIE_VALUE = "enabled";
 

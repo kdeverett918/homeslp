@@ -35,10 +35,9 @@ export default function MarketingLayout({
                 </div>
 
                 <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
-                  HomeSLP helps families understand what is typical, what is worth watching,
-                  and what to do next across speech, language, play, feeding, and day-to-day
-                  routines. We prioritize practical parent coaching and clear escalation paths
-                  when it is time to talk with a pediatrician or speech-language pathologist.
+                  HomeSLP helps families understand what is typical, what to watch for, and
+                  when to talk to a pediatrician or SLP. Practical guidance across speech,
+                  language, play, and feeding.
                 </p>
 
                 <div className="flex flex-wrap gap-2">
@@ -66,7 +65,7 @@ export default function MarketingLayout({
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="flex items-center justify-between rounded-[1.2rem] border border-border/70 bg-white/75 px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary/25 hover:text-primary"
+                      className="flex items-center justify-between rounded-xl border border-border/70 bg-white/75 px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary/25 hover:text-primary"
                     >
                       {item.label}
                       <ArrowRight className="h-4 w-4" />
@@ -113,7 +112,7 @@ export default function MarketingLayout({
               </div>
               <div>
                 <h3 className="font-heading text-base font-semibold text-foreground">Important Note</h3>
-                <p className="mt-3 leading-7 text-foreground/70">
+                <p className="mt-3 leading-7 text-muted-foreground">
                   HomeSLP provides general educational guidance. It does not replace a medical
                   evaluation and does not create a patient-provider relationship.
                 </p>

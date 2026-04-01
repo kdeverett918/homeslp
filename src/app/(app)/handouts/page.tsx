@@ -42,7 +42,9 @@ export default function HandoutsPage() {
         <PageHeader
           icon={FileText}
           title="Printable Handouts"
-          subtitle="Evidence-based handouts for education and home practice. Print in color or black and white."
+          subtitle="Printable handouts for education and home practice. Color and black-and-white options."
+          backHref="/dashboard"
+          backLabel="Dashboard"
         />
       </FadeIn>
 

@@ -51,7 +51,7 @@ export function ActiveNavLink({ href, icon, label, description }: ActiveNavLinkP
     <Link
       href={href}
       className={cn(
-        "group flex items-start gap-3 rounded-[1.35rem] border px-3.5 py-3 text-sm transition-[transform,background-color,border-color,box-shadow,color] duration-200 ease-out",
+        "group flex items-start gap-3 rounded-xl border px-3.5 py-3 text-sm transition-[transform,background-color,border-color,box-shadow,color] duration-200 ease-out",
         isActive
           ? "border-primary/25 bg-[linear-gradient(135deg,rgba(255,255,255,0.98),rgba(255,239,231,0.95))] text-foreground shadow-warm-md"
           : "border-transparent text-muted-foreground hover:border-border/80 hover:bg-white/70 hover:text-foreground"
@@ -88,7 +88,7 @@ export function ActiveBottomNavLink({ href, icon, label }: ActiveNavLinkProps) {
     <Link
       href={href}
       className={cn(
-        "flex flex-1 flex-col items-center gap-1.5 rounded-[1.2rem] py-2 text-[11px] font-medium transition-[background-color,color,transform] duration-200",
+        "flex flex-1 flex-col items-center gap-1.5 rounded-xl py-2 text-[11px] font-medium transition-[background-color,color,transform] duration-200",
         isActive
           ? "bg-primary/10 text-primary"
           : "text-muted-foreground hover:bg-background/80 hover:text-foreground"

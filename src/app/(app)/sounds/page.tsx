@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Volume2, CheckCircle2, Clock, AlertCircle } from "lucide-react";
+import { Volume2, CheckCircle2, Clock, AlertCircle, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 import { sounds } from "@/data/sounds";
 import { useChildProfile } from "@/lib/stores/child-profile";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion";
@@ -30,6 +31,14 @@ export default function SoundsPage() {
 
   return (
     <div className="max-w-3xl space-y-6">
+      <Link
+        href="/dashboard"
+        className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Dashboard
+      </Link>
+
       <FadeIn>
         <div className="flex items-center gap-3">
           <Volume2 className="w-7 h-7 text-primary" />

@@ -114,7 +114,9 @@ export default function ResourcesPage() {
         <PageHeader
           icon={Library}
           title="Trusted Resource Library"
-          subtitle="Clinician-curated creators, communities, and educational resources that can support parents between visits."
+          subtitle="Clinician-curated creators, communities, and guides for parents."
+          backHref="/dashboard"
+          backLabel="Dashboard"
         />
       </FadeIn>
 

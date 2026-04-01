@@ -85,7 +85,7 @@ export function MarketingHeader() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-[1.2rem] border border-border/70 bg-white/70 px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary/25 hover:text-primary"
+                  className="block rounded-xl border border-border/70 bg-white/70 px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary/25 hover:text-primary"
                 >
                   {link.label}
                 </Link>

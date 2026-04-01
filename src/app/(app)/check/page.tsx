@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Search, CheckCircle2, AlertTriangle, Heart, Lightbulb, HelpCircle, ClipboardCheck, RotateCcw, ArrowRight } from "lucide-react";
+import { Search, CheckCircle2, AlertTriangle, Heart, Lightbulb, HelpCircle, ClipboardCheck, RotateCcw, ArrowRight, ArrowLeft, Baby, Stethoscope } from "lucide-react";
 import { milestones } from "@/data/milestones";
 import { screenerQuestions } from "@/data/screener/pediatric";
 import { useChildProfile } from "@/lib/stores/child-profile";
@@ -97,6 +97,14 @@ export default function CheckPage() {
 
   return (
     <div className="max-w-3xl space-y-6">
+      <Link
+        href="/dashboard"
+        className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Dashboard
+      </Link>
+
       <FadeIn>
         <div className="flex items-center gap-3">
           <Search className="w-7 h-7 text-primary" />
@@ -495,6 +503,15 @@ export default function CheckPage() {
       <p className="text-xs text-muted-foreground text-center italic">
         Every child develops at their own pace. These are guidelines, not deadlines. Sources: ASHA, CDC 2022, AAP.
       </p>
+
+      <div className="mt-8 flex flex-wrap gap-3 border-t pt-6">
+        <Link href="/milestones" className="card-lift inline-flex items-center gap-2 rounded-xl border border-border/70 bg-card px-4 py-3 text-sm font-medium shadow-warm-sm hover:text-primary">
+          <Baby className="w-4 h-4" /> See full milestones
+        </Link>
+        <Link href="/doctor-prep" className="card-lift inline-flex items-center gap-2 rounded-xl border border-border/70 bg-card px-4 py-3 text-sm font-medium shadow-warm-sm hover:text-primary">
+          <Stethoscope className="w-4 h-4" /> Prepare for your visit
+        </Link>
+      </div>
     </div>
   );
 }

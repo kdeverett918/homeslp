@@ -184,7 +184,7 @@ export function FamilyDashboardOverview({
 
             <div className="space-y-3">
               {highlightSkills.map((skill) => (
-                <div key={skill.skill} className="rounded-[1.2rem] border border-border/70 bg-white/78 p-4">
+                <div key={skill.skill} className="rounded-xl border border-border/70 bg-white/78 p-4">
                   <p className="text-sm font-semibold text-foreground">{skill.skill}</p>
                   <p className="mt-1 text-sm leading-7 text-muted-foreground">{skill.description}</p>
                 </div>
@@ -223,7 +223,7 @@ export function FamilyDashboardOverview({
                 <Link
                   key={blueprint.id}
                   href={`/blueprints/${blueprint.slug}`}
-                  className="block rounded-[1.2rem] border border-border/70 bg-white/78 p-4 transition-colors hover:border-primary/25"
+                  className="block rounded-xl border border-border/70 bg-white/78 p-4 transition-colors hover:border-primary/25"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div>
@@ -319,7 +319,7 @@ export function FamilyDashboardOverview({
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="rounded-[1.2rem] border border-border/70 bg-white/78 p-4 transition-colors hover:border-primary/25"
+                  className="rounded-xl border border-border/70 bg-white/78 p-4 transition-colors hover:border-primary/25"
                 >
                   <p className="font-semibold text-foreground">{item.label}</p>
                   <p className="mt-2 text-sm leading-7 text-muted-foreground">{item.body}</p>

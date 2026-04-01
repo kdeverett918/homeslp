@@ -105,7 +105,7 @@ export default async function BetaPreviewPage() {
                 )}
               </div>
 
-              <div className="rounded-[1.2rem] border border-border/70 bg-white/70 p-4">
+              <div className="rounded-xl border border-border/70 bg-white/70 p-4">
                 <p className="flex items-start gap-2 text-sm leading-7 text-muted-foreground">
                   <ShieldCheck className="mt-1 h-4 w-4 shrink-0 text-primary" />
                   Global beta mode still works through `NEXT_PUBLIC_BETA_MODE=true`. This page is

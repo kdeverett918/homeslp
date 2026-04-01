@@ -167,9 +167,8 @@ export default function FamiliesLanding() {
                   Learn what is typical, what to try today, and when to ask for help.
                 </h1>
                 <p className="max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
-                  HomeSLP turns speech-language expertise into a calm, engaging parent reference
-                  system. Use milestones, daily routine ideas, red flags, and trusted resources to
-                  support speech, language, play, feeding, and behavior without drowning in internet noise.
+                  One calm place to check milestones, spot red flags, and practice speech-friendly
+                  routines at home. Built on SLP expertise, not internet noise.
                 </p>
 
                 <div className="flex flex-wrap gap-2">
@@ -223,7 +222,7 @@ export default function FamiliesLanding() {
                   <div className="grid gap-5 md:grid-cols-[0.95fr_1.05fr]">
                     <div className="space-y-4">
                       <div className="field-note p-4">
-                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/70">
+                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                           Typical now
                         </p>
                         <ul className="mt-3 space-y-2">
@@ -243,10 +242,10 @@ export default function FamiliesLanding() {
                       </div>
 
                       <div className="soft-panel p-4">
-                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/70">
+                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground">
                           Worth asking about
                         </p>
-                        <ul className="mt-3 space-y-2 text-sm font-medium text-foreground/70">
+                        <ul className="mt-3 space-y-2 text-sm font-medium text-foreground">
                           {featuredMilestone.redFlags.slice(0, 3).map((flag) => (
                             <li key={flag} className="flex items-start gap-2">
                               <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
@@ -258,20 +257,20 @@ export default function FamiliesLanding() {
                     </div>
 
                     <div className="soft-panel p-4">
-                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/70">
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                         One easy tip for today
                       </p>
-                      <div className="mt-3 rounded-[1.4rem] border border-border/70 bg-white/80 p-4 shadow-warm-sm">
+                      <div className="mt-3 rounded-xl border border-border/70 bg-white/80 p-4 shadow-warm-sm">
                         <div className="flex items-center justify-between gap-3">
                           <p className="font-heading text-2xl font-semibold">{featuredTips[0].title}</p>
                           <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
                             {featuredTips[0].context}
                           </span>
                         </div>
-                        <p className="mt-3 text-sm leading-7 text-foreground/70">
+                        <p className="mt-3 text-sm leading-7 text-muted-foreground">
                           {featuredTips[0].technique}
                         </p>
-                        <div className="mt-4 rounded-[1.2rem] bg-background/90 p-4 text-sm italic text-foreground/60">
+                        <div className="mt-4 rounded-xl bg-background/90 p-4 text-sm italic text-muted-foreground">
                           {featuredTips[0].example}
                         </div>
                         <Link
@@ -307,7 +306,7 @@ export default function FamiliesLanding() {
                 </p>
               </div>
 
-              <div className="grid gap-4 md:grid-cols-3">
+              <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
                 {[
                   {
                     icon: BookOpenText,
@@ -420,7 +419,7 @@ export default function FamiliesLanding() {
                   communication opportunities hiding inside breakfast, bath time, play, and bedtime.
                 </p>
                 <div className="soft-panel p-5">
-                  <p className="text-sm font-medium leading-7 text-foreground/70">
+                  <p className="text-sm font-medium leading-7 text-muted-foreground">
                     HomeSLP daily tips are designed to feel playful, realistic, and short enough to
                     survive an actual family routine. Each one gives a parent a concrete thing to
                     model, a quick reason it matters, and a clear next step if concern persists.
@@ -429,7 +428,7 @@ export default function FamiliesLanding() {
               </div>
             </FadeIn>
 
-            <StaggerChildren className="grid gap-4 md:grid-cols-3">
+            <StaggerChildren className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
               {featuredTips.map((tip) => (
                 <StaggerItem key={tip.id}>
                   <article className="guide-surface h-full p-5">
@@ -443,8 +442,8 @@ export default function FamiliesLanding() {
                         </span>
                       </div>
                       <h3 className="mt-4 font-heading text-2xl font-semibold">{tip.title}</h3>
-                      <p className="mt-3 text-sm leading-7 text-foreground/70">{tip.technique}</p>
-                      <div className="mt-4 rounded-[1.2rem] bg-background/90 p-4 text-sm italic text-foreground/60">
+                      <p className="mt-3 text-sm leading-7 text-muted-foreground">{tip.technique}</p>
+                      <div className="mt-4 rounded-xl bg-background/90 p-4 text-sm italic text-muted-foreground">
                         {tip.example}
                       </div>
                       <div className="mt-4 field-note p-4 text-sm font-medium leading-7 text-foreground">
@@ -514,7 +513,7 @@ export default function FamiliesLanding() {
 
               <div className="grid gap-4 lg:grid-cols-[0.98fr_1.02fr]">
                 <div className="soft-panel p-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/70">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                     Included in the guided path
                   </p>
                   <ul className="mt-4 space-y-3 text-sm text-foreground">
@@ -533,12 +532,12 @@ export default function FamiliesLanding() {
                 </div>
 
                 <div className="soft-panel p-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground/70">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                     Example weekly modules
                   </p>
                   <div className="mt-4 space-y-3">
                     {featuredBlueprints.map((blueprint) => (
-                      <div key={blueprint.id} className="rounded-[1.2rem] border border-border/70 bg-white/80 p-4">
+                      <div key={blueprint.id} className="rounded-xl border border-border/70 bg-white/80 p-4">
                         <div className="flex items-center justify-between gap-3">
                           <p className="font-heading text-xl font-semibold">{blueprint.title}</p>
                           <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">

@@ -19,7 +19,7 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
           className="rounded-xl border bg-card overflow-hidden"
         >
           <AccordionPrimitive.Header>
-            <AccordionPrimitive.Trigger className="flex w-full items-center justify-between p-5 text-left text-sm font-medium transition-colors hover:text-primary [&[data-state=open]>svg]:rotate-180">
+            <AccordionPrimitive.Trigger className="flex w-full items-center justify-between p-5 text-left text-sm font-medium text-foreground transition-colors hover:text-primary [&[data-state=open]>svg]:rotate-180">
               {item.question}
               <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200" />
             </AccordionPrimitive.Trigger>

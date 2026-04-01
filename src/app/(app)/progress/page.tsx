@@ -1,6 +1,6 @@
 "use client";
 
-import { Flame, Star, BookOpen, Trophy, TrendingUp, CheckCircle2, MessageCircle, CalendarCheck, ArrowRight } from "lucide-react";
+import { Flame, Star, BookOpen, Trophy, TrendingUp, CheckCircle2, MessageCircle, CalendarCheck, ArrowRight, ArrowLeft } from "lucide-react";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion";
 import { ProgressRing } from "@/components/ui/progress-ring";
 import { useWordTracker } from "@/lib/stores/word-tracker";
@@ -38,6 +38,14 @@ export default function ProgressPage() {
 
   return (
     <div className="max-w-3xl space-y-8">
+      <Link
+        href="/dashboard"
+        className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Dashboard
+      </Link>
+
       <FadeIn>
         <div className="flex items-center gap-3">
           <TrendingUp className="w-7 h-7 text-primary" />
@@ -49,7 +57,7 @@ export default function ProgressPage() {
       </FadeIn>
 
       {/* Stats Row */}
-      <StaggerChildren className="grid grid-cols-3 gap-4">
+      <StaggerChildren className="grid gap-4 sm:grid-cols-3">
         <StaggerItem>
           <div className="rounded-xl border bg-card p-5 text-center space-y-2">
             <div className="mx-auto w-16 h-16 flex items-center justify-center">

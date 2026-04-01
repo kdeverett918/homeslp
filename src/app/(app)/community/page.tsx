@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { MessageCircle, ThumbsUp, Clock, User, Plus } from "lucide-react";
+import { MessageCircle, ThumbsUp, Clock, User, Plus, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion";
 
 const CATEGORIES = ["all", "wins", "questions", "tips", "introductions"] as const;
@@ -33,6 +34,14 @@ export default function CommunityPage() {
 
   return (
     <div className="max-w-3xl space-y-6">
+      <Link
+        href="/dashboard"
+        className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Dashboard
+      </Link>
+
       <FadeIn>
         <div className="flex items-center justify-between gap-4">
           <div>

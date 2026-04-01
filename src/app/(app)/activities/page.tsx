@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
-import { Shuffle, Clock, Zap, Filter } from "lucide-react";
+import { Shuffle, Clock, Zap, Filter, ArrowLeft, BookOpen } from "lucide-react";
+import Link from "next/link";
 import { actionCards } from "@/data/action-cards";
 import { useChildProfile } from "@/lib/stores/child-profile";
 import { FadeIn } from "@/components/motion";
@@ -33,6 +34,14 @@ export default function ActivitiesPage() {
 
   return (
     <div className="max-w-2xl space-y-6">
+      <Link
+        href="/dashboard"
+        className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Dashboard
+      </Link>
+
       <FadeIn>
         <div className="flex items-center gap-3">
           <Zap className="w-7 h-7 text-primary" />
@@ -102,6 +111,12 @@ export default function ActivitiesPage() {
       <p className="text-xs text-muted-foreground text-center italic">
         These activities are for educational purposes and do not replace professional speech-language therapy. Always consult a licensed SLP for personalized guidance.
       </p>
+
+      <div className="mt-8 flex flex-wrap gap-3 border-t pt-6">
+        <Link href="/blueprints" className="card-lift inline-flex items-center gap-2 rounded-xl border border-border/70 bg-card px-4 py-3 text-sm font-medium shadow-warm-sm hover:text-primary">
+          <BookOpen className="w-4 h-4" /> Weekly learning plans
+        </Link>
+      </div>
     </div>
   );
 }

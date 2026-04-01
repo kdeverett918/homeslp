@@ -192,7 +192,7 @@ export default function ResearchPage() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-between rounded-[1.2rem] border border-border/70 bg-white/75 px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary/25 hover:text-primary"
+                        className="flex items-center justify-between rounded-xl border border-border/70 bg-white/75 px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary/25 hover:text-primary"
                       >
                         {link.label}
                         <ArrowRight className="h-4 w-4" />
@@ -253,7 +253,7 @@ export default function ResearchPage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="rounded-[1.2rem] border border-border/70 bg-white/75 px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary/25 hover:text-primary"
+                  className="rounded-xl border border-border/70 bg-white/75 px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary/25 hover:text-primary"
                 >
                   {item.label}
                 </Link>

@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 import { AppProviders } from "@/components/providers";
 import { ActiveBottomNavLink, ActiveNavLink } from "@/components/ui/active-nav-link";
+import { MobileMoreMenu } from "@/components/ui/mobile-more-menu";
 import { getBetaModeServer } from "@/lib/beta-server";
 
 function NavSectionHeader({ children }: { children: React.ReactNode }) {
@@ -164,14 +165,6 @@ export default async function AppLayout({
                 <p className="mt-2 text-sm leading-7 text-muted-foreground">
                   Start with what matters today, then move into milestones, practice, and support.
                 </p>
-                {betaMode ? (
-                  <Link
-                    href="/beta"
-                    className="mt-4 inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-primary"
-                  >
-                    Preview Access Enabled
-                  </Link>
-                ) : null}
               </div>
             </div>
           </div>
@@ -225,14 +218,6 @@ export default async function AppLayout({
               </Link>
 
               <div className="flex items-center gap-2">
-                {betaMode ? (
-                  <Link
-                    href="/beta"
-                    className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-primary"
-                  >
-                    Preview
-                  </Link>
-                ) : null}
                 <Link
                   href="/settings"
                   className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 bg-white/70 text-foreground shadow-warm-sm"
@@ -247,6 +232,8 @@ export default async function AppLayout({
                 { href: "/milestones", label: "Milestones" },
                 { href: "/check", label: "Quick check" },
                 { href: "/resources", label: "Resources" },
+                { href: "/blog", label: "Articles" },
+                { href: "/progress", label: "Progress" },
               ].map((item) => (
                 <Link
                   key={item.href}
@@ -269,7 +256,7 @@ export default async function AppLayout({
               <ActiveBottomNavLink href="/milestones" icon="baby" label="Milestones" />
               <ActiveBottomNavLink href="/check" icon="search" label="Check" />
               <ActiveBottomNavLink href="/activities" icon="zap" label="Ideas" />
-              <ActiveBottomNavLink href="/resources" icon="library" label="Library" />
+              <MobileMoreMenu />
             </div>
           </nav>
         </div>

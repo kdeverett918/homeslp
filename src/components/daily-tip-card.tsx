@@ -114,7 +114,7 @@ export function DailyTipCard({ tips, path, ageMonths }: DailyTipCardProps) {
         <p className="text-sm leading-7 text-muted-foreground sm:text-[15px]">{tip.technique}</p>
 
         <div className="grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="rounded-[1.3rem] border border-border/70 bg-background/88 p-4">
+          <div className="rounded-xl border border-border/70 bg-background/88 p-4">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               Try this script
             </p>

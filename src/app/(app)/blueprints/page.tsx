@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BookOpen, Lock, Play } from "lucide-react";
+import { ArrowLeft, BookOpen, Lock, Play, Zap } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { getBetaModeServer } from "@/lib/beta-server";
@@ -44,8 +44,16 @@ export default async function BlueprintsPage() {
 
   return (
     <div className="max-w-4xl space-y-6">
+      <Link
+        href="/dashboard"
+        className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Dashboard
+      </Link>
+
       <div>
-        <h1 className="font-heading text-2xl font-bold">Weekly Blueprints</h1>
+        <h1 className="font-heading text-2xl font-bold sm:text-3xl">Weekly Blueprints</h1>
         <p className="mt-1 text-muted-foreground">Your child-development learning roadmap</p>
       </div>
 
@@ -80,6 +88,12 @@ export default async function BlueprintsPage() {
             </Link>
           );
         })}
+      </div>
+
+      <div className="mt-8 flex flex-wrap gap-3 border-t pt-6">
+        <Link href="/activities" className="card-lift inline-flex items-center gap-2 rounded-xl border border-border/70 bg-card px-4 py-3 text-sm font-medium shadow-warm-sm hover:text-primary">
+          <Zap className="w-4 h-4" /> Quick daily activities
+        </Link>
       </div>
     </div>
   );

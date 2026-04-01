@@ -1,6 +1,7 @@
 "use client";
 
-import { FileText, Printer, BookOpen, CheckCircle2, AlertTriangle } from "lucide-react";
+import { FileText, Printer, BookOpen, CheckCircle2, AlertTriangle, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 import { useChildProfile } from "@/lib/stores/child-profile";
 import { useWordTracker } from "@/lib/stores/word-tracker";
 import { useMilestoneTracker } from "@/lib/stores/milestone-tracker";
@@ -28,6 +29,14 @@ export default function ReportPage() {
 
   return (
     <div className="max-w-2xl space-y-6">
+      <Link
+        href="/dashboard"
+        className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Dashboard
+      </Link>
+
       <FadeIn>
         <div className="flex items-center justify-between gap-4">
           <div>

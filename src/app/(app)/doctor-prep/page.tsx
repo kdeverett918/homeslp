@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Stethoscope, Printer, CheckSquare, ArrowRight, FileText, Shield } from "lucide-react";
+import { Stethoscope, Printer, CheckSquare, ArrowRight, ArrowLeft, FileText, Shield } from "lucide-react";
+import Link from "next/link";
 import { concerns, questionsToAsk, parentRights } from "@/data/doctor-prep";
 import { useChildProfile } from "@/lib/stores/child-profile";
 import { PrintControls } from "@/components/ui/print-controls";
@@ -87,6 +88,14 @@ export default function DoctorPrepPage() {
   // Step 1: Select concerns
   return (
     <div className="max-w-2xl space-y-6">
+      <Link
+        href="/check"
+        className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Back to screening
+      </Link>
+
       <FadeIn>
         <div className="flex items-center gap-3">
           <Stethoscope className="w-7 h-7 text-primary" />

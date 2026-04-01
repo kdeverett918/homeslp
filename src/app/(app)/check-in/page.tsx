@@ -111,6 +111,14 @@ export default function CheckInPage() {
 
   return (
     <div className="max-w-2xl mx-auto space-y-6">
+      <Link
+        href="/dashboard"
+        className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Dashboard
+      </Link>
+
       {/* Header */}
       <FadeIn>
         <div className="flex items-center gap-3">

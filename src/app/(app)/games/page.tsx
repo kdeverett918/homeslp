@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { LayoutGrid, Play, Lightbulb, Clock } from "lucide-react";
+import { LayoutGrid, Play, Lightbulb, Clock, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 import { FadeIn, StaggerChildren, StaggerItem, ScaleOnHover } from "@/components/motion";
 import { WordFinder } from "@/components/games/word-finder";
 
@@ -21,6 +22,14 @@ export default function GamesPage() {
 
   return (
     <div className="max-w-3xl space-y-6">
+      <Link
+        href="/dashboard"
+        className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Dashboard
+      </Link>
+
       <FadeIn>
         <div className="flex items-center gap-3">
           <LayoutGrid className="w-7 h-7 text-primary" />

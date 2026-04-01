@@ -48,7 +48,7 @@ export function QuizResultsPrintable({
       </div>
 
       {/* Printable content */}
-      <div id="quiz-results-print" className="rounded-xl border bg-card p-6 space-y-5 print:border-none print:shadow-none print:p-0">
+      <div id="quiz-results-print" className="rounded-xl border bg-card p-6 space-y-5 print:border-0 print:shadow-none print:p-0">
         {/* Header */}
         <div className="flex items-center justify-between border-b pb-4">
           <div className="flex items-center gap-2">

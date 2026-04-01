@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { BookOpen, Plus, Trash2, Search, TrendingUp } from "lucide-react";
+import { BookOpen, Plus, Trash2, Search, TrendingUp, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 import { useWordTracker, type TrackedWord } from "@/lib/stores/word-tracker";
 import { useChildProfile } from "@/lib/stores/child-profile";
 import { wordNorms, getNormForAge } from "@/data/word-norms";
@@ -36,6 +37,14 @@ export default function WordsPage() {
 
   return (
     <div className="max-w-3xl space-y-6">
+      <Link
+        href="/dashboard"
+        className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Dashboard
+      </Link>
+
       <FadeIn>
         <div className="flex items-center justify-between gap-4">
           <div>

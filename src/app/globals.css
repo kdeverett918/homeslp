@@ -326,6 +326,15 @@
   to { opacity: 1; }
 }
 
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(100%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-up {
+  animation: slideUp 300ms ease-out;
+}
+
 details[open] > div {
   animation: slideDown 200ms ease-out;
 }
