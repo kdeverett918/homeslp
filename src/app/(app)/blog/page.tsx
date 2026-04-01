@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import {
+  ArrowLeft,
   BookOpen,
   ChevronRight,
   Clock,
@@ -56,6 +57,14 @@ export default function BlogPage() {
 
   return (
     <div className="max-w-5xl space-y-6">
+      <Link
+        href="/dashboard"
+        className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Dashboard
+      </Link>
+
       {/* Hero Section */}
       <FadeIn>
         <div className="guide-surface p-6 sm:p-8">
