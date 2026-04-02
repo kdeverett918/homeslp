@@ -1,11 +1,13 @@
 "use client";
 
 import { use } from "react";
+import Link from "next/link";
+import { ArrowLeft, FileText, Lightbulb, AlertTriangle, Info } from "lucide-react";
+import { ContentImage } from "@/components/media/content-image";
+import { ReadAloudButton } from "@/components/media/read-aloud-button";
 import { FadeIn } from "@/components/motion";
 import { PrintControls } from "@/components/ui/print-controls";
 import { handouts } from "@/data/handouts";
-import Link from "next/link";
-import { ArrowLeft, FileText, Lightbulb, AlertTriangle, Info } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -73,15 +75,41 @@ export default function HandoutDetailPage({ params }: Props) {
       <FadeIn delay={0.1}>
         <div
           id="handout-print"
-          className="rounded-2xl border bg-card p-6 space-y-6 print:border-0 print:shadow-none print:p-0"
+          className="guide-surface p-6 space-y-6 print:border-0 print:shadow-none print:p-0 print:bg-transparent"
         >
           {/* Header */}
-          <div className="text-center border-b pb-4">
-            <p className="text-xs font-medium text-primary tracking-wide uppercase">
-              HomeSLP
-            </p>
-            <h1 className="mt-1 font-heading text-xl font-bold">{handout.title}</h1>
-            <p className="mt-1 text-sm text-muted-foreground">{handout.description}</p>
+          <div className="grid gap-6 border-b pb-6 md:grid-cols-[minmax(0,1fr)_minmax(18rem,0.95fr)] md:items-center">
+            <div className="space-y-4 text-center md:text-left">
+              <div className="section-kicker mx-auto md:mx-0">Printable handout</div>
+              <div className="space-y-2">
+                <p className="text-xs font-medium text-primary tracking-wide uppercase">
+                  HomeSLP
+                </p>
+                <h1 className="font-heading text-xl font-bold sm:text-2xl">
+                  {handout.title}
+                </h1>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {handout.description}
+                </p>
+              </div>
+              <p className="trust-pill mx-auto text-xs md:mx-0">
+                {handout.targetAudience}
+              </p>
+              {handout.narration && (
+                <div className="flex justify-center print:hidden md:justify-start">
+                  <ReadAloudButton narration={handout.narration} />
+                </div>
+              )}
+            </div>
+            {handout.coverImage && (
+              <ContentImage
+                image={handout.coverImage}
+                aspect="hero"
+                priority
+                sizes="(max-width: 768px) 100vw, 38vw"
+                containerClassName="print:hidden"
+              />
+            )}
           </div>
 
           {/* Sections */}

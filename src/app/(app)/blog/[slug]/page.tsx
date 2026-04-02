@@ -15,6 +15,8 @@ import {
   Share2,
   Sparkles,
 } from "lucide-react";
+import { ContentImage } from "@/components/media/content-image";
+import { ReadAloudButton } from "@/components/media/read-aloud-button";
 import { FadeIn } from "@/components/motion";
 import { PrintControls } from "@/components/ui/print-controls";
 import { blogArticles, blogCategories } from "@/data/blog";
@@ -147,44 +149,59 @@ export default function BlogArticlePage({ params }: Props) {
         >
           {/* Header */}
           <header className="guide-surface p-6 sm:p-8 space-y-4 print:block print:border-0 print:shadow-none print:bg-transparent">
-            <div className="relative z-10 space-y-3 text-center">
-              <div className="section-kicker mx-auto">{catLabel}</div>
-              <span className="text-5xl block">{article.heroEmoji}</span>
-              <h1 className="font-heading text-2xl sm:text-3xl font-bold leading-tight tracking-tight">
-                {article.title}
-              </h1>
-              <p className="text-muted-foreground max-w-lg mx-auto leading-relaxed">
-                {article.subtitle}
-              </p>
-              <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground pt-1">
-                <span className="flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5" />
-                  {article.readingTimeMinutes} min read
-                </span>
-                <span className="text-border">|</span>
-                <span className="flex items-center gap-1.5">
-                  <Calendar className="w-3.5 h-3.5" />
-                  {new Date(article.publishedDate).toLocaleDateString(
-                    "en-US",
-                    {
-                      month: "long",
-                      day: "numeric",
-                      year: "numeric",
-                    },
-                  )}
-                </span>
-              </div>
-              {/* Tags */}
-              <div className="flex flex-wrap justify-center gap-1.5 pt-1">
-                {article.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="trust-pill text-[11px] py-0.5 px-2.5"
-                  >
-                    {tag}
+            <div className="relative z-10 grid gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(18rem,0.9fr)] md:items-center">
+              <div className="space-y-4 text-center md:text-left">
+                <div className="section-kicker mx-auto md:mx-0">{catLabel}</div>
+                <span className="text-5xl block">{article.heroEmoji}</span>
+                <h1 className="font-heading text-2xl sm:text-3xl font-bold leading-tight tracking-tight">
+                  {article.title}
+                </h1>
+                <p className="text-muted-foreground max-w-lg mx-auto md:mx-0 leading-relaxed">
+                  {article.subtitle}
+                </p>
+                <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground pt-1 md:justify-start">
+                  <span className="flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5" />
+                    {article.readingTimeMinutes} min read
                   </span>
-                ))}
+                  <span className="text-border">|</span>
+                  <span className="flex items-center gap-1.5">
+                    <Calendar className="w-3.5 h-3.5" />
+                    {new Date(article.publishedDate).toLocaleDateString(
+                      "en-US",
+                      {
+                        month: "long",
+                        day: "numeric",
+                        year: "numeric",
+                      },
+                    )}
+                  </span>
+                </div>
+                <div className="flex flex-wrap justify-center gap-1.5 pt-1 md:justify-start">
+                  {article.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="trust-pill text-[11px] py-0.5 px-2.5"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                {article.narration && (
+                  <div className="flex justify-center pt-2 print:hidden md:justify-start">
+                    <ReadAloudButton narration={article.narration} />
+                  </div>
+                )}
               </div>
+              {article.heroImage && (
+                <ContentImage
+                  image={article.heroImage}
+                  aspect="hero"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 38vw"
+                  containerClassName="print:hidden"
+                />
+              )}
             </div>
           </header>
 

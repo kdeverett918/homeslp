@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Flame, ArrowRight, Heart, Star, Trophy, Sparkles } from "lucide-react";
-import { motion } from "framer-motion";
+import { Flame, ArrowRight, Heart, Star, Sparkles } from "lucide-react";
 import { useCheckInStore } from "@/lib/stores/checkin-store";
 import { ProgressRing } from "@/components/ui/progress-ring";
 

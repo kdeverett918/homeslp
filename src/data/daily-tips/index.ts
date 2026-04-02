@@ -1,3 +1,5 @@
+import type { ContentImageAsset, ContentNarration } from "@/types/content";
+
 export interface DailyTip {
   id: string;
   title: string;
@@ -7,7 +9,30 @@ export interface DailyTip {
   ageRangeEnd: number;
   context: "mealtime" | "bath" | "play" | "bedtime" | "errands" | "anytime";
   path: "child";
+  image?: ContentImageAsset;
+  narration?: ContentNarration;
 }
+
+const dailyTipImages = {
+  mealtime: {
+    src: "/images/start/routine-lab.svg",
+    alt: "Parent offering two snack choices during a calm mealtime routine.",
+    width: 1200,
+    height: 900,
+  },
+  play: {
+    src: "/images/blueprints/play-based-language.svg",
+    alt: "Parent and child playing with blocks while language bubbles float above the scene.",
+    width: 1200,
+    height: 900,
+  },
+  anytime: {
+    src: "/images/start/routine-lab.svg",
+    alt: "Illustrated family routine board with meal, play, and bedtime cards arranged as simple learning moments.",
+    width: 1200,
+    height: 900,
+  },
+} satisfies Record<"mealtime" | "play" | "anytime", ContentImageAsset>;
 
 export const dailyTips: DailyTip[] = [
   // ─── MEALTIME (15 tips) ───────────────────────────────────────────────
@@ -22,6 +47,15 @@ export const dailyTips: DailyTip[] = [
     ageRangeEnd: 24,
     context: "mealtime",
     path: "child",
+    image: dailyTipImages.mealtime,
+    narration: {
+      title: "Read-aloud: The Two-Choice Hold",
+      audioSrc: "/audio/daily-tips/the-two-choice-hold.mp3",
+      durationLabel: "42 sec",
+      voice: "Sarah",
+      transcript:
+        "At meals, hold up two foods at eye level and wait before naming them. That pause gives your child a reason to look, point, or vocalize. If they reach for one, model the word right away. Banana. You want banana.",
+    },
   },
   {
     id: "meal-02",
@@ -326,6 +360,15 @@ export const dailyTips: DailyTip[] = [
     ageRangeEnd: 36,
     context: "play",
     path: "child",
+    image: dailyTipImages.play,
+    narration: {
+      title: "Read-aloud: Parallel Play Narration",
+      audioSrc: "/audio/daily-tips/parallel-play-narration.mp3",
+      durationLabel: "39 sec",
+      voice: "Sarah",
+      transcript:
+        "Sit next to your child and talk about what they are already doing. If they stack a block, you say, up, up, up, you made it tall. This keeps the moment playful and pressure-free while flooding the routine with useful language.",
+    },
   },
   {
     id: "play-02",
@@ -872,6 +915,14 @@ export const dailyTips: DailyTip[] = [
     ageRangeEnd: 48,
     context: "anytime",
     path: "child",
+    image: dailyTipImages.anytime,
+    narration: {
+      title: "Read-aloud: Wait 5 Seconds",
+      audioSrc: "/audio/daily-tips/any-01-wait-five-seconds.mp3",
+      voice: "Sarah",
+      transcript:
+        "Wait five full seconds before jumping in. Most parents respond fast, but a longer pause gives a child time to process, plan, and respond. That small change can create more communication than another question ever will.",
+    },
   },
   {
     id: "any-02",
@@ -896,6 +947,7 @@ export const dailyTips: DailyTip[] = [
     ageRangeEnd: 30,
     context: "anytime",
     path: "child",
+    image: dailyTipImages.anytime,
   },
   {
     id: "any-04",
@@ -1004,6 +1056,7 @@ export const dailyTips: DailyTip[] = [
     ageRangeEnd: 60,
     context: "anytime",
     path: "child",
+    image: dailyTipImages.anytime,
   },
   {
     id: "any-13",

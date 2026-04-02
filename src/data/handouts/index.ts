@@ -1,3 +1,6 @@
+import type { ContentImageAsset, ContentNarration } from "@/types/content";
+import { handoutCategoryPreviewImages, handoutMedia } from "./media";
+
 export type HandoutCategory = "education" | "home-practice" | "milestone-summary";
 
 export interface HandoutCallout {
@@ -19,6 +22,8 @@ export interface Handout {
   category: HandoutCategory;
   description: string;
   targetAudience: string;
+  coverImage?: ContentImageAsset;
+  narration?: ContentNarration;
   sections: HandoutSection[];
   disclaimer: string;
 }
@@ -26,7 +31,7 @@ export interface Handout {
 const STANDARD_DISCLAIMER =
   "This handout is for educational purposes and does not replace professional evaluation or treatment. If you have concerns about your child's development, consult a licensed speech-language pathologist.";
 
-export const handouts: Handout[] = [
+const baseHandouts: Handout[] = [
   // ─── EDUCATION HANDOUTS ─────────────────────────────────────────────
   {
     id: "edu-1",
@@ -1884,3 +1889,12 @@ export const handouts: Handout[] = [
     disclaimer: STANDARD_DISCLAIMER,
   },
 ];
+
+export const handouts: Handout[] = baseHandouts.map((handout) => ({
+  ...handout,
+  coverImage:
+    handoutMedia[handout.slug]?.coverImage ??
+    handout.coverImage ??
+    handoutCategoryPreviewImages[handout.category],
+  narration: handoutMedia[handout.slug]?.narration ?? handout.narration,
+}));

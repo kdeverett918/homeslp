@@ -7,11 +7,12 @@ import { currentResearch1Articles } from "./articles-current-research-1";
 import { currentResearch2Articles } from "./articles-current-research-2";
 import { currentResearch3Articles } from "./articles-current-research-3";
 import { currentResearch4Articles } from "./articles-current-research-4";
+import { blogArticleMedia, blogCategoryPreviewImages } from "./media";
 
 export type { BlogCategory };
 export { BLOG_DISCLAIMER, blogCategoryStyle } from "./constants";
 
-export const blogArticles: BlogArticle[] = [
+const baseBlogArticles: BlogArticle[] = [
   ...earlyDevelopmentArticles,
   ...parentKnowledgeArticles,
   ...practicalGuideArticles,
@@ -21,6 +22,15 @@ export const blogArticles: BlogArticle[] = [
   ...currentResearch3Articles,
   ...currentResearch4Articles,
 ];
+
+export const blogArticles: BlogArticle[] = baseBlogArticles.map((article) => ({
+  ...article,
+  heroImage:
+    blogArticleMedia[article.slug]?.heroImage ??
+    article.heroImage ??
+    blogCategoryPreviewImages[article.category],
+  narration: blogArticleMedia[article.slug]?.narration ?? article.narration,
+}));
 
 export const blogCategories: { value: BlogCategory; label: string; emoji: string }[] = [
   { value: "speech-development", label: "Speech Development", emoji: "🗣️" },

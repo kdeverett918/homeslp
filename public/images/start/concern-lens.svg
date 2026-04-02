@@ -1,0 +1,26 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" rx="48" fill="#F4ECE2"/>
+  <circle cx="238" cy="164" r="108" fill="#E8A88F" fill-opacity="0.42"/>
+  <circle cx="956" cy="756" r="144" fill="#F0D48A" fill-opacity="0.4"/>
+  <rect x="132" y="120" width="936" height="660" rx="40" fill="#FFF9F2" stroke="#DCC8B6" stroke-width="3"/>
+  <rect x="194" y="184" width="406" height="532" rx="34" fill="#FFFFFF" stroke="#E3D2C1" stroke-width="3"/>
+  <rect x="642" y="204" width="332" height="190" rx="28" fill="#FFF7EC" stroke="#E3D2C1" stroke-width="3"/>
+  <rect x="642" y="424" width="332" height="232" rx="28" fill="#FFFFFF" stroke="#E3D2C1" stroke-width="3"/>
+  <rect x="244" y="248" width="306" height="18" rx="9" fill="#D8C3AF"/>
+  <rect x="244" y="294" width="248" height="18" rx="9" fill="#E4D2C2"/>
+  <rect x="244" y="368" width="222" height="18" rx="9" fill="#D8C3AF"/>
+  <rect x="244" y="414" width="270" height="18" rx="9" fill="#E4D2C2"/>
+  <rect x="244" y="488" width="284" height="18" rx="9" fill="#D8C3AF"/>
+  <rect x="244" y="534" width="216" height="18" rx="9" fill="#E4D2C2"/>
+  <circle cx="758" cy="298" r="76" fill="#FBE7D9"/>
+  <circle cx="758" cy="298" r="48" stroke="#D6694D" stroke-width="14"/>
+  <path d="M798 338L850 390" stroke="#D6694D" stroke-width="16" stroke-linecap="round"/>
+  <rect x="688" y="482" width="240" height="56" rx="18" fill="#E4F0EA"/>
+  <rect x="688" y="554" width="240" height="56" rx="18" fill="#FAEFC8"/>
+  <text x="232" y="216" fill="#2E3834" font-family="Fraunces, Georgia, serif" font-size="40" font-weight="600">Concern notes</text>
+  <text x="676" y="182" fill="#2E3834" font-family="Fraunces, Georgia, serif" font-size="36" font-weight="600">Look closer</text>
+  <text x="676" y="462" fill="#2E3834" font-family="Fraunces, Georgia, serif" font-size="36" font-weight="600">Next actions</text>
+  <text x="718" y="518" fill="#2E3834" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="700">Quick check</text>
+  <text x="718" y="590" fill="#2E3834" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="700">Doctor prep</text>
+  <text x="228" y="650" fill="#5F574F" font-family="Manrope, Arial, sans-serif" font-size="24">You do not need a perfect explanation. You need specific examples, dates, and watch-fors.</text>
+</svg>

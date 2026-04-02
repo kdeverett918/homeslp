@@ -5,7 +5,7 @@ import { Clock, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function TrialBanner() {
-  const { isTrialing, daysLeftInTrial, isPaid, isActive } = useSubscription();
+  const { isTrialing, daysLeftInTrial, isActive } = useSubscription();
 
   if (!isTrialing || isActive) return null;
 

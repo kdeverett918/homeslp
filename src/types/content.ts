@@ -9,6 +9,23 @@ export type BlogCategory =
   | "myths-facts"
   | "milestones";
 
+export interface ContentImageAsset {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption?: string;
+  preload?: boolean;
+}
+
+export interface ContentNarration {
+  title: string;
+  audioSrc: string;
+  durationLabel?: string;
+  transcript?: string;
+  voice?: string;
+}
+
 export interface BlogSource {
   label: string;
   detail: string;
@@ -43,6 +60,8 @@ export interface BlogArticle {
   updatedDate?: string;
   author: string;
   heroEmoji: string;
+  heroImage?: ContentImageAsset;
+  narration?: ContentNarration;
   introduction: string;
   sections: BlogSection[];
   funFacts: BlogFunFact[];
@@ -67,12 +86,14 @@ export interface WeeklyBlueprint {
   subtitle: string;
   description: string;
   accessTier: AccessTier;
+  coverImage?: ContentImageAsset;
   commentary: {
     type: 'video' | 'text';
     videoUrl?: string;
     videoDurationSeconds?: number;
     textContent?: string;
     slpNote: string;
+    narration?: ContentNarration;
   };
   curatedMedia: {
     youtubeVideoId: string;

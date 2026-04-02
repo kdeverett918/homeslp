@@ -11,12 +11,27 @@ export const pediatricBlueprints: WeeklyBlueprint[] = [
     description:
       "Learn the most powerful strategy SLPs use to encourage first words. This technique gives your child the space and model they need to start communicating.",
     accessTier: "trial",
+    coverImage: {
+      src: "/images/blueprints/wait-and-model.svg",
+      alt: "Warm illustrated scene of a parent pausing with two snack choices while a toddler reaches and vocalizes.",
+      width: 1200,
+      height: 900,
+      caption: "Pause. Wait. Model the word after the child shows interest.",
+    },
     commentary: {
       type: "text",
       textContent:
         "Wait and Model is the #1 technique I teach parents. Instead of prompting your child to say words, you create natural opportunities by waiting expectantly, then modeling the word yourself. Watch how Ms. Rachel uses this exact technique in the video below.",
       slpNote:
         "This is the technique that makes the biggest difference for late talkers. Most parents talk too much and wait too little. Give your child 3-5 seconds of silence with an expectant look before modeling the word.",
+      narration: {
+        title: "Read-aloud: Blueprint week one commentary",
+        audioSrc: "/audio/blueprints/wait-and-model-commentary.mp3",
+        durationLabel: "52 sec",
+        voice: "Sarah",
+        transcript:
+          "Wait and Model is one of the first techniques I teach parents. You create a natural opportunity, pause with an expectant look, and then model the word after your child reaches, points, or vocalizes. The goal is not pressure. The goal is a clear language model inside a real routine.",
+      },
     },
     curatedMedia: {
       youtubeVideoId: "kcmqqHApxhE",
@@ -69,6 +84,13 @@ export const pediatricBlueprints: WeeklyBlueprint[] = [
     description:
       "Turn bath time, diaper changes, and getting dressed into powerful language-learning moments. Routines are predictable, which helps your child anticipate and eventually use words.",
     accessTier: "paid",
+    coverImage: {
+      src: "/images/blueprints/everyday-routines.svg",
+      alt: "Illustrated family routine board showing bath time, dressing, and breakfast with repeatable language prompts.",
+      width: 1200,
+      height: 900,
+      caption: "The same short phrases repeated inside familiar routines.",
+    },
     commentary: {
       type: "text",
       textContent:
@@ -126,6 +148,13 @@ export const pediatricBlueprints: WeeklyBlueprint[] = [
     description:
       "Learn two simple narration techniques that SLPs use during play to flood your child with language in a natural, pressure-free way.",
     accessTier: "paid",
+    coverImage: {
+      src: "/images/blueprints/play-based-language.svg",
+      alt: "Illustrated parent and child building blocks side by side with language bubbles and playful arrows.",
+      width: 1200,
+      height: 900,
+      caption: "Let the child lead the play while the adult narrates the action.",
+    },
     commentary: {
       type: "text",
       textContent:

@@ -1,0 +1,37 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" rx="48" fill="#F5ECE2"/>
+  <rect x="96" y="96" width="1008" height="708" rx="40" fill="#FFF9F3" stroke="#DBC6B3" stroke-width="3"/>
+  <circle cx="226" cy="200" r="96" fill="#F0C78E" fill-opacity="0.44"/>
+  <circle cx="982" cy="166" r="88" fill="#A3BDB4" fill-opacity="0.38"/>
+  <rect x="154" y="170" width="276" height="250" rx="30" fill="#FFFFFF" stroke="#E0D0BF" stroke-width="3"/>
+  <rect x="462" y="170" width="276" height="250" rx="30" fill="#FFF8EF" stroke="#E0D0BF" stroke-width="3"/>
+  <rect x="770" y="170" width="276" height="250" rx="30" fill="#FFFFFF" stroke="#E0D0BF" stroke-width="3"/>
+  <rect x="154" y="454" width="892" height="278" rx="32" fill="#FFF7EC" stroke="#E0D0BF" stroke-width="3"/>
+  <rect x="204" y="230" width="176" height="116" rx="22" fill="#FCE6D8"/>
+  <circle cx="262" cy="288" r="34" fill="#E07055"/>
+  <circle cx="322" cy="288" r="24" fill="#E9BF4A"/>
+  <text x="202" y="214" fill="#2E3834" font-family="Fraunces, Georgia, serif" font-size="34" font-weight="600">Meals</text>
+  <rect x="512" y="226" width="176" height="124" rx="22" fill="#E3F0EA"/>
+  <rect x="540" y="254" width="34" height="72" rx="10" fill="#5F9D8A"/>
+  <rect x="584" y="226" width="34" height="100" rx="10" fill="#D66C53"/>
+  <rect x="628" y="244" width="34" height="82" rx="10" fill="#F2C867"/>
+  <text x="510" y="214" fill="#2E3834" font-family="Fraunces, Georgia, serif" font-size="34" font-weight="600">Play</text>
+  <rect x="820" y="230" width="176" height="116" rx="22" fill="#FAEFCB"/>
+  <rect x="850" y="252" width="116" height="64" rx="18" fill="#F2D98D"/>
+  <circle cx="902" cy="284" r="22" fill="#FFFFFF"/>
+  <text x="818" y="214" fill="#2E3834" font-family="Fraunces, Georgia, serif" font-size="34" font-weight="600">Bedtime</text>
+  <path d="M445 296H461" stroke="#B99B83" stroke-width="8" stroke-linecap="round"/>
+  <path d="M753 296H769" stroke="#B99B83" stroke-width="8" stroke-linecap="round"/>
+  <path d="M462 296L446 282" stroke="#B99B83" stroke-width="8" stroke-linecap="round"/>
+  <path d="M462 296L446 310" stroke="#B99B83" stroke-width="8" stroke-linecap="round"/>
+  <path d="M770 296L754 282" stroke="#B99B83" stroke-width="8" stroke-linecap="round"/>
+  <path d="M770 296L754 310" stroke="#B99B83" stroke-width="8" stroke-linecap="round"/>
+  <text x="194" y="520" fill="#2E3834" font-family="Manrope, Arial, sans-serif" font-size="26" font-weight="700">Routine board</text>
+  <text x="194" y="570" fill="#5D544C" font-family="Manrope, Arial, sans-serif" font-size="24">Pick one routine and keep the language short, warm, and repeatable.</text>
+  <rect x="194" y="610" width="238" height="76" rx="22" fill="#FFFFFF" stroke="#E0D0BF" stroke-width="2"/>
+  <rect x="454" y="610" width="238" height="76" rx="22" fill="#FFFFFF" stroke="#E0D0BF" stroke-width="2"/>
+  <rect x="714" y="610" width="238" height="76" rx="22" fill="#FFFFFF" stroke="#E0D0BF" stroke-width="2"/>
+  <text x="224" y="656" fill="#2E3834" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="700">Name the moment</text>
+  <text x="488" y="656" fill="#2E3834" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="700">Pause and wait</text>
+  <text x="742" y="656" fill="#2E3834" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="700">Model one word</text>
+</svg>

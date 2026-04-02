@@ -1,12 +1,12 @@
 "use client";
 
-import { FileText, Printer, BookOpen, CheckCircle2, AlertTriangle, ArrowLeft } from "lucide-react";
+import { FileText, BookOpen, CheckCircle2, AlertTriangle, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useChildProfile } from "@/lib/stores/child-profile";
 import { useWordTracker } from "@/lib/stores/word-tracker";
 import { useMilestoneTracker } from "@/lib/stores/milestone-tracker";
 import { milestones } from "@/data/milestones";
-import { wordNorms, getNormForAge } from "@/data/word-norms";
+import { getNormForAge } from "@/data/word-norms";
 import { PrintControls } from "@/components/ui/print-controls";
 import { FadeIn } from "@/components/motion";
 

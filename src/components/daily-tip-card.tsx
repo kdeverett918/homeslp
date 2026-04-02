@@ -10,12 +10,15 @@ import {
   Microscope,
   Sparkles,
 } from "lucide-react";
+import { ContentImage } from "@/components/media/content-image";
+import { ReadAloudButton } from "@/components/media/read-aloud-button";
 import type { DailyTip } from "@/data/daily-tips";
+import { formatFriendlyAgeRange } from "@/lib/format-age";
 
 function getTodaysTip(
   tips: DailyTip[],
   path: string,
-  ageMonths: number | null
+  ageMonths: number | null,
 ): DailyTip | null {
   const pathMatched = tips.filter((tip) => tip.path === path);
   if (pathMatched.length === 0) return null;
@@ -24,13 +27,18 @@ function getTodaysTip(
     if (ageMonths !== null && (ageMonths < tip.ageRangeStart || ageMonths > tip.ageRangeEnd)) {
       return false;
     }
+
     return true;
   });
 
-  const dailyPool = eligible.length > 0 ? eligible : pathMatched;
-  const dayOfYear = Math.floor(
-    (Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000
+  const mediaReady = (eligible.length > 0 ? eligible : pathMatched).filter(
+    (tip) => tip.image || tip.narration,
   );
+  const dailyPool = mediaReady.length > 0 ? mediaReady : eligible.length > 0 ? eligible : pathMatched;
+  const dayOfYear = Math.floor(
+    (Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000,
+  );
+
   return dailyPool[dayOfYear % dailyPool.length] ?? null;
 }
 
@@ -39,6 +47,15 @@ interface DailyTipCardProps {
   path: string;
   ageMonths: number | null;
 }
+
+const contextLabels = {
+  mealtime: "Mealtime",
+  bath: "Bath time",
+  play: "Play",
+  bedtime: "Bedtime",
+  errands: "Errands",
+  anytime: "Any routine",
+} satisfies Record<DailyTip["context"], string>;
 
 const contextFrames = {
   mealtime: {
@@ -101,22 +118,38 @@ export function DailyTipCard({ tips, path, ageMonths }: DailyTipCardProps) {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap items-center justify-end gap-2">
             <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-              {tip.context}
+              {contextLabels[tip.context]}
             </span>
             <span className="rounded-full border border-border/70 bg-white/75 px-3 py-1 text-xs font-semibold text-foreground">
-              {tip.ageRangeStart}-{tip.ageRangeEnd} months
+              {formatFriendlyAgeRange(tip.ageRangeStart, tip.ageRangeEnd)}
             </span>
           </div>
         </div>
 
         <p className="text-sm leading-7 text-muted-foreground sm:text-[15px]">{tip.technique}</p>
 
+        <div className="flex flex-wrap items-center gap-3">
+          {tip.narration ? (
+            <ReadAloudButton narration={tip.narration} label="Listen to this tip" compact />
+          ) : null}
+          <span className="text-sm font-medium text-muted-foreground">{frame.label}</span>
+        </div>
+
+        {tip.image ? (
+          <ContentImage
+            image={tip.image}
+            className="aspect-[16/9]"
+            imageClassName="aspect-[16/9] object-cover object-center"
+            sizes="(max-width: 1280px) 100vw, 44vw"
+          />
+        ) : null}
+
         <div className="grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="rounded-xl border border-border/70 bg-background/88 p-4">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-              Try this script
+              Try this line
             </p>
             <p className="mt-3 text-sm leading-7 italic text-muted-foreground">{tip.example}</p>
           </div>
@@ -141,7 +174,7 @@ export function DailyTipCard({ tips, path, ageMonths }: DailyTipCardProps) {
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border/70 pt-4">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <CalendarHeart className="h-4 w-4 text-primary" />
-            New prompt each day, grounded in routine-based parent coaching.
+            A fresh routine-based idea each day, grounded in how parents actually practice.
           </div>
 
           <div className="flex flex-wrap gap-3">
@@ -150,13 +183,13 @@ export function DailyTipCard({ tips, path, ageMonths }: DailyTipCardProps) {
               className="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-primary"
             >
               <Sparkles className="h-4 w-4 text-primary" />
-              Why HomeSLP uses tips like this
+              Why these tips work
             </Link>
             <Link
               href="/activities"
               className="inline-flex items-center gap-2 text-sm font-semibold text-primary"
             >
-              Find more ideas
+              Browse more daily ideas
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

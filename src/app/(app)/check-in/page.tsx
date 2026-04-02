@@ -18,13 +18,12 @@ import {
   Lock,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion";
+import { FadeIn } from "@/components/motion";
 import { ProgressRing } from "@/components/ui/progress-ring";
 import {
   useCheckInStore,
   BADGES,
   PARENT_LEVELS,
-  type Badge,
 } from "@/lib/stores/checkin-store";
 import {
   getWeeklyPrompts,

@@ -35,6 +35,7 @@ export default async function DashboardPage() {
           subtitle: blueprint.subtitle,
           weekNumber: blueprint.weekNumber,
           estimatedMinutes: blueprint.estimatedMinutes,
+          coverImage: blueprint.coverImage,
         }))}
       />
       <CheckInCard />

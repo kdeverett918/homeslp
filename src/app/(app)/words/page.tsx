@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { BookOpen, Plus, Trash2, Search, TrendingUp, ArrowLeft } from "lucide-react";
+import { BookOpen, Plus, Trash2, Search, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useWordTracker, type TrackedWord } from "@/lib/stores/word-tracker";
 import { useChildProfile } from "@/lib/stores/child-profile";
-import { wordNorms, getNormForAge } from "@/data/word-norms";
+import { getNormForAge } from "@/data/word-norms";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion";
 
 const CATEGORIES: TrackedWord["category"][] = ["noun", "verb", "social", "adjective", "other"];

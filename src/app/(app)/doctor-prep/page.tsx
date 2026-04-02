@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Stethoscope, Printer, CheckSquare, ArrowRight, ArrowLeft, FileText, Shield } from "lucide-react";
+import { Stethoscope, CheckSquare, ArrowRight, ArrowLeft, FileText, Shield } from "lucide-react";
 import Link from "next/link";
 import { concerns, questionsToAsk, parentRights } from "@/data/doctor-prep";
 import { useChildProfile } from "@/lib/stores/child-profile";

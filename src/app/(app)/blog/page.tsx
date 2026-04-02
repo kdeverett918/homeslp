@@ -12,6 +12,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion";
+import { ContentImage } from "@/components/media/content-image";
 import { FilterPills } from "@/components/ui/filter-pills";
 import {
   blogArticles,
@@ -31,14 +32,9 @@ function filterToCategory(filter: FilterOption): BlogCategory | null {
 export default function BlogPage() {
   const [filter, setFilter] = useState<FilterOption>("All");
   const [search, setSearch] = useState("");
-  const [randomFact] = useState(() => {
-    const article =
-      blogArticles[Math.floor(Math.random() * blogArticles.length)];
-    return (
-      article?.funFacts[0]?.text ??
-      "Babies can distinguish all speech sounds in all languages until about 10 months of age!"
-    );
-  });
+  const featuredFact =
+    blogArticles[0]?.funFacts[0]?.text ??
+    "Babies can distinguish all speech sounds in all languages until about 10 months of age!";
 
   const category = filterToCategory(filter);
   let filtered = category
@@ -98,7 +94,7 @@ export default function BlogPage() {
               Did you know?
             </p>
             <p className="text-sm text-foreground/80 leading-relaxed">
-              {randomFact}
+              {featuredFact}
             </p>
           </div>
         </div>
@@ -170,10 +166,22 @@ export default function BlogPage() {
                   href={`/blog/${article.slug}`}
                   className="group card-lift flex h-full flex-col rounded-2xl border border-border/70 bg-card p-5 shadow-warm-sm"
                 >
-                  {/* Emoji in a colored circle */}
-                  <div className="mb-3 flex items-center justify-between">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border/50 bg-gradient-to-br from-white to-muted/50 text-2xl shadow-warm-sm">
+                  <div className="relative mb-4">
+                    <ContentImage
+                      image={article.heroImage}
+                      aspect="landscape"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 30vw"
+                    />
+                    <span className="absolute left-3 top-3 flex h-10 w-10 items-center justify-center rounded-2xl border border-white/80 bg-white/90 text-xl shadow-warm-sm backdrop-blur-sm">
                       {article.heroEmoji}
+                    </span>
+                  </div>
+
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <span
+                      className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${style.bg} ${style.text}`}
+                    >
+                      {catLabel}
                     </span>
                     <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                       <Clock className="w-3.5 h-3.5" />
@@ -181,18 +189,11 @@ export default function BlogPage() {
                     </div>
                   </div>
 
-                  {/* Category badge */}
-                  <span
-                    className={`inline-block self-start rounded-full px-2.5 py-0.5 text-[11px] font-semibold mb-2 ${style.bg} ${style.text}`}
-                  >
-                    {catLabel}
-                  </span>
-
                   {/* Title and subtitle */}
                   <h2 className="font-heading text-base font-semibold leading-snug group-hover:text-primary transition-colors">
                     {article.title}
                   </h2>
-                  <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2 leading-relaxed">
+                  <p className="mt-1.5 text-sm text-muted-foreground line-clamp-3 leading-relaxed">
                     {article.subtitle}
                   </p>
 

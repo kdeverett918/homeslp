@@ -19,10 +19,14 @@ import {
 } from "lucide-react";
 import { pediatricBlueprints } from "@/data/blueprints/pediatric";
 import { dailyTips } from "@/data/daily-tips";
-import { milestones } from "@/data/milestones";
+import { parentDomainLinks } from "@/data/parent-domains";
+import { ContentImage } from "@/components/media/content-image";
+import { ReadAloudButton } from "@/components/media/read-aloud-button";
+import { ParentStartMenu } from "@/components/start-menu/parent-start-menu";
 import { FaqAccordion } from "@/components/ui/faq-accordion";
 import { FadeIn, SlideUp, StaggerChildren, StaggerItem } from "@/components/motion";
 import { Button } from "@/components/ui/button";
+import { formatFriendlyAgeRange } from "@/lib/format-age";
 import { QuizFunnelWrapper } from "./quiz-wrapper";
 
 export const metadata: Metadata = {
@@ -64,64 +68,21 @@ const faqItems = [
   },
 ];
 
-const featuredMilestone = milestones.find((item) => item.ageMonthsStart === 19) ?? milestones[5];
 const featuredBlueprints = pediatricBlueprints.slice(0, 3);
 const featuredTips = [
-  dailyTips.find((tip) => tip.id === "meal-04"),
+  dailyTips.find((tip) => tip.id === "meal-01"),
   dailyTips.find((tip) => tip.id === "play-01"),
-  dailyTips.find((tip) => tip.id === "bed-11"),
+  dailyTips.find((tip) => tip.id === "any-01"),
 ].filter(Boolean) as typeof dailyTips;
 
-const wholeChildDomains = [
-  {
-    icon: Volume2,
-    title: "Speech & Sounds",
-    description:
-      "Track first sounds, sound combinations, and intelligibility without needing to decode clinical jargon.",
-    action: "See speech milestones",
-    href: "/milestones",
-  },
-  {
-    icon: BookOpen,
-    title: "Language & Understanding",
-    description:
-      "Learn how vocabulary, following directions, and combining words grow from everyday routines.",
-    action: "Start the quick check",
-    href: "/check",
-  },
-  {
-    icon: Brain,
-    title: "Play & Cognition",
-    description:
-      "Use play, sequencing, routines, and simple problem-solving language to build attention and flexible thinking.",
-    action: "Try daily ideas",
-    href: "/activities",
-  },
-  {
-    icon: MessageCircleHeart,
-    title: "Social Communication",
-    description:
-      "Watch for gestures, turn-taking, shared attention, and conversation foundations that matter before full sentences.",
-    action: "Review age expectations",
-    href: "/milestones",
-  },
-  {
-    icon: UtensilsCrossed,
-    title: "Feeding & Mealtime",
-    description:
-      "Understand feeding milestones, mealtime routines, and what signs deserve a conversation with your pediatrician or SLP.",
-    action: "Explore milestone watch-fors",
-    href: "/milestones",
-  },
-  {
-    icon: Waves,
-    title: "Behavior & Regulation",
-    description:
-      "Use communication-rich routines, first-then language, and predictable cues to reduce stress and support regulation.",
-    action: "See parent support tools",
-    href: "/activities",
-  },
-];
+const domainIcons = {
+  speech: Volume2,
+  language: BookOpen,
+  play: Brain,
+  feeding: UtensilsCrossed,
+  behavior: Waves,
+  resources: MessageCircleHeart,
+} as const;
 
 const trustPrinciples = [
   {
@@ -150,6 +111,15 @@ const contextNotes: Record<(typeof featuredTips)[number]["context"], string> = {
   anytime: "Short, repeatable parent habits compound over the course of the week.",
 };
 
+const contextLabels: Record<(typeof featuredTips)[number]["context"], string> = {
+  mealtime: "Mealtime",
+  bath: "Bath time",
+  play: "Play",
+  bedtime: "Bedtime",
+  errands: "Errands",
+  anytime: "Any routine",
+};
+
 export default function FamiliesLanding() {
   return (
     <div className="pb-16">
@@ -159,16 +129,16 @@ export default function FamiliesLanding() {
         <span className="floating-orb sun bottom-10 right-20 h-32 w-32 animate-[drift_13s_ease-in-out_infinite]" />
 
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+          <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
             <SlideUp>
               <div className="space-y-6">
                 <div className="section-kicker">Whole-child developmental guide for parents</div>
                 <h1 className="max-w-3xl font-heading text-5xl font-semibold leading-none tracking-tight text-foreground sm:text-6xl">
-                  Learn what is typical, what to try today, and when to ask for help.
+                  Start with one calm next step, not twenty tabs of panic.
                 </h1>
                 <p className="max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
-                  One calm place to check milestones, spot red flags, and practice speech-friendly
-                  routines at home. Built on SLP expertise, not internet noise.
+                  Preview milestones, routines, and concern pathways the same way a parent would
+                  use the app: pick an age, name the worry, and see the next click immediately.
                 </p>
 
                 <div className="flex flex-wrap gap-2">
@@ -188,8 +158,8 @@ export default function FamiliesLanding() {
 
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <Button asChild size="xl">
-                    <Link href="/signup?path=child">
-                      Start Free 7-Day Trial
+                    <Link href="#parent-start-menu">
+                      Preview the Parent Start Menu
                       <ArrowRight className="h-5 w-5" />
                     </Link>
                   </Button>
@@ -201,90 +171,39 @@ export default function FamiliesLanding() {
                   </Button>
                 </div>
 
+                <div className="flex flex-wrap items-center gap-3 text-sm">
+                  <Link
+                    href="/signup?path=child"
+                    className="inline-flex items-center gap-2 font-semibold text-foreground transition-colors hover:text-primary"
+                  >
+                    Start Free 7-Day Trial
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <span className="text-muted-foreground">
+                    Use the preview first if you want to see the app logic before signing up.
+                  </span>
+                </div>
+
                 <p className="max-w-2xl text-sm leading-7 text-muted-foreground">
                   Best for parents who want one trustworthy place to check milestones, collect
-                  concerns, and practice speech-friendly routines at home while waiting for or
-                  working alongside therapy.
+                  concerns, and practice realistic routines at home while waiting for or working
+                  alongside therapy.
                 </p>
+
+                <div className="field-note max-w-2xl p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                    What you can preview here
+                  </p>
+                  <p className="mt-2 text-sm leading-7 text-foreground">
+                    The live start menu shows the age snapshot, one doable idea, and the next best
+                    click a parent would see based on your child&apos;s age and concern.
+                  </p>
+                </div>
               </div>
             </SlideUp>
 
             <FadeIn delay={0.1}>
-              <div className="guide-surface p-6 sm:p-7">
-                <div className="relative z-10 space-y-6">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="section-kicker">Example parent view</span>
-                    <span className="rounded-full border border-border/80 bg-white/75 px-3 py-1 text-xs font-semibold text-foreground">
-                      {featuredMilestone.ageRangeLabel}
-                    </span>
-                  </div>
-
-                  <div className="grid gap-5 md:grid-cols-[0.95fr_1.05fr]">
-                    <div className="space-y-4">
-                      <div className="field-note p-4">
-                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                          Typical now
-                        </p>
-                        <ul className="mt-3 space-y-2">
-                          {[
-                            featuredMilestone.speech[0],
-                            featuredMilestone.language[0],
-                            featuredMilestone.social[0],
-                          ].map((item) => (
-                            <li key={item.skill} className="flex items-start gap-2 text-sm text-foreground">
-                              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                              <span>
-                                <strong>{item.skill}:</strong> {item.description}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div className="soft-panel p-4">
-                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground">
-                          Worth asking about
-                        </p>
-                        <ul className="mt-3 space-y-2 text-sm font-medium text-foreground">
-                          {featuredMilestone.redFlags.slice(0, 3).map((flag) => (
-                            <li key={flag} className="flex items-start gap-2">
-                              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                              {flag}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div className="soft-panel p-4">
-                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                        One easy tip for today
-                      </p>
-                      <div className="mt-3 rounded-xl border border-border/70 bg-white/80 p-4 shadow-warm-sm">
-                        <div className="flex items-center justify-between gap-3">
-                          <p className="font-heading text-2xl font-semibold">{featuredTips[0].title}</p>
-                          <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                            {featuredTips[0].context}
-                          </span>
-                        </div>
-                        <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                          {featuredTips[0].technique}
-                        </p>
-                        <div className="mt-4 rounded-xl bg-background/90 p-4 text-sm italic text-muted-foreground">
-                          {featuredTips[0].example}
-                        </div>
-                        <Link
-                          href="/check"
-                          className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary"
-                        >
-                          See the full age-based check
-                          <ArrowRight className="h-4 w-4" />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ParentStartMenu mode="preview" />
             </FadeIn>
           </div>
         </div>
@@ -357,28 +276,32 @@ export default function FamiliesLanding() {
           </FadeIn>
 
           <StaggerChildren className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {wholeChildDomains.map((domain) => (
-              <StaggerItem key={domain.title}>
-                <article className="guide-surface card-lift p-5">
-                  <div className="relative z-10 flex h-full flex-col">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-primary/20 bg-primary/12 text-primary">
-                      <domain.icon className="h-5 w-5" />
-                    </span>
-                    <h3 className="mt-4 font-heading text-2xl font-semibold">{domain.title}</h3>
-                    <p className="mt-3 flex-1 text-sm leading-7 text-muted-foreground">
-                      {domain.description}
-                    </p>
-                    <Link
-                      href={domain.href}
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary"
-                    >
-                      {domain.action}
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </div>
-                </article>
-              </StaggerItem>
-            ))}
+            {parentDomainLinks.map((domain) => {
+              const Icon = domainIcons[domain.key];
+
+              return (
+                <StaggerItem key={domain.key}>
+                  <article className="guide-surface card-lift p-5">
+                    <div className="relative z-10 flex h-full flex-col">
+                      <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-primary/20 bg-primary/12 text-primary">
+                        <Icon className="h-5 w-5" />
+                      </span>
+                      <h3 className="mt-4 font-heading text-2xl font-semibold">{domain.title}</h3>
+                      <p className="mt-3 flex-1 text-sm leading-7 text-muted-foreground">
+                        {domain.description}
+                      </p>
+                      <Link
+                        href={domain.href}
+                        className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary"
+                      >
+                        {domain.action}
+                        <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </div>
+                  </article>
+                </StaggerItem>
+              );
+            })}
           </StaggerChildren>
         </div>
       </section>
@@ -431,14 +354,24 @@ export default function FamiliesLanding() {
             <StaggerChildren className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
               {featuredTips.map((tip) => (
                 <StaggerItem key={tip.id}>
-                  <article className="guide-surface h-full p-5">
+                  <article className="guide-surface card-lift h-full p-5">
                     <div className="relative z-10 flex h-full flex-col">
+                      {tip.image ? (
+                        <ContentImage
+                          image={tip.image}
+                          aspect="landscape"
+                          sizes="(max-width: 1024px) 100vw, 28vw"
+                          containerClassName="mb-4"
+                          imageClassName="object-cover object-center"
+                        />
+                      ) : null}
+
                       <div className="flex items-center justify-between gap-3">
                         <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                          {tip.context}
+                          {contextLabels[tip.context]}
                         </span>
                         <span className="text-xs font-semibold text-muted-foreground">
-                          {tip.ageRangeStart}-{tip.ageRangeEnd} months
+                          {formatFriendlyAgeRange(tip.ageRangeStart, tip.ageRangeEnd)}
                         </span>
                       </div>
                       <h3 className="mt-4 font-heading text-2xl font-semibold">{tip.title}</h3>
@@ -446,6 +379,9 @@ export default function FamiliesLanding() {
                       <div className="mt-4 rounded-xl bg-background/90 p-4 text-sm italic text-muted-foreground">
                         {tip.example}
                       </div>
+                      {tip.narration ? (
+                        <ReadAloudButton narration={tip.narration} compact className="mt-4" />
+                      ) : null}
                       <div className="mt-4 field-note p-4 text-sm font-medium leading-7 text-foreground">
                         <strong>Why it helps:</strong> {contextNotes[tip.context]}
                       </div>
@@ -501,13 +437,13 @@ export default function FamiliesLanding() {
           <div className="guide-surface px-6 py-8 sm:px-8">
             <div className="relative z-10 grid gap-8 lg:grid-cols-[0.96fr_1.04fr] lg:items-center">
               <div className="space-y-4">
-                <div className="section-kicker">Membership preview</div>
+                <div className="section-kicker">Inside the guided plan</div>
                 <h2 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
-                  Weekly guidance when you want a steadier home routine.
+                  See how the guided plan is structured before you commit.
                 </h2>
                 <p className="text-base leading-8 text-muted-foreground">
-                  Use HomeSLP as a reference tool for free with milestone checking, then unlock the
-                  full learning path if you want expert-guided weekly structure and printable carryover tools.
+                  The paid path adds a steadier weekly rhythm: one focus, one coaching explanation,
+                  and printable support you can actually use at home.
                 </p>
               </div>
 
@@ -537,7 +473,19 @@ export default function FamiliesLanding() {
                   </p>
                   <div className="mt-4 space-y-3">
                     {featuredBlueprints.map((blueprint) => (
-                      <div key={blueprint.id} className="rounded-xl border border-border/70 bg-white/80 p-4">
+                      <div
+                        key={blueprint.id}
+                        className="card-lift rounded-xl border border-border/70 bg-white/80 p-4"
+                      >
+                        {blueprint.coverImage ? (
+                          <ContentImage
+                            image={blueprint.coverImage}
+                            aspect="card"
+                            sizes="(max-width: 1024px) 100vw, 20vw"
+                            containerClassName="mb-4"
+                            imageClassName="object-cover"
+                          />
+                        ) : null}
                         <div className="flex items-center justify-between gap-3">
                           <p className="font-heading text-xl font-semibold">{blueprint.title}</p>
                           <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
@@ -545,12 +493,19 @@ export default function FamiliesLanding() {
                           </span>
                         </div>
                         <p className="mt-2 text-sm leading-7 text-muted-foreground">{blueprint.description}</p>
+                        {blueprint.commentary.narration ? (
+                          <ReadAloudButton
+                            narration={blueprint.commentary.narration}
+                            compact
+                            className="mt-4"
+                          />
+                        ) : null}
                       </div>
                     ))}
                   </div>
                   <div className="mt-4 flex flex-col gap-3 sm:flex-row">
                     <Button asChild size="lg">
-                      <Link href="/signup?path=child">Start Free Trial</Link>
+                      <Link href="/blueprints">See full plan library</Link>
                     </Button>
                     <Button asChild variant="outline" size="lg">
                       <Link href="/pricing">See full pricing</Link>

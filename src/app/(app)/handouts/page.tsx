@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { FileText } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
 import Link from "next/link";
+import { ContentImage } from "@/components/media/content-image";
 import { PageHeader } from "@/components/ui/page-header";
 import { FilterPills } from "@/components/ui/filter-pills";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/motion";
@@ -62,20 +63,32 @@ export default function HandoutsPage() {
           return (
             <StaggerItem key={handout.id}>
               <div className="flex h-full flex-col rounded-xl border bg-card p-5 shadow-warm-sm transition-all hover:shadow-warm-md">
-                <div className="mb-3">
+                <div className="mb-4">
+                  <ContentImage
+                    image={handout.coverImage}
+                    aspect="landscape"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 30vw"
+                  />
+                </div>
+                <div className="mb-3 flex items-center justify-between gap-3">
                   <span
                     className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${badge.className}`}
                   >
                     {badge.label}
                   </span>
+                  <span className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+                    Printable
+                  </span>
                 </div>
                 <h2 className="font-heading text-base font-semibold leading-snug">
                   {handout.title}
                 </h2>
-                <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">
+                <p className="mt-1.5 text-sm text-muted-foreground line-clamp-3">
                   {handout.description}
                 </p>
-                <p className="mt-2 text-xs text-muted-foreground">{handout.targetAudience}</p>
+                <p className="mt-3 text-xs text-muted-foreground">
+                  {handout.targetAudience}
+                </p>
                 <div className="mt-auto pt-4">
                   <Link
                     href={`/handouts/${handout.slug}`}
@@ -83,6 +96,7 @@ export default function HandoutsPage() {
                   >
                     <FileText className="w-4 h-4" />
                     View &amp; Print
+                    <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
